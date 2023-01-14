@@ -1,0 +1,2 @@
+
+module.exports = 'GITHUB TOKEN';

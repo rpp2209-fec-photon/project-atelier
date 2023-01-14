@@ -4,7 +4,7 @@ const Promise
 var APIHelper = {};
 var APIURL = `https://app-hrsei-api.herokuapp.com/api/fec2/:SEI-RPP/`;
 
-var token = '';
+var token = require('./client/env/config.js');
 /*
 
 https://app-hrsei-api.herokuapp.com/api/fec2/:CAMPUS_CODE/
