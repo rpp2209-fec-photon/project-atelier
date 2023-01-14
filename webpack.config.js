@@ -1,7 +1,8 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const SRC_DIR = path.join(__dirname, "/client/src");
-const DIST_DIR = path.join(__dirname, "/client/dist");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const SRC_DIR = path.join(__dirname, "./client/src");
+const DIST_DIR = path.join(__dirname, "./client/dist");
 
 module.exports = {
   mode: 'development',
@@ -21,12 +22,21 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    compress: true,
+    port: 8080,
+    open: true
+  },
   plugins: [
     new CopyPlugin({
       patterns: [
         { from: './client/src/index.html', to: '' },
         { from: './client/src/style.css', to: '' }
       ]
+    }),
+    new HtmlWebpackPlugin({
+      template: "./client/src/index.html", 
+      filename: 'app.html'
     })
   ],
 }
