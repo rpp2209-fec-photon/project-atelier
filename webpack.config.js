@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 const SRC_DIR = path.join(__dirname, "/client/src");
 const DIST_DIR = path.join(__dirname, "/client/dist");
 
@@ -20,4 +21,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: './client/src/index.html', to: '' },
+        { from: './client/src/style.css', to: '' }
+      ]
+    })
+  ],
 }
