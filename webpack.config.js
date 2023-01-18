@@ -30,13 +30,12 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './client/src/index.html', to: '' },
         { from: './client/src/style.css', to: '' }
       ]
     }),
     new HtmlWebpackPlugin({
-      template: "./client/src/index.html", 
-      filename: 'app.html'
+      template: "./client/src/index.html",
+      filename: 'index.html'
     })
   ],
 }

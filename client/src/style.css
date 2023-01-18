@@ -1,0 +1,17 @@
+.card {
+  vertical-align: top;
+  text-align: left;
+  overflow: hidden;
+  margin-left: 16px;
+  width: 160px;
+  min-height: 100%;
+  list-style-type: none;
+  display: inline-block;
+  white-space: normal;
+  letter-spacing: normal;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+}
