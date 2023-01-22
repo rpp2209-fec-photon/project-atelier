@@ -1,0 +1,19 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  vertical-align: top;
+  text-align: left;
+  overflow: hidden;
+  margin-left: 16px;
+  width: 180px;
+  min-height: 100%;
+  list-style-type: none;
+  display: inline-block;
+  white-space: normal;
+  letter-spacing: normal;
+}
+
+.plus {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
