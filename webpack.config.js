@@ -30,7 +30,8 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './client/src/style.css', to: '' }
+        { from: './client/src/style.css', to: '' },
+        { from: './client/src/resources', to: './resources' }
       ]
     }),
     new HtmlWebpackPlugin({

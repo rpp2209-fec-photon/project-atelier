@@ -2,10 +2,10 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const logger = require('./middlewares/logger.js');
+const AUTH_TOKEN = require('./env/config.js');
 
 const app = express();
 const port = 3000;
-const AUTH_TOKEN = require('./env/config.js');
 const API = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
 
 // Set default url and header with api key for axios requests
@@ -23,7 +23,7 @@ app.get('/favicon.ico', (req, res) => {
   res.end();
 });
 
-// handle all route coming from client then make the same request to api
+// handle all request coming from client then make the same request to api
 app.all('/*', (req, res) => {
   let endpoint = req.url;
   let method = req.method;

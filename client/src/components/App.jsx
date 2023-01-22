@@ -1,6 +1,6 @@
 import React from "react";
-import RelatedProducts from "./RelatedProducts.jsx";
-import YourOutfit from "./YourOutfit.jsx";
+import RelatedProducts from "./relatedItems/RelatedProducts.jsx";
+import YourOutfit from "./relatedItems/YourOutfit.jsx";
 
 const App = (props) => {
 

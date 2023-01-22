@@ -1,9 +1,11 @@
 .card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
   vertical-align: top;
   text-align: left;
   overflow: hidden;
   margin-left: 16px;
-  width: 160px;
+  width: 180px;
   min-height: 100%;
   list-style-type: none;
   display: inline-block;
@@ -11,7 +13,7 @@
   letter-spacing: normal;
 }
 
-.carousel {
-  display: flex;
-  flex-direction: row;
+.plus {
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }

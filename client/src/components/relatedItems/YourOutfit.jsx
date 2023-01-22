@@ -4,10 +4,14 @@ import Card from "./Card.jsx";
 
 const YourOutfit = (props) => {
 
-  const [items, setItems] = useState(['placeHolder', 'placeHolder', 'placeHolder']);
+  const [items, setItems] = useState([]);
+
+  // need Overview to implement
+  const img = './resources/plus.png';
 
   return (
-    <div className="carousel">
+    <div>
+      <img className='plus' src={img} alt='plus-image' width='180px' height='279px'/>
       {items.map((item, index) => <Card key={index} item={item} /> )}
     </div>
   );
