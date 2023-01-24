@@ -2,7 +2,7 @@ const axios = require('axios');
 const Promise
 
 var APIHelper = {};
-var APIURL = `https://app-hrsei-api.herokuapp.com/api/fec2/:SEI-RPP/`;
+var APIURL = `https://app-hrsei-api.herokuapp.com/api/fec2/:hr-rpp/`;
 
 var token = require('./client/env/config.js');
 /*
