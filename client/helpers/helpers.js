@@ -1,10 +1,8 @@
 const axios = require('axios');
-const Promise
 
-var APIHelper = {};
-var APIURL = `https://app-hrsei-api.herokuapp.com/api/fec2/:SEI-RPP/`;
+var Helpers = {};
+var url = `http://localhost:3000/`;
 
-var token = require('./client/env/config.js');
 /*
 
 https://app-hrsei-api.herokuapp.com/api/fec2/:CAMPUS_CODE/
@@ -22,7 +20,7 @@ http://example.com/page?parameter=value&also=another
 //count: how many results per page to return (Default 5)
 
 
-APIHelper.getProducts = (page, count)=>{
+Helpers.getProducts = (page, count)=>{
 
   return new Promise ((fulfill, reject)=>{
     //set the defaults
@@ -34,10 +32,10 @@ APIHelper.getProducts = (page, count)=>{
     }
 
     //make the url
-    var requestUrl = APIURL + `products/?page=${page}&count=${count}`;
+    var requestUrl = url + `products/?page=${page}&count=${count}`;
 
     //generate the get request to the URL
-    axios.get(requestUrl, { headers: {'Authorization': token}})
+    axios.get(requestUrl)
     .then(fulfill)
     .catch(reject);
   })
@@ -45,7 +43,7 @@ APIHelper.getProducts = (page, count)=>{
 
 
 //product_id: the id of the product you want information on
-APIHelper.getProductInfo = (product_id)=>{
+Helpers.getProductInfo = (product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     //if there is no product_id send an error
@@ -55,10 +53,10 @@ APIHelper.getProductInfo = (product_id)=>{
     else {
 
       //make the url
-      var requestUrl = APIURL + `products/${product_id}/`;
+      var requestUrl = url + `products/${product_id}/`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
       }
@@ -66,7 +64,7 @@ APIHelper.getProductInfo = (product_id)=>{
 }
 
 //returns all the styles for the product_id
-APIHelper.getProductStyles = (product_id)=>{
+Helpers.getProductStyles = (product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     //if there is no product_id send an error
@@ -76,10 +74,10 @@ APIHelper.getProductStyles = (product_id)=>{
     else {
 
       //make the url
-      var requestUrl = APIURL + `products/${product_id}/styles/`;
+      var requestUrl = url + `products/${product_id}/styles/`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
       }
@@ -87,7 +85,7 @@ APIHelper.getProductStyles = (product_id)=>{
 }
 
 //returns the id's of products that relate to the product_id
-APIHelper.getRelatedProducts = (product_id)=>{
+Helpers.getRelatedProducts = (product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     //if there is no product_id send an error
@@ -97,10 +95,10 @@ APIHelper.getRelatedProducts = (product_id)=>{
     else {
 
       //make the url
-      var requestUrl = APIURL + `products/${product_id}/related/`;
+      var requestUrl = url + `products/${product_id}/related/`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
       }
@@ -112,7 +110,7 @@ APIHelper.getRelatedProducts = (product_id)=>{
 //==================================================================================
 
 //get the reviews of a product
-APIHelper.getReviews = (page, count, sort, product_id)=>{
+Helpers.getReviews = (page, count, sort, product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     //if there is no product_id send an error
@@ -122,17 +120,17 @@ APIHelper.getReviews = (page, count, sort, product_id)=>{
     else {
 
       //make the url
-      var requestUrl = APIURL + `reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`;
+      var requestUrl = url + `reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
       }
   })
 }
 
-APIHelper.getMetadata = (product_id)=>{
+Helpers.getMetaReviews = (product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     //if there is no product_id send an error
@@ -142,10 +140,10 @@ APIHelper.getMetadata = (product_id)=>{
     else {
 
       //make the url
-      var requestUrl = APIURL + `reviews/meta/?product_id=${product_id}`;
+      var requestUrl = url + `reviews/meta/?product_id=${product_id}`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
       }
@@ -166,31 +164,31 @@ APIHelper.getMetadata = (product_id)=>{
   characteristics obj
 }
 */
-APIHelper.addReview = (review)=>{
+Helpers.addReview = (review)=>{
 
   return new Promise ((fulfill, reject)=>{
     //make the url
-  var requestUrl = APIURL + `reviews`;
+  var requestUrl = url + `reviews`;
 
   //generate the get request to the URL
-  axios.post(requestUrl, review, { headers: {'Authorization': token}})
+  axios.post(requestUrl, review)
   .then(fulfill)
   .catch(reject);
   });
 
 }
 
-APIHelper.markAsHelpful = (product_id)=>{
+Helpers.markAsHelpful = (product_id)=>{
 
   return new Promise ((fulfill, reject)=>{
     if (product_id === undefined) {
       reject('no product_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `reviews/:review_id/helpful`;
+      var requestUrl = url + `reviews/:review_id/helpful`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, product_id, { headers: {'Authorization': token}})
+      axios.put(requestUrl, product_id)
       .then(fulfill)
       .catch(reject);
     }
@@ -198,17 +196,17 @@ APIHelper.markAsHelpful = (product_id)=>{
 
 }
 
-APIHelper.reportReview = (review_id)=>{
+Helpers.reportReview = (review_id)=>{
 
   return new Promise ((fulfill, reject) =>{
     if (review_id === undefined) {
       reject('no review_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `reviews/:review_id/report`;
+      var requestUrl = url + `reviews/:review_id/report`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, review_id, { headers: {'Authorization': token}})
+      axios.put(requestUrl, review_id)
       .then(fulfill)
       .catch(reject);
     }
@@ -219,38 +217,38 @@ APIHelper.reportReview = (review_id)=>{
 //Q&A
 //==================================================================================
 
-APIHelper.getQuestions = (product_id, page, count)=>{
+Helpers.getQuestions = (product_id, page = 1, count = 5)=>{
 
   return new Promise ((fulfill, reject) =>{
     if (product_id === undefined) {
       reject('no product_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions?product_id=${product_id}&page=${page}&count=${count}`;
+      var requestUrl = url + `qa/questions?product_id=${product_id}&page=${page}&count=${count}`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
   });
 }
 
-APIHelper.getAnswers = (question_id)=>{
+Helpers.getAnswers = (question_id)=>{
 
   return new Promise ((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions/${question_id}/answers`;
+      var requestUrl = url + `qa/questions/${question_id}/answers`;
 
       //generate the get request to the URL
-      axios.get(requestUrl, { headers: {'Authorization': token}})
+      axios.get(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
 /*
@@ -261,21 +259,21 @@ email: text,
 product_id: int
 }
 */
-APIHelper.addQuestion = (question)=>{
+Helpers.addQuestion = (question)=>{
 
   return new Promise ((fulfill, reject) => {
     if (question === undefined) {
       reject('no question provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions`;
+      var requestUrl = url + `qa/questions`;
 
       //generate the get request to the URL
-      axios.post(requestUrl, question, { headers: {'Authorization': token}})
+      axios.post(requestUrl, question)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
 /*
@@ -287,90 +285,90 @@ photos: [text]
 }
 */
 
-APIHelper.addAnswer = (question_id, answer)=>{
+Helpers.addAnswer = (question_id, answer)=>{
 
   return new Promise ((fulfill, reject) => {
     if (answer === undefined) {
       reject('no answer provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions/${question_id}/answers`;
+      var requestUrl = url + `qa/questions/${question_id}/answers`;
 
       //generate the get request to the URL
-      axios.post(requestUrl, answer, { headers: {'Authorization': token}})
+      axios.post(requestUrl, answer)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
-APIHelper.markQuestionHelpful = (question_id)=>{
+Helpers.markQuestionHelpful = (question_id)=>{
 
   return new Promise ((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions/${question_id}/helpful`;
+      var requestUrl = url + `qa/questions/${question_id}/helpful`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, { headers: {'Authorization': token}})
+      axios.put(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
-APIHelper.reportQuestion = (question_id)=>{
+Helpers.reportQuestion = (question_id)=>{
 
   return new Promise ((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/questions/${question_id}/report`;
+      var requestUrl = url + `qa/questions/${question_id}/report`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, { headers: {'Authorization': token}})
+      axios.put(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
-APIHelper.markQuestionHelpful = (answer_id)=>{
+Helpers.markQuestionHelpful = (answer_id)=>{
 
   return new Promise ((fulfill, reject) => {
     if (answer_id === undefined) {
       reject('no answer_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/answers/${answer_id}/helpful`;
+      var requestUrl = url + `qa/answers/${answer_id}/helpful`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, { headers: {'Authorization': token}})
+      axios.put(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
-APIHelper.reportAnswer = (answer_id)=>{
+Helpers.reportAnswer = (answer_id)=>{
 
   return new Promise ((fulfill, reject) => {
     if (answer_id === undefined) {
       reject('no answer_id provided');
     } else {
       //make the url
-      var requestUrl = APIURL + `qa/answers/${question_id}/report`;
+      var requestUrl = url + `qa/answers/${question_id}/report`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, { headers: {'Authorization': token}})
+      axios.put(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
-  };)
+  });
 }
 
 
-module.exports = APIHelper;
+module.exports = Helpers;
