@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Helpers from '/client/helpers/helpers';
+import Helpers from '../../../helpers/helpers.js';
 
 const Card = (props) => {
 

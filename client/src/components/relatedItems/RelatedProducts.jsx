@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import Card from "./Card.jsx";
-import Helpers from '/client/helpers/helpers';
+import Helpers from '../../../helpers/helpers.js';
 
 const RelatedProducts = (props) => {
 
