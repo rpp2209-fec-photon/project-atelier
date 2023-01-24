@@ -1,6 +1,7 @@
 import React from "react";
 import RelatedProducts from "./relatedItems/RelatedProducts.jsx";
 import YourOutfit from "./relatedItems/YourOutfit.jsx";
+import Overview from "./overview/Overview.jsx";
 
 const App = (props) => {
 
@@ -8,11 +9,11 @@ const App = (props) => {
 
   return (
     <div>
-      <div>OVERVIEW</div>
+      <Overview />
 
-      <RelatedProducts/>
+      <RelatedProducts />
 
-      <YourOutfit/>
+      <YourOutfit />
 
       <div>QUESTIONS & ANSWERS</div>
 
