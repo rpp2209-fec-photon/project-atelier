@@ -22,11 +22,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    compress: true,
-    port: 8080,
-    open: true
-  },
   plugins: [
     new CopyPlugin({
       patterns: [

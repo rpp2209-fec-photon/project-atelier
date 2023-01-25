@@ -10,10 +10,8 @@ const App = (props) => {
     <div>
       <div>OVERVIEW</div>
 
-      <h3>Related Products</h3>
       <RelatedProducts/>
 
-      <h3>Your Outfit</h3>
       <YourOutfit/>
 
       <div>QUESTIONS & ANSWERS</div>

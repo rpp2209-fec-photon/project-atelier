@@ -12,7 +12,6 @@ const Card = (props) => {
   const getDefaultStyle = (productId) => {
     Helpers.getProductStyles(productId)
     .then((res) => {
-      console.log(res.data.results)
       let styles = res.data.results;
       for (var style of styles) {
         if (style['default?']) {
@@ -53,8 +52,10 @@ const Card = (props) => {
 
   return (
     <div className="card">
+      <button>x</button>
       <img
-        className='preview' src={productStyle.photos ? productStyle.photos[0].thumbnail_url : ''}
+        className='preview'
+        src={productStyle.photos ? productStyle.photos[0].thumbnail_url : ''}
         alt={productStyle.name || ''}
         width='160px'
         height='160px'
