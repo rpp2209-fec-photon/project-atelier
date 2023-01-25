@@ -59,3 +59,44 @@ li {
   flex-flow: column;
   width: 51px;
 }
+
+
+
+.ReviewList {
+  margin-left: 40%;
+}
+.ReviewTile {
+  border: 3px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  max-width: 50%;
+  padding: 10px;
+
+}
+
+
+.Review.Corner {
+  float:right;
+}
+.Review.Date{
+  margin:2px;
+}
+.Review.Rating{
+  margin:2px;
+}
+.Review.Summary {
+  font-size: 20px;
+  float:left;
+  font-weight: bold;
+  margin:0;
+}
+.Review.Name {
+  float:left;
+  margin: 2px 0px 0px 15px;
+
+}
+.Review.Body{
+  clear:left;
+}
+.Review.Helpfulness{
+  margin: 5px;
