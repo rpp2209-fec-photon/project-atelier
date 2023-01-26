@@ -1,6 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
 import ReviewTile from './components/ReviewTile.jsx';
+import SortReviews from './components/SortReviews.jsx';
+import NewReviewWindow from './components/NewReviewWindow.jsx'
 
 
 var dummyData = {
@@ -102,18 +104,25 @@ export default function RatingsAndReviews () {
   var showMoreReviews = ()=>{
     setReviewsShown(reviewsShown + 2);
   };
+  var toggleVisibility = ()=>{
+    if (newReviewVisibility === 'hidden') {
+      setNewReviewVisibility('show');
+    } else {
+      setNewReviewVisibility('hidden');
+    }
+  };
 
   var [reviewsShown, setReviewsShown] = useState(2);
-
+  var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   return (
+
+    <>
+    <NewReviewWindow Visibility={newReviewVisibility}/>
+
     <div class="ReviewList">
 
-      <label for='Sort'>Sort by: </label>
-      <select id='Sort' name='Sort'>
-        <option>Helpful</option>
-        <option>Newest</option>
-        <option>Relevant</option>
-      </select>
+      <SortReviews/>
+
       {
         dummyData.results.map((review, index)=>{
 
@@ -129,7 +138,8 @@ export default function RatingsAndReviews () {
 
       <button onClick={showMoreReviews}>More Reviews</button>
 
-      <button>Create Review</button>
+      <button onClick={toggleVisibility}>Create Review</button>
     </div>
+    </>
   );
 };
