@@ -104,20 +104,12 @@ export default function RatingsAndReviews () {
   var showMoreReviews = ()=>{
     setReviewsShown(reviewsShown + 2);
   };
-  var toggleVisibility = ()=>{
-    if (newReviewVisibility === 'hidden') {
-      setNewReviewVisibility('show');
-    } else {
-      setNewReviewVisibility('hidden');
-    }
-  };
 
   var [reviewsShown, setReviewsShown] = useState(2);
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   return (
 
     <>
-    <NewReviewWindow Visibility={newReviewVisibility}/>
 
     <div class="ReviewList">
 
@@ -138,8 +130,11 @@ export default function RatingsAndReviews () {
 
       <button onClick={showMoreReviews}>More Reviews</button>
 
-      <button onClick={toggleVisibility}>Create Review</button>
+      <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
     </div>
+
+    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility}/>
+
     </>
   );
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import ReviewDate from './miniComponents/ReviewDate.jsx';
+import ReviewImages from './miniComponents/ReviewImages.jsx';
+
 
 export default function ReviewTile ({ Review }) {
 
@@ -15,6 +17,7 @@ export default function ReviewTile ({ Review }) {
     <p class="Review Name">{Review.reviewer_name}</p>
     <p class="Review Body"> {Review.body}</p>
     <p class="Review Helpfulness">Helpfulness: {Review.helpfulness}</p>
+    <ReviewImages Images={Review.photos}/>
     </>
   );
 };
