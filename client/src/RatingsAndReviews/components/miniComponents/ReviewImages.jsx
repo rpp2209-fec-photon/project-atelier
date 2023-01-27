@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function ReviewImages ({Images}){
   return (
-    <div class="ReviewImagesList">
+    <div class="Review ImagesList">
+      <h3>Images: </h3>
       {
         Images.map((photoInfo)=>{
           return (
