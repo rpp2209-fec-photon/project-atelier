@@ -119,8 +119,8 @@ export default function RatingsAndReviews ( {dummyData}) {
 
           if (index < reviewsShown) {
             return (
-              <div class="ReviewTile">
-              <ReviewTile Review={review}/>
+              <div class="ReviewTile" key={index}>
+              <ReviewTile Review={review} key={index}/>
               </div>
               );
           }
