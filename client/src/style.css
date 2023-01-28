@@ -17,3 +17,118 @@
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+
+.style {
+  width: 50px;
+  height: 50px;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none
+}
+
+#styleselector {
+  width: 210px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#addtocart {
+  width: 210px;
+  display: flex;
+}
+
+#imagegallery {
+  position: absolute;
+  left: 400px;
+  width: 500px;
+  height: 500px;
+  top: 10px;
+}
+.thumbnail_url{
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.thumbnail_urlli{
+  display: inline-block;
+}
+.thumbnail_urlul{
+  display: flex;
+  flex-flow: column;
+  width: 51px;
+}
+
+
+.NewReviewWindow{
+  position:fixed;
+  text-align: center;
+  left:0;
+  right:0;
+  top:25%;
+  margin:auto;
+
+  height: 50%;
+  width: 50%;
+
+  max-width: 50%;
+  border: 3px solid black;
+  background-color: whitesmoke;
+}
+.ReviewList {
+  position: relative;
+  max-width: 50%;
+
+  margin:auto;
+}
+.ReviewTile {
+  border: 3px solid black;
+  border-radius: 5px;
+  max-width: 80%;
+  padding: 10px;
+
+  position:relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.Review.Corner {
+  float:right;
+}
+.Review.Date{
+  margin:2px;
+}
+.Review.Rating{
+  margin:2px;
+}
+.Review.Summary {
+  font-size: 20px;
+  float:left;
+  font-weight: bold;
+  margin:0;
+}
+.Review.Name {
+  float:left;
+  margin: 2px 0px 0px 15px;
+
+}
+.Review.Body{
+  clear:left;
+}
+.Review.Helpfulness{
+  margin: 5px;
+}
+.Review.Image{
+  height: 10%;
+  max-width:30%;
+}
+.Review.ImagesList{
+  border: 3px solid black
+}
