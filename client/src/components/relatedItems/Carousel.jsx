@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 const Carousel = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slides, setSlides] = useState(4);
   const {children} = props;
 
   const prev = () => {
@@ -20,16 +21,20 @@ const Carousel = (props) => {
   return (
     <div className='carousel-container'>
       { currentIndex > 0 &&
-        <button className='prev' onClick={prev}>
-          Prev
+        <button className='nav prev' onClick={prev}>
+          &lt;
         </button>
       }
       <div className='carousel-slides'>
-        {[children[currentIndex], children[currentIndex + 1], children[currentIndex + 2]]}
+        {children.map((child, index) => {
+          if (index >= currentIndex && index < currentIndex + slides) {
+            return child;
+          }
+        })}
       </div>
-      { currentIndex < children.length - 1 &&
-        <button className='next' onClick={next}>
-          Next
+      { currentIndex < children.length - slides &&
+        <button className='nav next' onClick={next}>
+          &gt;
         </button>
       }
     </div>
