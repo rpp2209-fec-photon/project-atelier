@@ -2,6 +2,7 @@ import React from "react";
 import {useState, useEffect} from "react";
 import Card from "./Card.jsx";
 import Helpers from '../../../helpers/helpers.js';
+import Carousel from './Carousel.jsx';
 
 const RelatedProducts = ({productId}) => {
 
@@ -27,9 +28,9 @@ const RelatedProducts = ({productId}) => {
   return (
     <div>
       <h3>Related Products</h3>
-      <div id='related-list'>
+      <Carousel>
         {relatedProductIds.map((productId) => <Card key={productId} productId={productId} />)}
-      </div>
+      </Carousel>
     </div>
   );
 };
