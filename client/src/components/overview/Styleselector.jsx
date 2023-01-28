@@ -7,7 +7,6 @@ class Styleselector extends React.Component {
 
     }
 
-
     render() {
         return (<div>
             <div><span>style&gt;</span>{this.props.currentstyle}</div>

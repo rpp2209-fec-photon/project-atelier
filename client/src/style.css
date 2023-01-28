@@ -42,8 +42,11 @@ li {
 }
 
 #imagegallery {
+  position: absolute;
+  left: 400px;
   width: 500px;
   height: 500px;
+  top: 10px;
 }
 .thumbnail_url{
   width: 50px;
