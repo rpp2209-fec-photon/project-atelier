@@ -137,6 +137,14 @@ li {
   border: 3px solid black;
   background-color: whitesmoke;
 }
+.ReviewInput {
+  width:90%;
+  max-width: 90%;
+  height: 70%;
+
+  margin:auto
+}
+
 .ReviewList {
   position: relative;
   max-width: 50%;

@@ -2,6 +2,7 @@ import React from "react";
 import RelatedProducts from "./relatedItems/RelatedProducts.jsx";
 import YourOutfit from "./relatedItems/YourOutfit.jsx";
 import Overview from "./overview/Overview.jsx";
+import RatingsAndReviews from '../RatingsAndReviews/RatingsAndReviews.jsx';
 
 const App = (props) => {
 
@@ -17,7 +18,7 @@ const App = (props) => {
 
       <div>QUESTIONS & ANSWERS</div>
 
-      <div>RATINGS & REVIEWS</div>
+      <RatingsAndReviews/>
     </div>
   );
 };

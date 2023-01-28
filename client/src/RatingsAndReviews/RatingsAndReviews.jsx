@@ -111,7 +111,7 @@ export default function RatingsAndReviews ( {dummyData}) {
 
     <>
 
-    <div class="ReviewList">
+    <div className="ReviewList">
 
       <SortReviews/>
       {
@@ -119,7 +119,7 @@ export default function RatingsAndReviews ( {dummyData}) {
 
           if (index < reviewsShown) {
             return (
-              <div class="ReviewTile" key={index}>
+              <div className="ReviewTile" key={index}>
               <ReviewTile Review={review} key={index}/>
               </div>
               );
