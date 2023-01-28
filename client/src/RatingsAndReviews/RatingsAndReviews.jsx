@@ -6,100 +6,81 @@ import NewReviewWindow from './components/NewReviewWindow.jsx'
 
 import helpers from '../../helpers/helpers.js';
 
-// var dummyData = {
-//   "product": "71697",
-//   "page": 0,
-//   "count": 5,
-//   "results": [
-//       {
-//           "review_id": 1278242,
-//           "rating": 5,
-//           "summary": "this item is the bestest",
-//           "recommend": false,
-//           "response": null,
-//           "body": "besstetetegweagwegaewgewgewgwe",
-//           "date": "2023-01-04T00:00:00.000Z",
-//           "reviewer_name": "test",
-//           "helpfulness": 0,
-//           "photos": [
-//               {
-//                   "id": 2457035,
-//                   "url": "https://i.ibb.co/qyjLsQJ/9d84af8321dc1b02d8165e916e2a6d8f.jpg"
-//               },
-//               {
-//                   "id": 2457036,
-//                   "url": "https://i.ibb.co/dfB4B1w/9d84af8321dc1b02d8165e916e2a6d8f.jpg"
-//               }
-//           ]
-//       },
-//       {
-//           "review_id": 1278241,
-//           "rating": 5,
-//           "summary": "gweGewgewgewag",
-//           "recommend": false,
-//           "response": null,
-//           "body": "awegaewgawegaewgaew",
-//           "date": "2023-01-04T00:00:00.000Z",
-//           "reviewer_name": "gweagewagawe",
-//           "helpfulness": 0,
-//           "photos": [
-//               {
-//                   "id": 2457034,
-//                   "url": "https://i.ibb.co/jVL5L8f/Screen-Shot-2023-01-03-at-8-56-44-PM.png"
-//               }
-//           ]
-//       },
-//       {
-//           "review_id": 1278233,
-//           "rating": 5,
-//           "summary": "fqwfqwfqwfqwf",
-//           "recommend": false,
-//           "response": null,
-//           "body": "fwqfqwfwqfqw",
-//           "date": "2023-01-04T00:00:00.000Z",
-//           "reviewer_name": "blahblah",
-//           "helpfulness": 0,
-//           "photos": [
-//               {
-//                   "id": 2457030,
-//                   "url": "https://ibb.co/KzLRDLw"
-//               }
-//           ]
-//       },
-//       {
-//           "review_id": 1278231,
-//           "rating": 5,
-//           "summary": "",
-//           "recommend": false,
-//           "response": null,
-//           "body": "",
-//           "date": "2023-01-04T00:00:00.000Z",
-//           "reviewer_name": "testing",
-//           "helpfulness": 0,
-//           "photos": [
-//               {
-//                   "id": 2457026,
-//                   "url": "https://ibb.co/89pTK5J"
-//               }
-//           ]
-//       },
-//       {
-//           "review_id": 1278222,
-//           "rating": 5,
-//           "summary": "",
-//           "recommend": false,
-//           "response": null,
-//           "body": "",
-//           "date": "2023-01-03T00:00:00.000Z",
-//           "reviewer_name": "jesrjserjersjresjresjes",
-//           "helpfulness": 0,
-//           "photos": []
-//       }
-//   ]
-// };
+ var dummyData = {
+    "product": "71700",
+    "page": 0,
+    "count": 5,
+    "results": [
+        {
+            "review_id": 1276435,
+            "rating": 4,
+            "summary": "some summary is bad",
+            "recommend": true,
+            "response": null,
+            "body": "erfectly",
+            "date": "2022-09-06T00:00:00.000Z",
+            "reviewer_name": "haha",
+            "helpfulness": 6,
+            "photos": []
+        },
+        {
+            "review_id": 1276432,
+            "rating": 4,
+            "summary": "some",
+            "recommend": true,
+            "response": null,
+            "body": "erfectly",
+            "date": "2022-09-06T00:00:00.000Z",
+            "reviewer_name": "haha",
+            "helpfulness": 6,
+            "photos": []
+        },
+        {
+            "review_id": 1276445,
+            "rating": 5,
+            "summary": "some sum is bad",
+            "recommend": true,
+            "response": null,
+            "body": "erfectly",
+            "date": "2022-09-06T00:00:00.000Z",
+            "reviewer_name": "hihihih",
+            "helpfulness": 3,
+            "photos": []
+        },
+        {
+            "review_id": 1276451,
+            "rating": 5,
+            "summary": "test2test2test2test2test2test2test2",
+            "recommend": true,
+            "response": null,
+            "body": "test2test2test2test2test2",
+            "date": "2022-09-06T00:00:00.000Z",
+            "reviewer_name": "test2",
+            "helpfulness": 2,
+            "photos": [
+                {
+                    "id": 2456029,
+                    "url": "https://i.ibb.co/Syy5cfy/Image-created-with-a-mobile-phone.png"
+                }
+            ]
+        },
+        {
+            "review_id": 1276440,
+            "rating": 5,
+            "summary": "some sum is bad",
+            "recommend": true,
+            "response": null,
+            "body": "erfectly",
+            "date": "2022-09-06T00:00:00.000Z",
+            "reviewer_name": "haha",
+            "helpfulness": 1,
+            "photos": []
+        }
+    ]
+};
 
 
-export default function RatingsAndReviews ( {dummyData}) {
+export default function RatingsAndReviews () {
 
   var showMoreReviews = ()=>{
     setReviewsShown(reviewsShown + 2);
