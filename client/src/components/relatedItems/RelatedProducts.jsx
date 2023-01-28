@@ -1,12 +1,12 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import Card from "./Card.jsx";
-import Helpers from '/client/helpers/helpers';
+import Helpers from '../../../helpers/helpers.js';
 
-const RelatedProducts = (props) => {
+const RelatedProducts = ({productId}) => {
 
   // placeholder for product_id props that would come from Overview
-  const product_id = 71700;
+  productId ? null : productId = 71700;
 
   const [relatedProductIds, setRelatedProductIds] = useState([]);
 
@@ -21,12 +21,15 @@ const RelatedProducts = (props) => {
   };
 
   useEffect(() => {
-    getRelatedProductIds(product_id);
+    getRelatedProductIds(productId);
   }, []);
 
   return (
     <div>
-      {relatedProductIds.map((productId, index) => <Card key={index} productId={productId} />)}
+      <h3>Related Products</h3>
+      <div id='related-list'>
+        {relatedProductIds.map((productId) => <Card key={productId} productId={productId} />)}
+      </div>
     </div>
   );
 };
