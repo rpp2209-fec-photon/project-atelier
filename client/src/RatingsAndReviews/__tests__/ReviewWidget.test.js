@@ -1,9 +1,11 @@
-
+/**
+ * @jest-environment jsdom
+ */
 
 import React from 'react';
-import {render, screen} from '@testing-library/react'
+import {render, waitFor, screen} from '@testing-library/react';
 //import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 
 import RatingsAndReviews from '../RatingsAndReviews.jsx';
 
@@ -11,7 +13,7 @@ test('This is an example test', ()=>{
   expect(1+1).toBe(2);
 });
 
-test('Has sort options', ()=>{
+test('Has sort options', async ()=>{
 
   var dummyData = {
   "product": "71697",
@@ -104,10 +106,12 @@ test('Has sort options', ()=>{
       }
   ]
 };
+  render(<RatingsAndReviews dummyData={dummyData}/>);
 
-  render(<RatingsAndReviews dummyData={dummyData}/>)
+  await waitFor(()=>{
 
-  var sortElement = screen.getByLabelText('Sort by: ');
+    var sortElement = screen.getByLabelText('Sort by: ');
+    expect(sortElement).toBeInTheDocument;
+  });
 
-  expect(sortElement).toBe(!(false));
 });
