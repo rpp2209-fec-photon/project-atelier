@@ -6,9 +6,9 @@ export default function NewReviewWindow({Visibility, setVisibility}){
 
     return (
       <div className="NewReviewWindow" >
-        <h1>hello</h1>
+        <h1>Write Your Review</h1>
 
-        <textarea className="ReviewInput"> Enter your review here.</textarea>
+        <textarea className="ReviewInput"> About the product here.</textarea>
 
         <button onClick={()=>{setVisibility('hidden')}}>Close</button>
       </div>
