@@ -8,15 +8,15 @@ export default function ReviewTile ({ Review }) {
 
   return (
     <>
-    <div class="Review Corner">
+    <div className="Review Corner">
       <ReviewDate Date={Review.date}/>
-      <p class="Review Rating">{Review.rating}</p>
+      <p className="Review Rating">{Review.rating}</p>
     </div>
 
-    <p class="Review Summary">{Review.summary}</p>
-    <p class="Review Name">{Review.reviewer_name}</p>
-    <p class="Review Body"> {Review.body}</p>
-    <p class="Review Helpfulness">Helpfulness: {Review.helpfulness}</p>
+    <p className="Review Summary">{Review.summary}</p>
+    <p className="Review Name">{Review.reviewer_name}</p>
+    <p className="Review Body"> {Review.body}</p>
+    <p className="Review Helpfulness">Helpfulness: {Review.helpfulness}</p>
     <ReviewImages Images={Review.photos}/>
     </>
   );

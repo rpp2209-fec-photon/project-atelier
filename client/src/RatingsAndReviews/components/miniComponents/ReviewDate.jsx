@@ -7,6 +7,6 @@ export default function ReviewDate ({Date}) {
   var month = Date.substring(5, 7);
   var day = Date.substring(8, 10);
   return (
-    <p class="Review Date">{monthsList[parseInt(month)-1] + ' ' + day + ', ' + year}</p>
+    <p className="Review Date">{monthsList[parseInt(month)-1] + ' ' + day + ', ' + year}</p>
   );
 };
