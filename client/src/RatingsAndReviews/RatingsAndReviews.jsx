@@ -90,11 +90,11 @@ export default function RatingsAndReviews () {
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   return (
 
-    <>
+    <div className="RatingsAndReviews">
+      <SortReviews/>
 
     <div className="ReviewList">
 
-      <SortReviews/>
       {
         dummyData.results.map((review, index)=>{
 
@@ -107,11 +107,11 @@ export default function RatingsAndReviews () {
           }
         })
       }
+    </div>
       <button onClick={showMoreReviews}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
-    </div>
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility}/>
 
-    </>
+    </div>
   );
 };
