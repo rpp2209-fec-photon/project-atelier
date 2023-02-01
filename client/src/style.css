@@ -17,14 +17,9 @@
   letter-spacing: normal;
 } */
 
-.plus {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
 .carousel-container {
   position: relative;
-  width: 70%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -34,15 +29,48 @@
   transform: translateX(0%);
 }
 
-.card {
+.related-list,
+.outfit-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.card,
+.plus {
+  border: solid 1px grey;
   flex: 1 0 10%;
-  width: 30%;
+  width: 192px;
+  height: 280px;
   padding: 0 10px;
   text-align: center;
+  margin-left: 10px;
+}
+
+.plus img {
+  width: 100%;
 }
 
 .card img {
-  width: 100%;
+  width: 190px;
+  height: 160px;
+}
+
+.card-btn {
+  position: relative;
+  top: 6px;
+  left: 90px;
+}
+
+p, h4 {
+  margin: auto;
+}
+
+.sale {
+  color: red;
+}
+
+.strike {
+  text-decoration: 'line-through';
 }
 
 .nav {
@@ -63,7 +91,6 @@
   z-index: 1;
 }
 
-
 .nav.prev {
   left: 10px;
 }
@@ -71,6 +98,50 @@
 .nav.next {
   right: 10px;
 }
+
+.rating {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  color: #ccc
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.star.fraction {
+  position: relative;
+  color: #ffc107;
+  border: none;
+}
+
+.star.fraction::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #ccc;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.star.fraction.quarter::after {
+  width: 75%;
+}
+
+.star.fraction.half::after {
+  width: 50%;
+}
+
+.star.fraction.three-quarters::after {
+  width: 25%;
+}
+
 
 /*
   Others

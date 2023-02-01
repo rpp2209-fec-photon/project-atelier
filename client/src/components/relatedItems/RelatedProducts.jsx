@@ -26,12 +26,12 @@ const RelatedProducts = ({productId}) => {
   }, []);
 
   return (
-    <div>
+    <>
       <h3>Related Products</h3>
-      <Carousel>
+      <div className='related-list'>
         {relatedProductIds.map((productId) => <Card key={productId} productId={productId} />)}
-      </Carousel>
-    </div>
+      </div>
+    </>
   );
 };
 

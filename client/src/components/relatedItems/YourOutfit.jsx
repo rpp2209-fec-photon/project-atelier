@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import Card from "./Card.jsx";
+import PlusCard from './subComponents/PlusCard.jsx';
 const img = './resources/plus.png';
 
 const YourOutfit = (props) => {
@@ -10,13 +11,13 @@ const YourOutfit = (props) => {
   // need Overview to implement
 
   return (
-    <div>
+    <>
       <h3>Your Outfit</h3>
       <div id='outfit-list'>
-        <img className='plus' src={img} alt='plus-image' width='180px' height='279px'/>
+        <PlusCard />
         {items.map((item, index) => <Card key={index} item={item} /> )}
       </div>
-    </div>
+    </>
   );
 };
 
