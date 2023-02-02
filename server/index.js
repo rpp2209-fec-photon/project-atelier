@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const logger = require('./middlewares/logger.js');
-const AUTH_TOKEN = require('./env/config.js');
+const AUTH_TOKEN = require('../client/env/config.js');
 
 const app = express();
 const port = 3000;

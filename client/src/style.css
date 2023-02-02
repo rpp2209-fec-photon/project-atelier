@@ -222,18 +222,22 @@ li {
   max-width: 50%;
 
   margin:auto;
+
+  display: flex;
+  flex-direction: column;
 }
 .ReviewTile {
   border: 3px solid black;
   border-radius: 5px;
+  aspect-ratio: 1.61803398875;
   max-width: 80%;
   padding: 10px;
 
-  position:relative;
-  margin-top: 5px;
   margin-bottom: 5px;
-  margin-left:auto;
-  margin-right:auto;
+  position:relative;
+
+
+
 }
 
 
@@ -245,6 +249,10 @@ li {
 }
 .Review.Rating{
   margin:2px;
+}
+.Rating > .Star {
+  width: 25px;
+  height: 25px;
 }
 .Review.Summary {
   font-size: 20px;

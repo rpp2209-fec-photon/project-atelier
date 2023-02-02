@@ -2,6 +2,7 @@ import React from 'react';
 
 import ReviewDate from './miniComponents/ReviewDate.jsx';
 import ReviewImages from './miniComponents/ReviewImages.jsx';
+import StarRating from './miniComponents/StarRating.jsx';
 
 
 export default function ReviewTile ({ Review }) {
@@ -10,7 +11,7 @@ export default function ReviewTile ({ Review }) {
     <>
     <div className="Review Corner">
       <ReviewDate Date={Review.date}/>
-      <p className="Review Rating">{Review.rating}</p>
+      <StarRating Rating={Review.rating}/>
     </div>
 
     <p className="Review Summary">{Review.summary}</p>
