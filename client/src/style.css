@@ -2,22 +2,8 @@
   Related Products
 */
 
-/* .card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  vertical-align: top;
-  text-align: left;
-  overflow: hidden;
-  margin-left: 16px;
-  width: 180px;
-  min-height: 100%;
-  list-style-type: none;
-  display: inline-block;
-  white-space: normal;
-  letter-spacing: normal;
-} */
 
-.carousel-container {
+/* .carousel-container {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -27,42 +13,44 @@
   display: flex;
   transition: all 0.5s ease-in-out;
   transform: translateX(0%);
-}
+} */
 
 .related-list,
 .outfit-list {
   display: flex;
   flex-direction: row;
+  justify-content: left;
+  padding: 10px 0;
+  margin: 0 10%;
 }
 
 .card,
 .plus {
-  border: solid 1px grey;
-  flex: 1 0 10%;
-  width: 192px;
-  height: 280px;
+  width: 250px;
+  height: 360px;
   padding: 0 10px;
-  text-align: center;
   margin-left: 10px;
 }
 
-.plus img {
-  width: 100%;
+.plus h5 {
+  display: flex;
+  justify-content: center;
 }
 
-.card img {
-  width: 190px;
-  height: 160px;
+.card img,
+.plus img {
+  width: 250px;
+  height: 250px;
 }
 
 .card-btn {
   position: relative;
-  top: 6px;
-  left: 90px;
+  left: 223px;
+  top: 25px;
 }
 
-p, h4 {
-  margin: auto;
+p, h4, .price {
+  margin: 5px ;
 }
 
 .sale {
@@ -101,45 +89,56 @@ p, h4 {
 
 .rating {
   display: flex;
-  justify-content: center;
 }
 
 .star {
-  color: #ccc
+  color: #ccc;
+  font-size: 1.5em;
+  margin-right: 0.5em;
 }
 
-.star.filled {
-  color: #ffc107;
+.filled {
+  color: #fdb935;
 }
 
-.star.fraction {
+.fraction {
   position: relative;
-  color: #ffc107;
-  border: none;
 }
 
-.star.fraction::after {
-  content: '';
+.quarter:before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  color: #ccc;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.star.fraction.quarter::after {
-  width: 75%;
-}
-
-.star.fraction.half::after {
-  width: 50%;
-}
-
-.star.fraction.three-quarters::after {
+  right: 0;
+  bottom: 0;
+  background-color: #fdb935;
   width: 25%;
+  height: 100%;
+}
+
+.half:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fdb935;
+  width: 50%;
+  height: 100%;
+}
+
+.three-quarters:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fdb935;
+  width: 75%;
+  height: 100%;
 }
 
 

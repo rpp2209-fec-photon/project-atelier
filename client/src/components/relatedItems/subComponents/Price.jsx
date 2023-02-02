@@ -5,14 +5,14 @@ const Price = (props) => {
 
   if (productStyle.sale_price) {
     return (
-      <div>
+      <div className='price'>
         <span className='sale'> ${productStyle.sale_price} </span>
         <span className='strike'> ${productStyle.original_price} </span>
       </div>
     )
   }
   return (
-    <div>
+    <div className='price'>
       ${productStyle.original_price}
     </div>
   )

@@ -1,5 +1,8 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons';
+
 
 const Rating = (props) => {
 
@@ -16,7 +19,7 @@ const Rating = (props) => {
   const fractionalMapping = {
     0.25: 'quarter',
     0.5: 'half',
-    0.75: 'three-quarter'
+    0.75: 'three-quarters'
   }
   let fractionalStar;
 
@@ -35,15 +38,33 @@ const Rating = (props) => {
 
   return (
     <div className='rating'>
-      {console.log(props.ratings)}
       {Array(filledStars).fill(null).map((_, index) => (
-        <FaStar key={index} className='star filled'/>
+        <FontAwesomeIcon key={index} icon={faStar} className='star filled'/>
       ))}
       {fractionalStar !== 0 && (
-        <FaStar className={`star fraction ${fractionalMapping[fractionalStar]}`} />
+        <FontAwesomeIcon
+          icon={faStar}
+          className={`star fraction ${fractionalMapping[fractionalStar]}`}
+          style={{
+            position: 'relative',
+            overflow: 'hidden',
+            width: '1.5em'
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faStar}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              color: '#ccc',
+              width: '1.5em'
+            }}
+          />
+        </FontAwesomeIcon>
       )}
       {Array(5 - filledStars - (hasFraction ? 1 : 0)).fill(null).map((_, index) => (
-        <FaStar key={index + filledStars + (hasFraction ? 1 : 0)} className='star' />
+        <FontAwesomeIcon key={index + filledStars + (hasFraction ? 1 : 0)} icon={faStar} className='star' />
       ))}
     </div>
   );

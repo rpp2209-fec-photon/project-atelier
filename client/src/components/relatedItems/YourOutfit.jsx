@@ -2,7 +2,6 @@ import React from "react";
 import {useState} from "react";
 import Card from "./Card.jsx";
 import PlusCard from './subComponents/PlusCard.jsx';
-const img = './resources/plus.png';
 
 const YourOutfit = (props) => {
 
@@ -13,7 +12,7 @@ const YourOutfit = (props) => {
   return (
     <>
       <h3>Your Outfit</h3>
-      <div id='outfit-list'>
+      <div className='outfit-list'>
         <PlusCard />
         {items.map((item, index) => <Card key={index} item={item} /> )}
       </div>
