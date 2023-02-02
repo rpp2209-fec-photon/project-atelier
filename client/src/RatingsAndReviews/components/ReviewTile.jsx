@@ -11,7 +11,7 @@ export default function ReviewTile ({ Review }) {
     <>
     <div className="Review Corner">
       <ReviewDate Date={Review.date}/>
-      <StarRating/>
+      <StarRating Rating={Review.rating}/>
     </div>
 
     <p className="Review Summary">{Review.summary}</p>
