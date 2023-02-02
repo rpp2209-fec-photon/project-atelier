@@ -110,7 +110,7 @@ export default function RatingsAndReviews () {
     </div>
       <button onClick={showMoreReviews}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
-    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility}/>
+    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} productNum={dummyData.product}/>
 
     </div>
   );
