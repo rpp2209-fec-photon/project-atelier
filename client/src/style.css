@@ -89,61 +89,6 @@ p, h4, .price {
   right: 10px;
 }
 
-.rating {
-  display: flex;
-}
-
-.star {
-  color: #ccc;
-  font-size: 1.5em;
-  margin-right: 0.5em;
-}
-
-.filled {
-  color: #fdb935;
-}
-
-.fraction {
-  position: relative;
-}
-
-.quarter:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fdb935;
-  width: 25%;
-  height: 100%;
-}
-
-.half:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fdb935;
-  width: 50%;
-  height: 100%;
-}
-
-.three-quarters:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fdb935;
-  width: 75%;
-  height: 100%;
-}
-
-
 /*
   Others
 */
