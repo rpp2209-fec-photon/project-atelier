@@ -14,7 +14,7 @@ const YourOutfit = (props) => {
       <h3>Your Outfit</h3>
       <div className='outfit-list'>
         <PlusCard />
-        {items.map((item, index) => <Card key={index} item={item} /> )}
+        {items.map((item, index) => <Card key={index} item={item} parent={'outfit'}/> )}
       </div>
     </>
   );

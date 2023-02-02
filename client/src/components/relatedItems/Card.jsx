@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Helpers from '../../../helpers/helpers.js';
 import Price from './subComponents/Price.jsx';
 import Rating from './subComponents/Rating.jsx';
+import CardButton from './subComponents/CardButton.jsx';
 
 const Card = (props) => {
 
@@ -56,7 +57,7 @@ const Card = (props) => {
 
   return (
     <div className="card">
-      <button className='card-btn'>x</button>
+      <div className='card-btn'> <CardButton parent={props.parent}/> </div>
       <img
         className='preview'
         src={productStyle.photos ? productStyle.photos[0].thumbnail_url : ''}

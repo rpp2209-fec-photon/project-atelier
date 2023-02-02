@@ -46,7 +46,9 @@
 .card-btn {
   position: relative;
   left: 223px;
-  top: 25px;
+  top: 30px;
+  font-size: 25px;
+  color: black;
 }
 
 p, h4, .price {

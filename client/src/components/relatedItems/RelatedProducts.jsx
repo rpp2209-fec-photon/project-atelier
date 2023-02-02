@@ -29,7 +29,7 @@ const RelatedProducts = ({productId}) => {
     <>
       <h3>Related Products</h3>
       <div className='related-list'>
-        {relatedProductIds.map((productId) => <Card key={productId} productId={productId} />)}
+        {relatedProductIds.map((productId) => <Card key={productId} productId={productId} parent={'related'}/>)}
       </div>
     </>
   );
