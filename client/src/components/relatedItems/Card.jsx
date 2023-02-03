@@ -3,6 +3,7 @@ import Helpers from '../../../helpers/helpers.js';
 import Price from './subComponents/Price.jsx';
 import Rating from './subComponents/Rating.jsx';
 import CardButton from './subComponents/CardButton.jsx';
+import Preview from './subComponents/Preview.jsx';
 
 const Card = (props) => {
 
@@ -11,6 +12,7 @@ const Card = (props) => {
   const [productInfo, setProductInfo] = useState({});
   const [productRatings, setProductRatings] = useState({});
   const [productStyle, setProductStyle] = useState({});
+
 
   const getDefaultStyle = (productId) => {
     Helpers.getProductStyles(productId)
@@ -58,11 +60,7 @@ const Card = (props) => {
   return (
     <div className="card">
       <div className='card-btn'> <CardButton parent={props.parent}/> </div>
-      <img
-        className='preview'
-        src={productStyle.photos ? productStyle.photos[0].thumbnail_url : ''}
-        alt={productStyle.name || ''}
-      />
+      <Preview style={productStyle} />
       <p> {productInfo.category} </p>
       <h4> {productInfo.name} </h4>
       <Price productStyle={productStyle} />

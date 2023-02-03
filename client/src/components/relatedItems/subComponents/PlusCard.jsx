@@ -5,7 +5,7 @@ const PlusCard = () => {
   return (
     <div className='plus'>
       <img src={img} alt='plus-image'/>
-      <h5> ADD OUTFIT </h5>
+      <h3> ADD OUTFIT </h3>
     </div>
   )
 }

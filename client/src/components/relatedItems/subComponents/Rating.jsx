@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRating from '/client/src/RatingsAndReviews/components/miniComponents/StarRating.jsx';
+import StarRating from '../../../RatingsAndReviews/components/miniComponents/StarRating.jsx';
 
 const Rating = (props) => {
 
@@ -12,7 +12,7 @@ const Rating = (props) => {
 
   const average = totalRatings / numOfRatings;
 
-  return <StarRating Rating={average} />
+  return <><StarRating Rating={average} />{console.log(props.ratings)}</>
 };
 
 export default Rating;

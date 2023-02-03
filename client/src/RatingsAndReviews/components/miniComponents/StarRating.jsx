@@ -26,9 +26,9 @@ export default function StarRating ({Rating}) {
 
   return (
     <div className="Rating">
-      {setStars().map((element)=>{
+      {setStars().map((element, i)=>{
         return (
-          <PrintStar num={element}/>
+          <PrintStar key={i} num={element}/>
         );
     })}
     </div>
