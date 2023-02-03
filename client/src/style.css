@@ -2,29 +2,10 @@
   Related Products
 */
 
-/* .card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  vertical-align: top;
-  text-align: left;
-  overflow: hidden;
-  margin-left: 16px;
-  width: 180px;
-  min-height: 100%;
-  list-style-type: none;
-  display: inline-block;
-  white-space: normal;
-  letter-spacing: normal;
-} */
 
-.plus {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-.carousel-container {
+/* .carousel-container {
   position: relative;
-  width: 70%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -32,17 +13,58 @@
   display: flex;
   transition: all 0.5s ease-in-out;
   transform: translateX(0%);
+} */
+
+.related-list,
+.outfit-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: 0 10%;
+  margin-bottom: 5%;
 }
 
-.card {
-  flex: 1 0 10%;
-  width: 30%;
+.card,
+.plus {
+  width: 250px;
+  height: 360px;
   padding: 0 10px;
-  text-align: center;
+  margin-left: 10px;
 }
 
-.card img {
-  width: 100%;
+.plus h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.card img,
+.plus img {
+  width: 250px;
+  height: 250px;
+}
+
+.card-btn {
+  position: relative;
+  left: 223px;
+  top: 30px;
+  font-size: 25px;
+  color: black;
+}
+
+h3 {
+  margin: 10px;
+}
+
+p, h4, .price {
+  margin: 5px ;
+}
+
+.sale {
+  color: red;
+}
+
+.strike {
+  text-decoration: 'line-through';
 }
 
 .nav {
@@ -62,7 +84,6 @@
   cursor: pointer;
   z-index: 1;
 }
-
 
 .nav.prev {
   left: 10px;

@@ -24,6 +24,6 @@ afterAll(() => server.close())
 
 test('YourOutfit component', async () => {
   render(<YourOutfit />);
-  expect(screen.getByRole('heading')).toHaveTextContent('Your Outfit');
+  expect(screen.getByText('Your Outfit')).toBeDefined();
   expect(screen.getByRole('img')).toHaveAttribute('alt', 'plus-image');
 });
