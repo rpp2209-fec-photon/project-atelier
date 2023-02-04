@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function PrintStar ({num}){
+export default function PrintStar ({Key, num, onClick}){
 
   if (num === 1) {
     return (
-      <img className="Star" src="../../../resources/fullStar.png"></img>
+      <img className="Star" src="../../../resources/fullStar.png" onClick={()=>{if (onClick) {onClick(Key)}}}></img>
     )
   } else if (num === 0.75) {
     return (
@@ -20,7 +20,7 @@ export default function PrintStar ({num}){
     )
   } else if (num === 0) {
     return (
-      <img className="Star" src="../../../resources/emptyStar.png"></img>
+      <img className="Star" src="../../../resources/emptyStar.png" onClick={()=>{if (onClick) {onClick(Key)}}}></img>
     )
   }
 
