@@ -11,9 +11,7 @@ class AddtoCart extends React.Component {
         }
     }
     sizecontroll = (sku, id) => {
-        const a = []
-        let b = sku.quantity
-        b = b > 15 ? 15 : b
+        const a = [], b = sku.quantity > 15 ? 15 : sku.quantity
         for (let i = 0; i < b; i++) {
             a.push(i + 1)
         }

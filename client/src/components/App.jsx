@@ -8,17 +8,30 @@ import Helpers from '../../helpers/helpers.js';
 const App = (props) => {
 
   const [currentProductId, setCurrentProductId] = useState(0);
+  const [outFitList, settOutFitList] = useState([71698, 71699])
 
   const getProducts = (page, count) => {
     Helpers.getProducts(page, count)
-    .then((res) => {
-      let data = res.data;
-      setCurrentProductId(data[0].id);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+      .then((res) => {
+        let data = res.data;
+        setCurrentProductId(data[0].id);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
+  const checkoutfitList = (product) => {
+    let index = outFitList.indexOf(product)
+    if (index !== -1) {
+      outFitList.splice(index, 1)
+      settOutFitList(outFitList)
+      return false
+    } else {
+      outFitList.push(product)
+      settOutFitList(outFitList)
+      return true
+    }
+  }
 
   useEffect(() => {
     getProducts();
@@ -26,7 +39,10 @@ const App = (props) => {
 
   return (
     <div>
-      <Overview />
+      <Overview currentProductId={currentProductId}
+        outFitList={outFitList}
+        checkoutfitList={checkoutfitList}
+      />
 
       <RelatedProducts />
 
