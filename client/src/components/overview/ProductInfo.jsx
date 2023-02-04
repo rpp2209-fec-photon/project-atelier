@@ -1,57 +1,39 @@
 import React, { Component } from "react";
-import { getMetaReviews, getProductInfo } from "../../../helpers/helpers";
 class ProductInfo extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            reviewdisplay: false,
-            ratingstar: 0,
-            numberOfreviews: 0,
-            productname: '',
-            
+            inoutfit: this.props.inoutfit
         }
     }
-    componentDidMount() {
-        getMetaReviews('71697').then((result) => {
-            const ratings = result.data.ratings
-            if (Object.keys(ratings).length) {
-                let reviewsum = 0, total = 0, ave = 0
-                for (let item in ratings) {
-                    total += +item * +ratings[item]
-                    reviewsum += +ratings[item]
-                }
-                ave = (total / reviewsum).toFixed(1)
-                this.setState({
-                    reviewdisplay: true,
-                    ratingstar: ave,
-                    numberOfreviews: reviewsum
-                })
-            }
-        })
-        getProductInfo('71697').then((result) => {
+    componentDidUpdate(prevProps) {
+        console.log(prevProps, this.props)
+        if (prevProps.inoutfit !== this.props.inoutfit) {
             this.setState({
-                productname: result.data.name
+                inoutfit: this.props.inoutfit
             })
-        })
+        }
     }
     jumpto = (e) => {
         console.log(e)
     }
     Outfit = () => {
-        console.log('outfit')
+
+        this.setState({
+            inoutfit: this.props.checkoutfitList()
+        })
     }
     render() {
         return (<div>
-            {this.state.reviewdisplay ? <div>
-                <span>{this.state.ratingstar}</span>&nbsp;&nbsp;
-                <span onClick={this.jumpto}>{this.state.numberOfreviews} reviews</span>
+            {this.props.ratings > -1 ? <div>
+                <span>{this.props.ratings}</span>&nbsp;&nbsp;
+                <span onClick={this.jumpto}>{this.props.reviewsum} reviews</span>
             </div> : null}
             <div>Category</div>
-            <div>{this.state.productname}</div>
+            <div>{this.props.productname}</div>
             {this.props.sale_price ? <div><span style={{ 'textDecoration': 'line-through' }}>${this.props.original_price}</span> ${this.props.sale_price}</div>
                 : <div>${this.props.original_price}</div>}
-            <div onClick={this.Outfit}>star</div>
-            {/* implment it later */}
+            <div onClick={this.Outfit}>{this.state.inoutfit ? <span>heart</span> : <span>star</span>}</div>
         </div>)
     }
 }
