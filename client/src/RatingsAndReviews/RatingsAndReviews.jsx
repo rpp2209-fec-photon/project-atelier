@@ -90,9 +90,7 @@ export default function RatingsAndReviews ({productID}) {
   useEffect(()=>{
     helpers.getReviews(1, 6, 'newest', productID)
     .then((reviews)=>{
-      console.log(reviews);
       setProductReviews({...reviews.data});
-      console.log(productReviews);
     });
   }, []);
   var showMoreReviews = ()=>{

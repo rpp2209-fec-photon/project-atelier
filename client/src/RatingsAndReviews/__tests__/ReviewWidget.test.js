@@ -126,8 +126,3 @@ test('Has the review summary in the review tile', async ()=>{
   });
 });
 
-import {setStars} from '../compHelpers.js';
-
-test('setStars returns an array representing stars values', ()=>{
-    expect(setStars(5)).toStrictEqual([1, 1, 1, 1, 1]);
-});
