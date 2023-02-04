@@ -1,18 +1,22 @@
 import React from 'react';
 import { TiStarOutline } from 'react-icons/ti';
 import { CgCloseO } from 'react-icons/cg';
+import MyOutfits from '../localStorage/index.js';
 
 const CardButton = (props) => {
 
-  const {parent = 'related'} = props;
+  const {parent, productId, setOutfitIds} = props;
 
   const handleStarClick = (e) => {
+    e.stopPropagation();
     alert('Star was clicked!');
-  }
+  };
 
   const handleXClick = (e) => {
-    alert('X was clicked!');
-  }
+    e.stopPropagation();
+    MyOutfits.remove(productId);
+    setOutfitIds(MyOutfits.items());
+  };
 
   if (parent === 'related') {
     return (

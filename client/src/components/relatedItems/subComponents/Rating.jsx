@@ -12,7 +12,7 @@ const Rating = (props) => {
 
   const average = totalRatings / numOfRatings;
 
-  return <><StarRating Rating={average} />{console.log(props.ratings)}</>
+  return <StarRating Rating={average} />
 };
 
 export default Rating;
