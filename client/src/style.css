@@ -43,12 +43,16 @@
   height: 250px;
 }
 
+.plus img {
+  margin-top: 15%;
+}
+
 .card-btn {
   position: relative;
   left: 223px;
   top: 30px;
   font-size: 25px;
-  color: black;
+  color: aliceblue;
 }
 
 h3 {

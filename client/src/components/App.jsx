@@ -44,9 +44,15 @@ const App = (props) => {
         checkoutfitList={checkoutfitList}
       />
 
-      <RelatedProducts />
+      <RelatedProducts
+        currentProductId={currentProductId}
+        setCurrentProductId={setCurrentProductId}
+      />
 
-      <YourOutfit />
+      <YourOutfit
+        currentProductId={currentProductId}
+        setCurrentProductId={setCurrentProductId}
+      />
 
       <div>QUESTIONS & ANSWERS</div>
 

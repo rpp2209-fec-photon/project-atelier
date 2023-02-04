@@ -7,7 +7,7 @@ import Preview from './subComponents/Preview.jsx';
 
 const Card = (props) => {
 
-  let {productId} = props;
+  const {parent, productId, setCurrentProductId, setOutfitIds} = props;
 
   const [productInfo, setProductInfo] = useState({});
   const [productRatings, setProductRatings] = useState({});
@@ -51,15 +51,19 @@ const Card = (props) => {
     });
   };
 
+  const handleClick = (e) => {
+    setCurrentProductId(productId);
+  }
+
   useEffect(() => {
     getDefaultStyle(productId);
     getProductInfo(productId);
     getRatings(productId);
-  }, []);
+  }, [productId]);
 
   return (
-    <div className="card">
-      <div className='card-btn'> <CardButton parent={props.parent}/> </div>
+    <div className="card" onClick={handleClick}>
+      <div className='card-btn'> <CardButton parent={parent} setOutfitIds={setOutfitIds} productId={productId}/> </div>
       <Preview style={productStyle} />
       <p> {productInfo.category} </p>
       <h4> {productInfo.name} </h4>
