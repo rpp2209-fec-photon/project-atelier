@@ -34,7 +34,7 @@ const App = (props) => {
 
       <div>QUESTIONS & ANSWERS</div>
 
-      <RatingsAndReviews/>
+      <RatingsAndReviews productID={71700}/>
     </div>
   );
 };

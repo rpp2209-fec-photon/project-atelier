@@ -13,7 +13,7 @@ test('This is an example test', ()=>{
   expect(1+1).toBe(2);
 });
 
-test('Has the review summary in the review tile', ()=>{
+test('Has the review summary in the review tile', async ()=>{
 
   var dummyData = {
   "product": "71697",
@@ -106,9 +106,11 @@ test('Has the review summary in the review tile', ()=>{
       }
   ]
 };
-  render(<RatingsAndReviews dummyData={dummyData}/>);
+  render(<RatingsAndReviews productID={71697}/>);
+  await waitFor(()=>{
+    var sortElement = screen.getByText('this item is the bestest', {exact: false});
+    expect(sortElement).toBeInTheDocument;
+  });
 
-  var sortElement = screen.getByText('this item is the bestest', {exact: false});
-  expect(sortElement).toBeInTheDocument;
 
 });

@@ -4,7 +4,7 @@
   "description": "project-atelier",
   "main": "webpack.config.js",
   "scripts": {
-    "test-ratings": "jest ./client/src/components/RatingsAndReviews --watch --coverage",
+    "test-ratings": "jest ./client/src/RatingsAndReviews --watch --coverage",
     "test-overview": "jest ./client/src/components/overview --watch --coverage",
     "test-related-items": "jest ./client/src/components/relatedItems --watch --coverage",
     "test-helpers": "jest ./client/helpers --watch",
