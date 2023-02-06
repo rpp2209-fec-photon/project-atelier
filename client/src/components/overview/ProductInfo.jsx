@@ -7,7 +7,6 @@ class ProductInfo extends Component {
         }
     }
     componentDidUpdate(prevProps) {
-        console.log(prevProps, this.props)
         if (prevProps.inoutfit !== this.props.inoutfit) {
             this.setState({
                 inoutfit: this.props.inoutfit

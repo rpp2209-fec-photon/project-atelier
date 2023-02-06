@@ -10,7 +10,7 @@ class Skucontrol extends React.Component {
     }
 
     render() {
-        return (<li onClick={this.sizecontroll}>{this.props.sku.size}</li>)
+        return (<option onClick={this.sizecontroll}>{this.props.sku.size}</option>)
     }
 }
 

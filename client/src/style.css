@@ -59,8 +59,10 @@ h3 {
   margin: 10px;
 }
 
-p, h4, .price {
-  margin: 5px ;
+p,
+h4,
+.price {
+  margin: 5px;
 }
 
 .sale {
@@ -100,7 +102,7 @@ p, h4, .price {
 /*
   Others
 */
-
+/*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .style {
   width: 50px;
   height: 50px;
@@ -131,29 +133,37 @@ li {
   height: 500px;
   top: 10px;
 }
-.thumbnail_url{
+
+.thumbnail_url {
   width: 50px;
   height: 50px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-.thumbnail_urlli{
+
+.thumbnail_urlli {
   display: inline-block;
 }
-.thumbnail_urlul{
+
+.thumbnail_urlul {
   display: flex;
   flex-flow: column;
   width: 51px;
 }
 
+.selected_image {
+  border: 1px black solid;
+  border-radius: 10px;
+}
 
-.NewReviewWindow{
-  position:fixed;
+/*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.NewReviewWindow {
+  position: fixed;
   text-align: center;
-  left:0;
-  right:0;
-  top:25%;
-  margin:auto;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: auto;
 
   height: 50%;
   width: 50%;
@@ -162,23 +172,25 @@ li {
   border: 3px solid black;
   background-color: whitesmoke;
 }
+
 .ReviewInput {
-  width:90%;
+  width: 90%;
   max-width: 90%;
   height: 70%;
 
-  margin:auto
+  margin: auto
 }
 
 .ReviewList {
   position: relative;
   max-width: 50%;
 
-  margin:auto;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
 }
+
 .ReviewTile {
   border: 3px solid black;
   border-radius: 5px;
@@ -187,7 +199,7 @@ li {
   padding: 10px;
 
   margin-bottom: 5px;
-  position:relative;
+  position: relative;
 
 
 
@@ -195,39 +207,48 @@ li {
 
 
 .Review.Corner {
-  float:right;
+  float: right;
 }
-.Review.Date{
-  margin:2px;
+
+.Review.Date {
+  margin: 2px;
 }
-.Review.Rating{
-  margin:2px;
+
+.Review.Rating {
+  margin: 2px;
 }
-.Rating > .Star {
+
+.Rating>.Star {
   width: 25px;
   height: 25px;
 }
+
 .Review.Summary {
   font-size: 20px;
-  float:left;
+  float: left;
   font-weight: bold;
-  margin:0;
+  margin: 0;
 }
+
 .Review.Name {
-  float:left;
+  float: left;
   margin: 2px 0px 0px 15px;
 
 }
-.Review.Body{
-  clear:left;
+
+.Review.Body {
+  clear: left;
 }
-.Review.Helpfulness{
+
+.Review.Helpfulness {
   margin: 5px;
 }
-.Review.Image{
+
+.Review.Image {
   height: 10%;
-  max-width:30%;
+  max-width: 30%;
 }
-.Review.ImagesList{
+
+.Review.ImagesList {
   border: 3px solid black
 }

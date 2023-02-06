@@ -37,14 +37,16 @@ class AddtoCart extends React.Component {
     render() {
         return (<div id="addtocart">
             <div><div style={{}}>select size</div>
-                <ul>{Object.keys(this.props.skus).map((item) => {
-                    return <Skucontrol key={item} sku={this.props.skus[item]} skuid={item} sizecontroll={this.sizecontroll} />
-                })}</ul></div>
-            {!this.state.quantity ? null : <ul>
+                <select>
+                    <option value="" disabled selected>Select your size</option>
+                    {Object.keys(this.props.skus).map((item) => {
+                        return <Skucontrol key={item} sku={this.props.skus[item]} skuid={item} sizecontroll={this.sizecontroll} />
+                    })}</select></div>
+            {!this.state.quantity ? null : <select>
                 {this.state.quantity.map((item) => {
-                    return <li key={this.state.skuid + item} onClick={this.select}>{item}</li>
+                    return <option key={this.state.skuid + item} onClick={this.select}>{item}</option>
                 })}
-            </ul>}
+            </select>}
             <button onClick={this.AddtoCart}>addtocart</button>
         </div>)
     }
