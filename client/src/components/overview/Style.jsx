@@ -1,19 +1,18 @@
 import React from "react";
-
+import { FaRegCheckCircle } from 'react-icons/fa'
+//FaRegCheckCircle
 class Style extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            style: this.props.style
-        }
     }
-    changestyle = () => {
-        console.log(this.state.style.skus)
-        this.props.changestyle(this.state.style)
+    changestyle = (e) => {
+        this.props.changestyle(e.currentTarget.getAttribute('index'), this.props.style)
     }
 
     render() {
-        return <li onClick={this.changestyle}><img className="style" src={this.state.style.photos[0].thumbnail_url}></img></li>
+        return <li index={this.props.index} onClick={this.changestyle}><img className="style" src={this.props.style.photos[0].thumbnail_url}></img>
+            {this.props.currentindex === this.props.index ? <FaRegCheckCircle /> : null}
+        </li>
     }
 }
 
