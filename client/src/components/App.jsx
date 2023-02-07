@@ -51,7 +51,6 @@ const App = (props) => {
     <div>
       <Overview currentProductId={currentProductId}
         outFitList={outFitList}
-        checkoutfitList={checkoutfitList}
         setname={setname}
         setchar={setchar}
         handleAddOutfit={handleAddOutfit}
