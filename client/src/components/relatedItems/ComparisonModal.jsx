@@ -20,7 +20,7 @@ const ComparisonModal = (props) => {
               <tr>
                 <th className='left'>{cardName}</th>
                 <th></th>
-                <th className='right'>{currentProductInfo.name}</th>
+                <th className='right'>{currentProductInfo ? currentProductInfo.name : 'name'}</th>
               </tr>
             </thead>
             <TableBody

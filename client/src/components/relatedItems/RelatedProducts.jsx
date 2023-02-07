@@ -55,9 +55,8 @@ const RelatedProducts = (props) => {
 
   return (
     <>
-      <h3>Related Products</h3>
+      <h3 className='related-heading'>Related Products</h3>
       <div className='related-list'>
-        {console.log(currentProductInfo, currentProductMetadata, 'this')}
         {relatedProductIds.map(distributeCards)}
       </div>
     </>

@@ -52,11 +52,13 @@
   left: 223px;
   top: 30px;
   font-size: 25px;
-  color: aliceblue;
+  color: rgb(216, 141, 0);
 }
 
-h3 {
-  margin: 10px;
+.related-heading,
+.outfit-heading {
+  margin: 0 10%;
+  margin-top: 10px;
 }
 
 p,
