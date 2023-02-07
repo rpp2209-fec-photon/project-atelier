@@ -48,6 +48,8 @@ class Overview extends Component {
                 .then((res) => {
                     let reviewsum = 0, total = 0, ave = 0, a = false
                     res = res.map(item => item.data)
+                    this.props.setname(res[0].name)
+                    this.props.setchar(res[2].characteristics)
                     const ratings = res[2].ratings
                     if (Object.keys({ ratings }).length) {
                         for (let item in ratings) {
@@ -59,7 +61,6 @@ class Overview extends Component {
                         ave = -1
                     }
                     //handle outfitlist
-                    console.log(this.props.outFitList)
                     if (this.props.outFitList.indexOf(this.props.currentProductId) !== -1) {
                         a = true
                     }

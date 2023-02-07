@@ -134,6 +134,7 @@ li {
   top: 10px;
 }
 
+
 .thumbnail_url {
   width: 50px;
   height: 50px;
@@ -155,6 +156,16 @@ li {
   border: 1px black solid;
   border-radius: 10px;
 }
+
+.selectSize {
+  position: relative;
+  width: 200px;
+}
+
+
+
+
+
 
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .NewReviewWindow {
