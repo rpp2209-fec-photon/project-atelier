@@ -1,17 +1,22 @@
 import React from "react";
-import Skucontrol from "./Skuscontrol.jsx";
-
 class AddtoCart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             skuid: '',
-            quantity: null,
+            quantity: [],
             number: 0
         }
     }
-    sizecontroll = (sku, id) => {
-        const a = [], b = sku.quantity > 15 ? 15 : sku.quantity
+    componentDidUpdate(prevProps) {
+        if (prevProps.skus !== this.props.skus) {
+            this.setState({
+                quantity: []
+            })
+        }
+    }
+    selectSize = (e) => {
+        let a = [], b = this.props.skus[e.target.value].quantity > 15 ? 15 : this.props.skus[e.target.value].quantity
         for (let i = 0; i < b; i++) {
             a.push(i + 1)
         }
@@ -19,32 +24,36 @@ class AddtoCart extends React.Component {
             quantity: null
         })
         this.setState({
-            number: 0,
-            skuid: id,
+            skuid: e.target.value,
             quantity: a
         })
     }
-    select = (e) => {
+    selectQuantity = (e) => {
         this.setState({
-            quantity: null,
-            number: e.target.innerHTML
+            number: e.target.value
         })
     }
-
     AddtoCart = () => {
         console.log('>>>', this.state.skuid, this.state.number)
     }
     render() {
         return (<div id="addtocart">
-            <div><div style={{}}>select size</div>
-                <ul>{Object.keys(this.props.skus).map((item) => {
-                    return <Skucontrol key={item} sku={this.props.skus[item]} skuid={item} sizecontroll={this.sizecontroll} />
-                })}</ul></div>
-            {!this.state.quantity ? null : <ul>
-                {this.state.quantity.map((item) => {
-                    return <li key={this.state.skuid + item} onClick={this.select}>{item}</li>
-                })}
-            </ul>}
+            <div className="selectSize">
+                <select onChange={this.selectSize}>
+                    <option value="" >Select your size</option>
+                    {Object.keys(this.props.skus).map((item) => {
+                        return <option key={item} value={item}>{this.props.skus[item].size}</option>
+                    })}</select>
+            </div>
+            <div>
+                <select onChange={this.selectQuantity}>
+                    {!this.state.quantity.length ? <option value="" >-</option> : null}
+                    {this.state.quantity.map((item) => {
+                        return <option key={this.state.skuid + item} onClick={this.select}>{item}</option>
+                    })}
+                </select>
+            </div>
+
             <button onClick={this.AddtoCart}>addtocart</button>
         </div>)
     }

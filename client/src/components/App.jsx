@@ -9,8 +9,19 @@ import MyOutfits from './relatedItems/localStorage/index.js';
 const App = (props) => {
 
   const [currentProductId, setCurrentProductId] = useState(0);
+  const [outFitList, settOutFitList] = useState([71698, 71699])
+  const [productname, setproductname] = useState('')
+  const [characteristic, setcharacteristic] = useState({})
   const [outfitIds, setOutfitIds] = useState([]);
 
+
+
+  const setname = (name) => {
+    setproductname(name)
+  }
+  const setchar = (char) => {
+    setcharacteristic(char)
+  }
   const getProducts = (page, count) => {
     Helpers.getProducts(page, count)
       .then((res) => {
@@ -39,6 +50,10 @@ const App = (props) => {
   return (
     <div>
       <Overview currentProductId={currentProductId}
+        outFitList={outFitList}
+        checkoutfitList={checkoutfitList}
+        setname={setname}
+        setchar={setchar}
         handleAddOutfit={handleAddOutfit}
       />
 
@@ -57,7 +72,7 @@ const App = (props) => {
 
       <div>QUESTIONS & ANSWERS</div>
 
-      <RatingsAndReviews productID={71700}/>
+      <RatingsAndReviews productID={71700} />
     </div>
   );
 };
