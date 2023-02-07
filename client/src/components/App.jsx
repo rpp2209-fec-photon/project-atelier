@@ -4,6 +4,7 @@ import YourOutfit from "./relatedItems/YourOutfit.jsx";
 import Overview from "./overview/Overview.jsx";
 import RatingsAndReviews from '../RatingsAndReviews/RatingsAndReviews.jsx';
 import Helpers from '../../helpers/helpers.js';
+import MyOutfits from './relatedItems/localStorage/index.js';
 
 const App = (props) => {
 
@@ -11,6 +12,7 @@ const App = (props) => {
   const [outFitList, settOutFitList] = useState([71698, 71699])
   const [productname, setproductname] = useState('')
   const [characteristic, setcharacteristic] = useState({})
+  const [outfitIds, setOutfitIds] = useState([]);
 
 
 
@@ -30,18 +32,16 @@ const App = (props) => {
         console.error(err);
       });
   };
-  const checkoutfitList = (product) => {
-    let index = outFitList.indexOf(product)
-    if (index !== -1) {
-      outFitList.splice(index, 1)
-      settOutFitList(outFitList)
-      return false
+
+  const handleAddOutfit = (e) => {
+    let productId = String(currentProductId);
+    if (outfitIds.indexOf(productId) === -1) {
+      MyOutfits.add(productId);
+      setOutfitIds(MyOutfits.items());
     } else {
-      outFitList.push(product)
-      settOutFitList(outFitList)
-      return true
+      alert('Item is already added!');
     }
-  }
+  };
 
   useEffect(() => {
     getProducts();
@@ -54,6 +54,7 @@ const App = (props) => {
         checkoutfitList={checkoutfitList}
         setname={setname}
         setchar={setchar}
+        handleAddOutfit={handleAddOutfit}
       />
 
       <RelatedProducts
@@ -64,6 +65,9 @@ const App = (props) => {
       <YourOutfit
         currentProductId={currentProductId}
         setCurrentProductId={setCurrentProductId}
+        outfitIds={outfitIds}
+        setOutfitIds={setOutfitIds}
+        handleAddOutfit={handleAddOutfit}
       />
 
       <div>QUESTIONS & ANSWERS</div>
