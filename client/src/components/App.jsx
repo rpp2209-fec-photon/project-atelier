@@ -8,7 +8,7 @@ import Helpers from '../../helpers/helpers.js';
 const App = (props) => {
 
   const [currentProductId, setCurrentProductId] = useState(0);
-  const [outFitList, settOutFitList] = useState([71698, 71699])
+  const [outfitIds, setOutfitIds] = useState([]);
 
   const getProducts = (page, count) => {
     Helpers.getProducts(page, count)
@@ -52,6 +52,8 @@ const App = (props) => {
       <YourOutfit
         currentProductId={currentProductId}
         setCurrentProductId={setCurrentProductId}
+        outfitIds={outfitIds}
+        setOutfitIds={setOutfitIds}
       />
 
       <div>QUESTIONS & ANSWERS</div>
