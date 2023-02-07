@@ -9,6 +9,8 @@ const RelatedProducts = (props) => {
   const {currentProductId, setCurrentProductId} = props;
 
   const [relatedProductIds, setRelatedProductIds] = useState([]);
+  const [currentProductInfo, setCurrentProductInfo] = useState({});
+  const [currentProductMetadata, setCurrentProductMetadata] = useState({});
 
   const getRelatedProductIds = (id) => {
     console.log(id, 'id ')
@@ -21,15 +23,42 @@ const RelatedProducts = (props) => {
     })
   };
 
+  const getCurrentProductData = (id) => {
+    Helpers.getProductInfo(id)
+    .then((res) => {
+      setCurrentProductInfo(res.data);
+      return Helpers.getMetaReviews(id);
+    })
+    .then((res) => {
+      setCurrentProductMetadata(res.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  };
+
+  const distributeCards = (productId, index) => (
+    <Card
+      key={index}
+      productId={productId}
+      parent={'related'}
+      setCurrentProductId={setCurrentProductId}
+      currentProductInfo={currentProductInfo}
+      currentProductMetadata={currentProductMetadata}
+    />
+  );
+
   useEffect(() => {
     getRelatedProductIds(currentProductId);
+    getCurrentProductData(currentProductId);
   }, [currentProductId]);
 
   return (
     <>
       <h3>Related Products</h3>
       <div className='related-list'>
-        {relatedProductIds.map((productId, index) => <Card key={index} productId={productId} parent={'related'} setCurrentProductId={setCurrentProductId} />)}
+        {console.log(currentProductInfo, currentProductMetadata, 'this')}
+        {relatedProductIds.map(distributeCards)}
       </div>
     </>
   );
