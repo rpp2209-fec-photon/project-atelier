@@ -244,6 +244,8 @@ li {
 
 
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .NewReviewWindow {
   position: fixed;
   text-align: center;
@@ -268,7 +270,33 @@ li {
   margin: auto
 }
 
+.RatingBreakdown{
+  float: left;
+  border: 3px solid black;
+}
+
+.StarBreakdown {
+  display: flex;
+  flex-direction: row;
+}
+.PercBar{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+}
+.Green {
+  background-color: green;
+}
+.Gray {
+  background-color: darkgray;
+}
+.Bar{
+  height: 25px;
+}
+
 .ReviewList {
+  float:right;
+
   position: relative;
   max-width: 50%;
 

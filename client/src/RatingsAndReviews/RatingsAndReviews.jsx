@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import ReviewTile from './components/ReviewTile.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import NewReviewWindow from './components/NewReviewWindow.jsx'
+import RatingBreakdown from './components/RatingBreakdown.jsx';
 
 import helpers from '../../helpers/helpers.js';
 
@@ -102,7 +103,7 @@ export default function RatingsAndReviews ({productID}) {
 
     <div className="RatingsAndReviews">
       <SortReviews/>
-
+      <RatingBreakdown productID={productID}/>
     <div className="ReviewList">
 
       {
