@@ -39,7 +39,7 @@
   left: 223px;
   top: 30px;
   font-size: 25px;
-  color: rgb(0, 255, 85);
+  color: #fdf6c5
 }
 
 .related-heading,
@@ -115,10 +115,19 @@ td {
   font-size: 14px;
   color: #333;
   border-bottom: 1px solid #ccc;
+  width: 250px;
 }
 
 .left {
   text-align: left;
+}
+
+.middle {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .show {
