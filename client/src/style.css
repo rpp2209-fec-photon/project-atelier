@@ -227,7 +227,7 @@ li {
 }
 .selectSizelist{
   position: absolute;
-  
+
 }
 .selectSizelistitem{
   position: absolute;
@@ -282,6 +282,31 @@ li {
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+#RatingsAndReviews {
+  display:flex;
+  flex-direction: row;
+}
+
+.ReviewList {
+  max-width: 50%;
+
+  margin-left: 25%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ReviewTile {
+  border: 3px solid black;
+  border-radius: 5px;
+  aspect-ratio: 1.61803398875;
+  padding: 10px;
+
+  margin-bottom: 5px;
+  position: relative;
+}
+
 .NewReviewWindow {
   position: fixed;
   text-align: center;
@@ -307,8 +332,8 @@ li {
 }
 
 .RatingBreakdown{
-  float: left;
   border: 3px solid black;
+  width: 100%;
 }
 
 .StarBreakdown {
@@ -327,34 +352,35 @@ li {
   background-color: darkgray;
 }
 .Bar{
-  height: 25px;
+  height: 20px;
 }
 
-.ReviewList {
-  float:right;
+.CharacterBreakdown{
+  width:20%;
+}
+.CharacterBarHolder{
+  display:flex;
+  flex-direction: row;
+  width: 200px;
+  position:relative;
+}
+.BarSection{
+  width: 33%;
+  margin-right: 2px;
+}
+.Character.Bar{
+  width:100%;
+  background-color: lightslategray;
 
-  position: relative;
-  max-width: 50%;
+  height: 10px;
+}
+.CharacterIcon{
+  position:absolute;
 
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
 }
 
-.ReviewTile {
-  border: 3px solid black;
-  border-radius: 5px;
-  aspect-ratio: 1.61803398875;
-  max-width: 80%;
-  padding: 10px;
-
-  margin-bottom: 5px;
-  position: relative;
 
 
-
-}
 
 
 .Review.Corner {

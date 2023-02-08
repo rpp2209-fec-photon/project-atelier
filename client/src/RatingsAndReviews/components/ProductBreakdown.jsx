@@ -18,7 +18,7 @@ export default function ProductBreakdown ({productID}){
   }, []);
 
   return (
-    <div>
+    <div className="CharacterBreakdown">
       {Object.keys(characteristics).map((key)=>{
         return (
           <CharacterBreakdown character={key} id={characteristics[key].id} value={characteristics[key].value}/>

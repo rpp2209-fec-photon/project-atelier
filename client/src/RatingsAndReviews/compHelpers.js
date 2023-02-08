@@ -43,5 +43,22 @@ helpers.getTotalReviews = (obj)=>{
   return totalRatings;
 };
 
+helpers.getDescriptors = (characteristics)=>{
+  switch (characteristics) {
+    case 'Size':
+      return ['A size too small', 'A size too wide'];
+    case 'Fit':
+      return ['Runs tight', 'Runs long'];
+    case 'Length':
+      return ['Runs short', 'Runs long'];
+    case 'Quality':
+      return ['Poor', 'Perfect'];
+    case 'Comfort':
+      return ['Poor', 'Perfect'];
+    case 'Width':
+      return ['Too narrow', 'Too wide'];
+  }
+};
+
 
 module.exports = helpers;

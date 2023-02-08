@@ -30,8 +30,7 @@ export default function RatingsAndReviews ({productID}) {
 
   return (
 
-    <div className="RatingsAndReviews">
-      <SortReviews/>
+    <div id="RatingsAndReviews">
       <div>
         <RatingBreakdown productID={productID}/>
         <ProductBreakdown productID={productID}/>
@@ -50,9 +49,9 @@ export default function RatingsAndReviews ({productID}) {
           }
         })
       }
-    </div>
       <button onClick={showMoreReviews}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
+    </div>
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility}/>
 
     </div>
