@@ -24,7 +24,7 @@ const YourOutfit = (props) => {
 
   return (
     <>
-      <h3>Your Outfit</h3 >
+      <h3 className='outfit-heading'>Your Outfit</h3 >
       <div className='outfit-list'>
         <PlusCard onClick={handleAddOutfit}/>
         { outfitIds.map(distributeCards).reverse() }
