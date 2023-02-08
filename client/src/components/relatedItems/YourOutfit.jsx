@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import PlusCard from './subComponents/PlusCard.jsx';
 import MyOutfits from './localStorage/index.js';
+import Carousel from './Carousel.jsx';
 
 const YourOutfit = (props) => {
 
@@ -26,8 +27,10 @@ const YourOutfit = (props) => {
     <>
       <h3 className='outfit-heading'>Your Outfit</h3 >
       <div className='outfit-list'>
-        <PlusCard onClick={handleAddOutfit}/>
-        { outfitIds.map(distributeCards).reverse() }
+        <Carousel >
+          <PlusCard onClick={handleAddOutfit}/>
+          { outfitIds.map(distributeCards).reverse() }
+        </Carousel>
       </div>
     </>
   );

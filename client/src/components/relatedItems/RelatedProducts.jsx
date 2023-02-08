@@ -13,7 +13,6 @@ const RelatedProducts = (props) => {
   const [currentProductMetadata, setCurrentProductMetadata] = useState({});
 
   const getRelatedProductIds = (id) => {
-    console.log(id, 'id ')
     Helpers.getRelatedProducts(id)
     .then((res) => {
       setRelatedProductIds(Array.from(new Set(res.data))); // Convert to Set and back to Array to handle duplicate
@@ -57,7 +56,9 @@ const RelatedProducts = (props) => {
     <>
       <h3 className='related-heading'>Related Products</h3>
       <div className='related-list'>
-        {relatedProductIds.map(distributeCards)}
+        <Carousel>
+          {relatedProductIds.map(distributeCards)}
+        </Carousel>
       </div>
     </>
   );
