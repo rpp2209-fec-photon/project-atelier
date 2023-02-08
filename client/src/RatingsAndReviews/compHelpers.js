@@ -14,10 +14,23 @@ helpers.setStars = (Rating)=>{
       stars[stars.indexOf(0)] = 0.50;
     } else if (Rating % 1 < .75) {
       stars[stars.indexOf(0)] = 0.75;
+    } else {
+      stars[stars.indexOf(0)] = 1;
     }
   }
 
   return stars;
+};
+
+helpers.getAverage = (obj)=>{
+  var sum = 0;
+  for (var x = 0; x < Object.keys(obj).length; x++) {
+    sum =+ obj[x];
+  }
+
+
+
+  return sum/Object.keys(obj).length;
 };
 
 module.exports = helpers;

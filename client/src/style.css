@@ -168,6 +168,8 @@ li {
 
 
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .NewReviewWindow {
   position: fixed;
   text-align: center;
@@ -192,7 +194,13 @@ li {
   margin: auto
 }
 
+.RatingBreakdown{
+  float: left;
+  border: 3px solid black;
+}
 .ReviewList {
+  float:right;
+
   position: relative;
   max-width: 50%;
 
