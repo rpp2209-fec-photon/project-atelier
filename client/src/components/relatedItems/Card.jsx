@@ -23,51 +23,36 @@ const Card = (props) => {
     setModalStatus(false);
   };
 
-  const getDefaultStyle = (productId) => {
-    Helpers.getProductStyles(productId)
-    .then((res) => {
-      let styles = res.data.results;
-      for (var style of styles) {
-        if (style['default?']) {
-          setProductStyle(style);
-          return;
-        }
-      }
-      setProductStyle(styles[0]);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-  };
-
-  const getProductInfo = (id) => {
-    Helpers.getProductInfo(id)
-    .then((res) => {
-      setProductInfo(res.data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  };
-
-  const getRatings = (id) => {
-    Helpers.getMetaReviews(id)
-    .then((res) => {
-      setProductMetadata(res.data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  };
+  const getProductData = (id) => {
+    let promises = [];
+    promises.push(Helpers.getProductStyles(id));
+    promises.push(Helpers.getProductInfo(id));
+    promises.push(Helpers.getMetaReviews(id));
+    return Promise.all(promises);
+  }
 
   const handleClick = (e) => {
     setCurrentProductId(productId);
   }
 
   useEffect(() => {
-    getDefaultStyle(productId);
-    getProductInfo(productId);
-    getRatings(productId);
+    getProductData(productId)
+    .then((res) => {
+      let styles = res[0].data.results;
+      let defaultStyle = styles[0];
+      for (var style of styles) {
+        if (style['default?']) {
+          defaultStyle = style;
+          break;
+        }
+      }
+      setProductStyle(defaultStyle);
+      setProductInfo(res[1].data);
+      setProductMetadata(res[2].data);
+    })
+    .catch((err) => {
+      console.error(error);
+    })
   }, [productId]);
 
   return (
