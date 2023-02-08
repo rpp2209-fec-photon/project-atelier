@@ -20,4 +20,18 @@ helpers.setStars = (Rating)=>{
   return stars;
 };
 
+helpers.starText = (Rating)=>{
+  if (Rating === 1) {
+    return "Poor"
+  } else if (Rating === 2) {
+    return "Fair"
+  } else if (Rating === 3) {
+    return "Average"
+  } else if (Rating === 4) {
+    return "Good"
+  } else if (Rating === 5) {
+    return "Great"
+  }
+};
+
 module.exports = helpers;

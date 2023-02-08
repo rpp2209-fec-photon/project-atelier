@@ -1,9 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
-import StarRating from './miniComponents/StarRating.jsx';
+
+import OverallRating from './miniComponents/OverallRating.jsx';
+import Recommend from './miniComponents/Recommend.jsx';
+
 export default function NewReviewWindow({Visibility, setVisibility}){
 
   var [Rating, setRating] = useState(0);
+  var [recommend, setRecommend] = useState(true);
 
   if (Visibility === 'show') {
 
@@ -11,7 +15,8 @@ export default function NewReviewWindow({Visibility, setVisibility}){
       <div className="NewReviewWindow" >
         <h1>Write Your Review</h1>
 
-        <StarRating Rating={Rating} onClick={setRating}/>
+        <OverallRating Rating={Rating} setRating={setRating}/>
+        <Recommend recommend={recommend} setRecommend={setRecommend}/>
 
         <textarea className="ReviewInput"> About the product here.</textarea>
 

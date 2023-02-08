@@ -158,6 +158,9 @@ li {
   border: 3px solid black;
   background-color: whitesmoke;
 }
+p.inputTitle{
+  display: inline-block;
+}
 .ReviewInput {
   width:90%;
   max-width: 90%;
