@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TiStarOutline } from 'react-icons/ti';
-import { CgCloseO } from 'react-icons/cg';
+import { TiStar } from 'react-icons/ti';
+import { RiCloseCircleFill } from 'react-icons/ri';
 import MyOutfits from '../localStorage/index.js';
 
 const CardButton = (props) => {
@@ -20,11 +20,11 @@ const CardButton = (props) => {
 
   if (parent === 'related') {
     return (
-      <TiStarOutline onClick={handleStarClick}/>
+      <TiStar onClick={handleStarClick}/>
     )
   } else {
     return (
-      <CgCloseO onClick={handleXClick}/>
+      <RiCloseCircleFill onClick={handleXClick}/>
     )
   }
 }

@@ -2,19 +2,6 @@
   Related Products
 */
 
-
-/* .carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-slides {
-  display: flex;
-  transition: all 0.5s ease-in-out;
-  transform: translateX(0%);
-} */
-
 .related-list,
 .outfit-list {
   display: flex;
@@ -52,7 +39,7 @@
   left: 223px;
   top: 30px;
   font-size: 25px;
-  color: rgb(216, 141, 0);
+  color: #fdf6c5
 }
 
 .related-heading,
@@ -75,32 +62,6 @@ h4,
   text-decoration: 'line-through';
 }
 
-.nav {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 2px solid #111;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  color: #111;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 1;
-}
-
-.nav.prev {
-  left: 10px;
-}
-
-.nav.next {
-  right: 10px;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -108,6 +69,7 @@ h4,
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
 .modal-main {
@@ -153,6 +115,7 @@ td {
   font-size: 14px;
   color: #333;
   border-bottom: 1px solid #ccc;
+  width: 250px;
 }
 
 .left {
@@ -173,6 +136,45 @@ td {
 
 .hide {
   display: none;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 400px;
+}
+
+.carousel-slides {
+  display: flex;
+}
+
+.nav {
+  background: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: larger;
+}
+
+.nav:hover {
+  background: fixed;
+  background-color: lightslategray;
+  font-weight: bolder;
+}
+
+.next {
+  right: auto;
+}
+
+.prev {
+  left: auto;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /*
