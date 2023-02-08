@@ -198,6 +198,26 @@ li {
   float: left;
   border: 3px solid black;
 }
+
+.StarBreakdown {
+  display: flex;
+  flex-direction: row;
+}
+.PercBar{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+}
+.Green {
+  background-color: green;
+}
+.Gray {
+  background-color: darkgray;
+}
+.Bar{
+  height: 25px;
+}
+
 .ReviewList {
   float:right;
 

@@ -23,14 +23,25 @@ helpers.setStars = (Rating)=>{
 };
 
 helpers.getAverage = (obj)=>{
-  var sum = 0;
-  for (var x = 0; x < Object.keys(obj).length; x++) {
-    sum =+ obj[x];
+  var totalStars = 0;
+  var totalRatings = 0;
+  for (var x = 1; x < Object.keys(obj).length + 1; x++) {
+    totalStars += parseInt(obj[x]) * x;
+    totalRatings += parseInt(obj[x]);
   }
 
-
-
-  return sum/Object.keys(obj).length;
+  return totalStars/totalRatings;
 };
+
+helpers.getTotalReviews = (obj)=>{
+  var totalRatings = 0;
+
+  for (var x = 1; x < Object.keys(obj).length + 1; x++) {
+    totalRatings += parseInt(obj[x]);
+  }
+
+  return totalRatings;
+};
+
 
 module.exports = helpers;
