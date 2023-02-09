@@ -8,7 +8,7 @@ export const handlers = [
         {
           'default?': true,
           photos: [
-            {url: 'img-url'}
+            {thumbnail_url: 'img-url'}
           ],
           name: 'style name',
           original_price: '69.00',

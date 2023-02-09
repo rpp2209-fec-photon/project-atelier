@@ -51,13 +51,13 @@ const Card = (props) => {
   return (
     <>
       <div className="card" onClick={handleClick}>
-        <div className='card-btn'>
+        <>
           <CardButton
             parent={parent}
             onClick={parent === 'related' ? openModal : setOutfitIds}
             productId={productId}
           />
-        </div>
+        </>
         <Preview style={productStyle} />
         <p> {productInfo.category} </p>
         <h4> {productInfo.name} </h4>

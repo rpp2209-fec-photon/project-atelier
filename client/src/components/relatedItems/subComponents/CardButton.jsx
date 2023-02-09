@@ -20,11 +20,15 @@ const CardButton = (props) => {
 
   if (parent === 'related') {
     return (
-      <TiStar onClick={handleStarClick}/>
+      <div className='card-btn' onClick={handleStarClick}>
+        <TiStar />
+      </div>
     )
   } else {
     return (
-      <RiCloseCircleFill onClick={handleXClick}/>
+      <div className='card-btn' onClick={handleXClick}>
+        <RiCloseCircleFill />
+      </div>
     )
   }
 }
