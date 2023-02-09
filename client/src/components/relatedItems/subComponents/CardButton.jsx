@@ -1,26 +1,30 @@
-import React from 'react';
-import { TiStarOutline } from 'react-icons/ti';
-import { CgCloseO } from 'react-icons/cg';
+import React, { useState } from 'react';
+import { TiStar } from 'react-icons/ti';
+import { RiCloseCircleFill } from 'react-icons/ri';
+import MyOutfits from '../localStorage/index.js';
 
 const CardButton = (props) => {
 
-  const {parent = 'related'} = props;
+  const {parent, productId, onClick} = props;
 
   const handleStarClick = (e) => {
-    alert('Star was clicked!');
-  }
+    e.stopPropagation();
+    onClick(true);
+  };
 
   const handleXClick = (e) => {
-    alert('X was clicked!');
-  }
+    e.stopPropagation();
+    MyOutfits.remove(productId);
+    onClick(MyOutfits.items());
+  };
 
   if (parent === 'related') {
     return (
-      <TiStarOutline onClick={handleStarClick}/>
+      <TiStar onClick={handleStarClick}/>
     )
   } else {
     return (
-      <CgCloseO onClick={handleXClick}/>
+      <RiCloseCircleFill onClick={handleXClick}/>
     )
   }
 }

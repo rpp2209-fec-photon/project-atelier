@@ -2,19 +2,6 @@
   Related Products
 */
 
-
-/* .carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-slides {
-  display: flex;
-  transition: all 0.5s ease-in-out;
-  transform: translateX(0%);
-} */
-
 .related-list,
 .outfit-list {
   display: flex;
@@ -43,20 +30,28 @@
   height: 250px;
 }
 
+.plus img {
+  margin-top: 15%;
+}
+
 .card-btn {
   position: relative;
   left: 223px;
   top: 30px;
   font-size: 25px;
-  color: black;
+  color: #fdf6c5
 }
 
-h3 {
-  margin: 10px;
+.related-heading,
+.outfit-heading {
+  margin: 0 10%;
+  margin-top: 10px;
 }
 
-p, h4, .price {
-  margin: 5px ;
+p,
+h4,
+.price {
+  margin: 5px;
 }
 
 .sale {
@@ -67,36 +62,125 @@ p, h4, .price {
   text-decoration: 'line-through';
 }
 
-.nav {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 2px solid #111;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  color: #111;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
-.nav.prev {
-  left: 10px;
+.modal-main {
+  width: 500px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+  margin: 100px auto;
+  padding: 20px;
 }
 
-.nav.next {
-  right: 10px;
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h5 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  width: 250px;
+}
+
+.left {
+  text-align: left;
+}
+
+.middle {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 400px;
+}
+
+.carousel-slides {
+  display: flex;
+}
+
+.nav {
+  background: none;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: larger;
+}
+
+.nav:hover {
+  background: fixed;
+  background-color: lightslategray;
+  font-weight: bolder;
+}
+
+.next {
+  right: auto;
+}
+
+.prev {
+  left: auto;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /*
   Others
 */
-
+/*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .style {
   width: 50px;
   height: 50px;
@@ -115,9 +199,48 @@ li {
   flex-wrap: wrap;
 }
 
-#addtocart {
-  width: 210px;
-  display: flex;
+#addtocart{
+  width: 284px;
+  position: relative;
+  display: inline-block;
+}
+.quantity{
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  right: 0px;
+  width: 88px;
+  height: 44px;
+  line-height: 44px;
+  border: 1px solid rgb(202, 188, 188);
+}
+.selectSize {
+  position: absolute;
+  display: inline-block;
+  width: 177px;
+  height: 44px;
+  line-height: 44px;
+  border: 1px solid rgb(202, 188, 188);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.selectSizelist{
+  position: absolute;
+
+}
+.selectSizelistitem{
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  width: 177px;
+  height: 30;
+  line-height: 30px;
+  border: 1px solid rgb(202, 188, 188);
+  border-top: none;
+  cursor: pointer;
+  text-align: center;
+
 }
 
 #imagegallery {
@@ -127,29 +250,73 @@ li {
   height: 500px;
   top: 10px;
 }
-.thumbnail_url{
+
+
+.thumbnail_url {
   width: 50px;
   height: 50px;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-.thumbnail_urlli{
+
+.thumbnail_urlli {
   display: inline-block;
 }
-.thumbnail_urlul{
+
+.thumbnail_urlul {
   display: flex;
   flex-flow: column;
   width: 51px;
 }
 
+.selected_image {
+  border: 1px black solid;
+  border-radius: 10px;
+}
+p.inputTitle{
+  display: inline-block;
+}
 
-.NewReviewWindow{
-  position:fixed;
+
+
+
+
+
+/*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+#RatingsAndReviews {
+  display:flex;
+  flex-direction: row;
+}
+
+.ReviewList {
+  max-width: 50%;
+
+  margin-left: 25%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ReviewTile {
+  border: 3px solid black;
+  border-radius: 5px;
+  aspect-ratio: 1.61803398875;
+  padding: 10px;
+
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.NewReviewWindow {
+  position: fixed;
   text-align: center;
-  left:0;
-  right:0;
-  top:25%;
-  margin:auto;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: auto;
 
   height: 50%;
   width: 50%;
@@ -158,75 +325,110 @@ li {
   border: 3px solid black;
   background-color: whitesmoke;
 }
-p.inputTitle{
-  display: inline-block;
-}
+
 .ReviewInput {
-  width:90%;
+  width: 90%;
   max-width: 90%;
   height: 70%;
 
-  margin:auto
+  margin: auto
 }
 
-.ReviewList {
-  position: relative;
-  max-width: 50%;
-
-  margin:auto;
-
-  display: flex;
-  flex-direction: column;
-}
-.ReviewTile {
+.RatingBreakdown{
   border: 3px solid black;
-  border-radius: 5px;
-  aspect-ratio: 1.61803398875;
-  max-width: 80%;
-  padding: 10px;
+  width: 100%;
+}
 
-  margin-bottom: 5px;
+.StarBreakdown {
+  display: flex;
+  flex-direction: row;
+}
+.PercBar{
+  display:flex;
+  flex-direction: row;
+  width:100%;
+}
+.Green {
+  background-color: green;
+}
+.Gray {
+  background-color: darkgray;
+}
+.Bar{
+  height: 20px;
+}
+
+.CharacterBreakdown{
+  width:20%;
+}
+.CharacterBarHolder{
+  display:flex;
+  flex-direction: row;
+  width: 200px;
   position:relative;
+}
+.BarSection{
+  width: 33%;
+  margin-right: 2px;
+}
+.Character.Bar{
+  width:100%;
+  background-color: lightslategray;
 
-
+  height: 10px;
+}
+.CharacterIcon{
+  position:absolute;
 
 }
+
+
+
 
 
 .Review.Corner {
-  float:right;
+  float: right;
 }
-.Review.Date{
-  margin:2px;
+
+.Review.Date {
+  margin: 2px;
 }
-.Review.Rating{
-  margin:2px;
+
+.Review.Rating {
+  margin: 2px;
 }
-.Rating > .Star {
+
+.Rating>.Star {
   width: 25px;
   height: 25px;
 }
+
 .Review.Summary {
   font-size: 20px;
-  float:left;
+  float: left;
   font-weight: bold;
-  margin:0;
+  margin: 0;
 }
+
 .Review.Name {
-  float:left;
+  float: left;
   margin: 2px 0px 0px 15px;
 
 }
-.Review.Body{
-  clear:left;
+
+.Review.Body {
+  clear: left;
 }
-.Review.Helpfulness{
+
+.Review.Helpfulness {
   margin: 5px;
 }
-.Review.Image{
+
+.Review.Image {
   height: 10%;
-  max-width:30%;
+  max-width: 30%;
 }
-.Review.ImagesList{
+
+.Review.ImagesList {
   border: 3px solid black
 }

@@ -4,15 +4,24 @@ import Price from './subComponents/Price.jsx';
 import Rating from './subComponents/Rating.jsx';
 import CardButton from './subComponents/CardButton.jsx';
 import Preview from './subComponents/Preview.jsx';
+import ComparisonModal from './ComparisonModal.jsx';
 
 const Card = (props) => {
 
-  let {productId} = props;
+  const {parent, productId, setCurrentProductId, currentProductInfo, currentProductMetadata, setOutfitIds} = props;
 
   const [productInfo, setProductInfo] = useState({});
-  const [productRatings, setProductRatings] = useState({});
+  const [productMetadata, setProductMetadata] = useState({});
   const [productStyle, setProductStyle] = useState({});
+  const [modalIsOpen, setModalStatus] = useState(false);
 
+  const openModal = () => {
+    setModalStatus(true);
+  };
+
+  const closeModal = () => {
+    setModalStatus(false);
+  };
 
   const getDefaultStyle = (productId) => {
     Helpers.getProductStyles(productId)
@@ -44,28 +53,43 @@ const Card = (props) => {
   const getRatings = (id) => {
     Helpers.getMetaReviews(id)
     .then((res) => {
-      setProductRatings(res.data);
+      setProductMetadata(res.data);
     })
     .catch((err) => {
       console.error(err);
     });
   };
 
+  const handleClick = (e) => {
+    setCurrentProductId(productId);
+  }
+
   useEffect(() => {
     getDefaultStyle(productId);
     getProductInfo(productId);
     getRatings(productId);
-  }, []);
+  }, [productId]);
 
   return (
-    <div className="card">
-      <div className='card-btn'> <CardButton parent={props.parent}/> </div>
-      <Preview style={productStyle} />
-      <p> {productInfo.category} </p>
-      <h4> {productInfo.name} </h4>
-      <Price productStyle={productStyle} />
-      { productRatings.ratings ? <Rating ratings={productRatings.ratings} /> : null }
-    </div>
+    <>
+      <div className="card" onClick={handleClick}>
+        <div className='card-btn'> <CardButton parent={parent} onClick={parent === 'related' ? openModal : setOutfitIds} productId={productId}/></div>
+        <Preview style={productStyle} />
+        <p> {productInfo.category} </p>
+        <h4> {productInfo.name} </h4>
+        <Price productStyle={productStyle} />
+        {productMetadata.ratings ? <Rating ratings={productMetadata.ratings} /> : null }
+      </div>
+
+      <ComparisonModal
+        isOpen={modalIsOpen}
+        closeModal={closeModal}
+        cardMetadata={productMetadata}
+        cardName={productInfo.name}
+        currentProductInfo={currentProductInfo}
+        currentProductMetadata={currentProductMetadata}
+      />
+    </>
   );
 };
 
