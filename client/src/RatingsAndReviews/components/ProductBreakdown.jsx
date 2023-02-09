@@ -15,13 +15,13 @@ export default function ProductBreakdown ({productID}){
     .then((data)=>{
       setCharacteristics(data.data.characteristics);
     });
-  }, []);
+  }, [productID]);
 
   return (
     <div className="CharacterBreakdown">
       {Object.keys(characteristics).map((key)=>{
         return (
-          <CharacterBreakdown character={key} id={characteristics[key].id} value={characteristics[key].value}/>
+          <CharacterBreakdown character={key} id={characteristics[key].id} value={characteristics[key].value} key={key}/>
         );
       })}
     </div>
