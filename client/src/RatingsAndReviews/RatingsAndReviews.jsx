@@ -17,11 +17,12 @@ export default function RatingsAndReviews ({productID}) {
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
 
   useEffect(()=>{
+    console.log(productID);
     helpers.getReviews(1, 6, 'newest', productID)
     .then((reviews)=>{
       setProductReviews({...reviews.data});
     });
-  }, []);
+  }, [productID]);
 
   var showMoreReviews = ()=>{
     setReviewsShown(reviewsShown + 2);

@@ -23,7 +23,7 @@ export default function RatingBreakdown ({productID}){
       setNumOfRatings(getTotalReviews(data.data.ratings));
       setRatings(data.data.ratings);
     });
-  }, []);
+  }, [productID]);
 
   return (
     <div className="RatingBreakdown">
