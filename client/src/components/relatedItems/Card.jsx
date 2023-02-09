@@ -5,6 +5,7 @@ import Rating from './subComponents/Rating.jsx';
 import CardButton from './subComponents/CardButton.jsx';
 import Preview from './subComponents/Preview.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
+import {getProductData} from './controllers/index.js';
 
 const Card = (props) => {
 
@@ -22,14 +23,6 @@ const Card = (props) => {
   const closeModal = () => {
     setModalStatus(false);
   };
-
-  const getProductData = (id) => {
-    let promises = [];
-    promises.push(Helpers.getProductStyles(id));
-    promises.push(Helpers.getProductInfo(id));
-    promises.push(Helpers.getMetaReviews(id));
-    return Promise.all(promises);
-  }
 
   const handleClick = (e) => {
     setCurrentProductId(productId);
@@ -58,12 +51,18 @@ const Card = (props) => {
   return (
     <>
       <div className="card" onClick={handleClick}>
-        <div className='card-btn'> <CardButton parent={parent} onClick={parent === 'related' ? openModal : setOutfitIds} productId={productId}/></div>
+        <div className='card-btn'>
+          <CardButton
+            parent={parent}
+            onClick={parent === 'related' ? openModal : setOutfitIds}
+            productId={productId}
+          />
+        </div>
         <Preview style={productStyle} />
         <p> {productInfo.category} </p>
         <h4> {productInfo.name} </h4>
         <Price productStyle={productStyle} />
-        {productMetadata.ratings ? <Rating ratings={productMetadata.ratings} /> : null }
+        { productMetadata.ratings ? <Rating ratings={productMetadata.ratings} /> : null }
       </div>
 
       <ComparisonModal
