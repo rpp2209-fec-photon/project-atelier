@@ -108,3 +108,4 @@ test('Open and close comparison modal', async () => {
   });
 });
 
+

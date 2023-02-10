@@ -54,4 +54,11 @@ export const handlers = [
     }
     return res(ctx.json(info));
   }),
+  rest.get('http://localhost:3000/products/54321/related', (req, res, ctx) => {
+    return res(ctx.json([12345]));
+  }),
 ];
+
+test('dummy test', function() {
+  expect(0).toBe(0);
+});
