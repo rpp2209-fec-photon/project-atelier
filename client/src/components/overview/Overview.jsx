@@ -82,18 +82,16 @@ class Overview extends Component {
         }
     }
     render() {
-        return (<div >
+        return (<div style={{position:'relative',height:'600px',width:'1000px'}}>
             <ProductInfo productname={this.state.productname}
                 original_price={this.state.original_price}
                 reviewsum={this.state.reviewsum}
                 sale_price={this.state.sale_price}
                 ratings={this.state.ratings}
-                checkoutfitList={this.checkoutfitList}
-                inoutfit={this.state.inoutfit}
             />
             <Styleselector currentstyle={this.state.currentstyle}
                 styles={this.state.styles} changestyle={this.changestyle} />
-            <AddtoCart skus={this.state.skus} />
+            <AddtoCart skus={this.state.skus} inoutfit={this.state.inoutfit} checkoutfitList={this.checkoutfitList}/>
             <Imagegallery photolist={this.state.photolist} />
         </div>)
     }

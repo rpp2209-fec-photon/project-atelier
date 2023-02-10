@@ -18,6 +18,7 @@ export default function RatingsAndReviews ({productID}) {
   var [characteristics, setCharacteristics] = useState({});
 
   useEffect(()=>{
+    console.log(productID);
     helpers.getReviews(1, 6, 'newest', productID)
     .then((reviews)=>{
       setProductReviews({...reviews.data});
@@ -27,7 +28,7 @@ export default function RatingsAndReviews ({productID}) {
         setCharacteristics(data.data.characteristics);
       });
     });
-  }, []);
+  }, [productID]);
 
   var showMoreReviews = ()=>{
     setReviewsShown(reviewsShown + 2);
