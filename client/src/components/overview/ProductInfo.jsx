@@ -17,7 +17,6 @@ class ProductInfo extends Component {
         console.log(e)
     }
     Outfit = () => {
-
         this.setState({
             inoutfit: this.props.checkoutfitList()
         })

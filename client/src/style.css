@@ -181,6 +181,19 @@ td {
   Others
 */
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+*{
+  margin:0;
+  padding:0;
+  }
+  
+  li{
+  list-style:none;
+  }
+  
+  img{
+  vertical-align:top;
+  border:none;
+  }
 .style {
   width: 50px;
   height: 50px;
@@ -199,21 +212,15 @@ li {
   flex-wrap: wrap;
 }
 
-#addtocart{
+#addtocart {
   width: 284px;
   position: relative;
   display: inline-block;
+  height: 120px;
 }
-.quantity{
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  right: 0px;
-  width: 88px;
-  height: 44px;
-  line-height: 44px;
-  border: 1px solid rgb(202, 188, 188);
-}
+
+
+
 .selectSize {
   position: absolute;
   display: inline-block;
@@ -225,13 +232,56 @@ li {
   position: relative;
   text-align: center;
 }
-.selectSizelist{
-  position: absolute;
 
+.selectSizelist {
+  position: absolute;
+  
 }
-.selectSizelistitem{
+
+.quantity {
   position: absolute;
   display: inline-block;
+  top: 0;
+  right: 0px;
+  width: 88px;
+  height: 44px;
+  line-height: 44px;
+  border: 1px solid rgb(202, 188, 188);
+  cursor: pointer;
+  z-index: 40;
+}
+
+.quantity div {
+  width: 88px;
+  height: 44px;
+}
+
+.quantity div span {
+  float: left;
+  margin-left: 20px;
+}
+
+.quantity ul {
+  background-color: white;
+  position: absolute;
+  display: flex;
+  top: 45px;
+  right: -1px;
+  z-index: 40;
+}
+
+.quantity ul li {
+  width: 88px;
+  height: 18px;
+  border: 1px solid rgb(202, 188, 188);
+  border-top: none;
+  line-height: 18px;
+
+}
+
+.selectSizelistitem {
+  background-color: white;
+  display: flex;
   left: 0px;
   width: 177px;
   height: 30;
@@ -239,39 +289,81 @@ li {
   border: 1px solid rgb(202, 188, 188);
   border-top: none;
   cursor: pointer;
-  text-align: center;
+  
 
 }
 
+.selectSizelistitem span {
+  background-color: white;
+  float: left;
+  margin-left: 30px;
+  
+}
+
+
+.selectSizelistitem:first-child {
+  border: 1px solid rgb(202, 188, 188);
+}
+
+.addtobag {
+  position: relative;
+  border: 1px solid rgb(202, 188, 188);
+  height: 44px;
+  width: 224px;
+  top: 14px;
+  display: inline-block;
+  line-height: 44px;
+  background-color: white;
+  cursor: pointer;
+}
+.addtobag span{
+  float: left;
+  margin-left: 20px;
+  height: 44px;
+}
+#galley{
+  position: absolute;
+  top: 0;
+  
+}
 #imagegallery {
   position: absolute;
   left: 400px;
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 430px;
   top: 10px;
 }
 
 
 .thumbnail_url {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+
+  width: 100%;
+  height: 100%;
+  
 }
 
 .thumbnail_urlli {
-  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .thumbnail_urlul {
+  top: 30px;
+  left: 20px;
+  position: absolute;
   display: flex;
   flex-flow: column;
   width: 51px;
+  height: 260px;
+  overflow: scroll;
 }
 
 .selected_image {
   border: 1px black solid;
-  border-radius: 10px;
+  
 }
 
 

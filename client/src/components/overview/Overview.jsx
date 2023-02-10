@@ -82,7 +82,7 @@ class Overview extends Component {
         }
     }
     render() {
-        return (<div >
+        return (<div style={{position:'relative',height:'600px'}}>
             <ProductInfo productname={this.state.productname}
                 original_price={this.state.original_price}
                 reviewsum={this.state.reviewsum}
@@ -93,7 +93,7 @@ class Overview extends Component {
             />
             <Styleselector currentstyle={this.state.currentstyle}
                 styles={this.state.styles} changestyle={this.changestyle} />
-            <AddtoCart skus={this.state.skus} />
+            <AddtoCart skus={this.state.skus} inoutfit={this.state.inoutfit} checkoutfitList={this.checkoutfitList}/>
             <Imagegallery photolist={this.state.photolist} />
         </div>)
     }
