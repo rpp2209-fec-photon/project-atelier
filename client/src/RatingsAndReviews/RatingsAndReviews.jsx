@@ -9,7 +9,7 @@ import ProductBreakdown from './components/ProductBreakdown.jsx';
 import helpers from '../../helpers/helpers.js';
 
 
-export default function RatingsAndReviews ({productID}) {
+export default function RatingsAndReviews ({productID, productName}) {
 
 
   var [productReviews, setProductReviews] = useState({results:[]});
@@ -59,7 +59,7 @@ export default function RatingsAndReviews ({productID}) {
       <button onClick={showMoreReviews}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
     </div>
-    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics}/>
+    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics} productName={productName}/>
 
     </div>
   );

@@ -69,7 +69,7 @@ const App = (props) => {
 
       <div>QUESTIONS & ANSWERS</div>
 
-      <RatingsAndReviews productID={currentProductId} />
+      <RatingsAndReviews productID={currentProductId} productName={productname} />
     </div>
   );
 };

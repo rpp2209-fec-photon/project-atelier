@@ -6,7 +6,7 @@ import Recommend from './miniComponents/Recommend.jsx';
 import CharactersInput from './miniComponents/CharactersInput.jsx'
 import ReviewTextInputs from './miniComponents/ReviewTextInputs.jsx'
 
-export default function NewReviewWindow({Visibility, setVisibility, characteristics}){
+export default function NewReviewWindow({Visibility, setVisibility, characteristics, productName}){
 
   var [Rating, setRating] = useState(0);
   var [recommend, setRecommend] = useState(true);
@@ -19,6 +19,7 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
 
         <div id='ReviewHeading'>
           <h1>Write Your Review</h1>
+          <h3>About the {productName}. </h3>
           <div id="NickNameAndEmail">
             <label htmlFor="NicknameInput">Nickname: </label>
             <input id="NicknameInput"></input>
