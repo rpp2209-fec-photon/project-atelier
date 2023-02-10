@@ -82,7 +82,7 @@ class AddtoCart extends React.Component {
                 <div onClick={this.handlenumberdisplay}><span>{this.state.number}</span><BsChevronDown className="ss" /></div>
                 <ul style={{ display: this.state.numberdisplacy }}>
                     {this.state.quantity.map((item) => {
-                        return <li key={this.state.skuid + item} value={item} onClick={this.selectQuantity}>{item}</li>
+                        return <li key={this.state.skuid + item} value={item} onClick={this.selectQuantity}><span>{item}</span></li>
                     })}
                 </ul>
 
