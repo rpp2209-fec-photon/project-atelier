@@ -181,10 +181,21 @@ td {
   Others
 */
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-.style {
-  width: 50px;
-  height: 50px;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  border: none;
+}
+
+
 
 ul,
 li {
@@ -194,26 +205,62 @@ li {
 }
 
 #styleselector {
-  width: 210px;
+  position: absolute;
+  width: 290px;
   display: flex;
   flex-wrap: wrap;
+  top: 15px;
 }
 
-#addtocart{
-  width: 284px;
-  position: relative;
+#productinfo {
+  position: absolute;
+  top: 0px;
+  left: 575px;
+}
+
+.prostar {
+  font-size: 10px;
+  text-decoration: underline;
+  height: 20px;
+  line-height: 20px;
+}
+
+.prostar .Rating {
   display: inline-block;
 }
-.quantity{
+
+#styles {
+  position: absolute;
+  top: 163px;
+  left: 575px;
+}
+
+.style1 {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+}
+
+.style {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin: 10px;
+  position: relative;
+}
+
+#addtocart {
+  width: 284px;
   position: absolute;
   display: inline-block;
-  top: 0;
-  right: 0px;
-  width: 88px;
-  height: 44px;
-  line-height: 44px;
-  border: 1px solid rgb(202, 188, 188);
+  height: 120px;
+  left: 575px;
+  top: 305px;
 }
+
+
+
 .selectSize {
   position: absolute;
   display: inline-block;
@@ -225,13 +272,75 @@ li {
   position: relative;
   text-align: center;
 }
-.selectSizelist{
-  position: absolute;
-  
+
+.selectSize span {
+  float: left;
+  margin-left: 20px;
 }
-.selectSizelistitem{
+
+.selectSizelist {
+  position: absolute;
+  z-index: 20;
+  top: 44px;
+
+}
+
+.quantity {
   position: absolute;
   display: inline-block;
+  top: 0;
+  right: 0px;
+  width: 88px;
+  height: 44px;
+  line-height: 44px;
+  border: 1px solid rgb(202, 188, 188);
+  cursor: pointer;
+  z-index: 40;
+}
+
+.quantity div {
+  width: 88px;
+  height: 44px;
+}
+
+.quantity div span {
+  float: left;
+  margin-left: 20px;
+}
+
+.quantity ul {
+  background-color: white;
+  position: absolute;
+  display: flex;
+  top: 45px;
+  right: -1px;
+  z-index: 40;
+}
+
+.quantity ul li {
+  background-color: white;
+  width: 88px;
+  height: 18px;
+  border: 1px solid rgb(202, 188, 188);
+  border-top: none;
+  line-height: 18px;
+}
+
+.quantity ul li span {
+  float: left;
+  margin-left: 20px;
+
+}
+
+.ss {
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.selectSizelistitem {
+  background-color: white;
+  display: flex;
   left: 0px;
   width: 177px;
   height: 30;
@@ -239,39 +348,85 @@ li {
   border: 1px solid rgb(202, 188, 188);
   border-top: none;
   cursor: pointer;
-  text-align: center;
 
+
+}
+
+.selectSizelistitem span {
+  background-color: white;
+  float: left;
+  margin-left: 30px;
+
+}
+
+
+.selectSizelistitem:first-child {
+  border: 1px solid rgb(202, 188, 188);
+}
+
+.addtobag {
+  position: relative;
+  border: 1px solid rgb(202, 188, 188);
+  height: 44px;
+  width: 224px;
+  top: 14px;
+  display: inline-block;
+  line-height: 44px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.addtobag span {
+  float: left;
+  margin-left: 20px;
+  height: 44px;
+}
+
+#galley {
+  position: absolute;
+  top: 0;
+}
+
+.bs {
+  float: right;
+  margin-top: 13px;
+  margin-right: 20px;
 }
 
 #imagegallery {
   position: absolute;
-  left: 400px;
-  width: 500px;
-  height: 500px;
-  top: 10px;
+  left: 0px;
+  width: 550px;
+  height: 430px;
+  top: 0px;
 }
 
 
 .thumbnail_url {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
 }
 
 .thumbnail_urlli {
-  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .thumbnail_urlul {
-  display: flex;
+  top: 30px;
+  left: 20px;
+  position: absolute;
   flex-flow: column;
   width: 51px;
+  height: 260px;
+  overflow: scroll;
 }
 
 .selected_image {
-  border: 1px black solid;
-  border-radius: 10px;
+  border: 1px yellow solid;
 }
 
 
@@ -282,6 +437,31 @@ li {
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+#RatingsAndReviews {
+  display: flex;
+  flex-direction: row;
+}
+
+.ReviewList {
+  max-width: 50%;
+
+  margin-left: 25%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ReviewTile {
+  border: 3px solid black;
+  border-radius: 5px;
+  aspect-ratio: 1.61803398875;
+  padding: 10px;
+
+  margin-bottom: 5px;
+  position: relative;
+}
+
 .NewReviewWindow {
   position: fixed;
   text-align: center;
@@ -306,55 +486,64 @@ li {
   margin: auto
 }
 
-.RatingBreakdown{
-  float: left;
+.RatingBreakdown {
   border: 3px solid black;
+  width: 100%;
 }
 
 .StarBreakdown {
   display: flex;
   flex-direction: row;
 }
-.PercBar{
-  display:flex;
+
+.PercBar {
+  display: flex;
   flex-direction: row;
-  width:100%;
+  width: 100%;
 }
+
 .Green {
   background-color: green;
 }
+
 .Gray {
   background-color: darkgray;
 }
-.Bar{
-  height: 25px;
+
+.Bar {
+  height: 20px;
 }
 
-.ReviewList {
-  float:right;
+.CharacterBreakdown {
+  width: 20%;
+}
 
-  position: relative;
-  max-width: 50%;
-
-  margin: auto;
-
+.CharacterBarHolder {
   display: flex;
-  flex-direction: column;
-}
-
-.ReviewTile {
-  border: 3px solid black;
-  border-radius: 5px;
-  aspect-ratio: 1.61803398875;
-  max-width: 80%;
-  padding: 10px;
-
-  margin-bottom: 5px;
+  flex-direction: row;
+  width: 200px;
   position: relative;
+}
 
+.BarSection {
+  width: 33%;
+  margin-right: 2px;
+}
 
+.Character.Bar {
+  width: 100%;
+  background-color: lightslategray;
+
+  height: 10px;
+}
+
+.CharacterIcon {
+  position: absolute;
 
 }
+
+
+
 
 
 .Review.Corner {

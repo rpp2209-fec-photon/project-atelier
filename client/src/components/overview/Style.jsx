@@ -1,6 +1,6 @@
 import React from "react";
 import { FaRegCheckCircle } from 'react-icons/fa'
-//FaRegCheckCircle
+
 class Style extends React.Component {
     constructor(props) {
         super(props)
@@ -10,8 +10,8 @@ class Style extends React.Component {
     }
 
     render() {
-        return <li index={this.props.index} onClick={this.changestyle}><img className="style" src={this.props.style.photos[0].thumbnail_url}></img>
-            {this.props.currentindex === this.props.index ? <FaRegCheckCircle /> : null}
+        return <li className="style" index={this.props.index} onClick={this.changestyle}><img style={{ height: '100%', width: '100%', borderRadius: "50%" }} src={this.props.style.photos[0].thumbnail_url}></img>
+            {this.props.currentindex === this.props.index ? <FaRegCheckCircle style={{ position: 'absolute', marginTop: '0px', right: '-4px', top: '-4px' }} /> : null}
         </li>
     }
 }

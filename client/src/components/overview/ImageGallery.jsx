@@ -1,4 +1,5 @@
 import React from "react";
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 class Imagegallery extends React.Component {
     constructor(props) {
@@ -37,18 +38,34 @@ class Imagegallery extends React.Component {
     }
 
     render() {
-        return (<div>
-            <ul className="thumbnail_urlul">{this.state.photolist.map((item, index) => {
-                return <li
-                    className={`${this.state.currentPhoto === index ? "selected_image" : ""}` + " " + "thumbnail_urlli"}
-                    index={index}
-                    key={item.thumbnail_url}
-                    onClick={this.setmainphoto}
-                >
-                    <img className="thumbnail_url" src={item.thumbnail_url} ></img></li>
-            })}</ul>
-            <div>{typeof this.state.currentPhoto === 'number' ? <img id="imagegallery" src={this.state.photolist[this.state.currentPhoto].url} alt="" /> : null}
-                <span id='toleft' onClick={this.changeimage}>left </span><span>|</span><span id='toright' onClick={this.changeimage}> right</span></div>
+        return (<div id='galley'>
+
+            <div id="imagegallery">{typeof this.state.currentPhoto === 'number' ? <img style={{ width: '100%', height: '100%' }} src={this.state.photolist[this.state.currentPhoto].url} alt="" /> : null}
+                <ul className="thumbnail_urlul">{this.state.photolist.map((item, index) => {
+                    return <li
+                        className={`${this.state.currentPhoto === index ? "selected_image" : ""}` + " " + "thumbnail_urlli"}
+                        index={index}
+                        key={item.thumbnail_url}
+                        onClick={this.setmainphoto}
+                    >
+                        <img className="thumbnail_url" src={item.thumbnail_url} ></img></li>
+                })}</ul>
+                <FaAngleLeft id='toleft'
+                    style={{
+                        fontSize: '50px',
+                        position: 'absolute',
+                        left: '60px',
+                        top: '160px',
+                        color: 'grey'
+                    }} onClick={this.changeimage} /><FaAngleRight id='toright'
+                    style={{
+                        fontSize: '50px',
+                        position: 'absolute',
+                        right: '30px',
+                        top: '160px',
+                        color: 'grey'
+                    }}
+                     onClick={this.changeimage}/> </div>
         </div>)
     }
 }
