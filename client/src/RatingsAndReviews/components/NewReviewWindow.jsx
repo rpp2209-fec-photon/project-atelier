@@ -4,6 +4,7 @@ import {useState} from 'react';
 import OverallRating from './miniComponents/OverallRating.jsx';
 import Recommend from './miniComponents/Recommend.jsx';
 import CharactersInput from './miniComponents/CharactersInput.jsx'
+import ReviewTextInputs from './miniComponents/ReviewTextInputs.jsx'
 
 export default function NewReviewWindow({Visibility, setVisibility, characteristics}){
 
@@ -15,13 +16,24 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
 
     return (
       <div className="NewReviewWindow" >
-        <h1>Write Your Review</h1>
+
+        <div id='ReviewHeading'>
+          <h1>Write Your Review</h1>
+          <div id="NickNameAndEmail">
+            <label htmlFor="NicknameInput">Nickname: </label>
+            <input id="NicknameInput"></input>
+            <label htmlFor="EmailInput">Email: </label>
+            <input type="email" id="EmailInput"></input>
+          </div>
+        </div>
 
         <div id="InputContainer">
           <div>
             <OverallRating Rating={Rating} setRating={setRating}/>
             <Recommend recommend={recommend} setRecommend={setRecommend}/>
             <CharactersInput characteristics={characteristics}/>
+            <ReviewTextInputs/>
+            <input type="file"></input>
           </div>
         </div>
 

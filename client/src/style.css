@@ -468,7 +468,7 @@ p.inputTitle{
 
 .NewReviewWindow {
   position: fixed;
-  text-align: center;
+
   left: 0;
   right: 0;
   top: 25%;
@@ -484,14 +484,39 @@ p.inputTitle{
   overflow: auto;
 }
 
+#ReviewHeading {
+  display: flex;
+  flex-direction: row;
+  position:relative;
+  text-align: center;
+}
+#NickNameAndEmail {
+  display:flex;
+  flex-direction: column;
+
+  position: absolute;
+  right:0;
+}
+
 #InputContainer{
   display:flex;
   flex-direction: row;
 }
 
-.Input {
+.InputArray {
   display:flex;
   flex-direction: row;
+}
+.Input {
+  display: flex;
+  flex-direction: column;
+  margin:5px;
+
+  background-color: lightgray;
+}
+
+.TextInput {
+  resize:none;
 }
 
 .RatingBreakdown{
