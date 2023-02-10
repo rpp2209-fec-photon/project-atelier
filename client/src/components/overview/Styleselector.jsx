@@ -21,8 +21,8 @@ class Styleselector extends React.Component {
         this.props.changestyle(style)
     }
     render() {
-        return (<div>
-            <div><span>style&gt;</span>{this.props.currentstyle}</div>
+        return (<div id="styles">
+            <div className="styles1"><span>style&gt;</span><span>{this.props.currentstyle}</span></div>
             <ul id="styleselector">{this.props.styles.map((item, index) => {
                 return <Style index={index} currentindex={this.state.currentindex} changestyle={this.changestyle} key={item.style_id} style={item} />
             })}</ul>
