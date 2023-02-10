@@ -15,11 +15,17 @@ export default function RatingsAndReviews ({productID}) {
   var [productReviews, setProductReviews] = useState({results:[]});
   var [reviewsShown, setReviewsShown] = useState(2);
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
+  var [characteristics, setCharacteristics] = useState({});
 
   useEffect(()=>{
     helpers.getReviews(1, 6, 'newest', productID)
     .then((reviews)=>{
       setProductReviews({...reviews.data});
+    }).then(()=>{
+      helpers.getMetaReviews(productID)
+      .then((data)=>{
+        setCharacteristics(data.data.characteristics);
+      });
     });
   }, []);
 
@@ -33,7 +39,7 @@ export default function RatingsAndReviews ({productID}) {
     <div id="RatingsAndReviews">
       <div>
         <RatingBreakdown productID={productID}/>
-        <ProductBreakdown productID={productID}/>
+        <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>
     <div className="ReviewList">
 
@@ -52,7 +58,7 @@ export default function RatingsAndReviews ({productID}) {
       <button onClick={showMoreReviews}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
     </div>
-    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility}/>
+    <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics}/>
 
     </div>
   );

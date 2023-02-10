@@ -273,9 +273,6 @@ li {
   border: 1px black solid;
   border-radius: 10px;
 }
-p.inputTitle{
-  display: inline-block;
-}
 
 
 
@@ -285,6 +282,10 @@ p.inputTitle{
 /*overview>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 /*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+p.inputTitle{
+  display: inline-block;
+}
 
 #RatingsAndReviews {
   display:flex;
@@ -324,15 +325,20 @@ p.inputTitle{
   max-width: 50%;
   border: 3px solid black;
   background-color: whitesmoke;
+
+  overflow: auto;
 }
 
-.ReviewInput {
-  width: 90%;
-  max-width: 90%;
-  height: 70%;
-
-  margin: auto
+#InputContainer{
+  display:flex;
+  flex-direction: row;
 }
+
+.Input {
+  display:flex;
+  flex-direction: row;
+}
+
 
 .RatingBreakdown{
   border: 3px solid black;
