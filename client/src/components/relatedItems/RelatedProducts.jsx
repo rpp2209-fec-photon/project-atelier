@@ -14,7 +14,6 @@ const RelatedProducts = (props) => {
   const [currentProductMetadata, setCurrentProductMetadata] = useState({});
 
   const getRelatedProductIds = (id) => {
-    console.log(id);
     Helpers.getRelatedProducts(id)
     .then((res) => {
       setRelatedProductIds(Array.from(new Set(res.data))); // Convert to Set and back to Array to handle duplicate
