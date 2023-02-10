@@ -1,45 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
-const Carousel = (props) => {
+const Carousel = ({ children, itemsToShow = 4 }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const items = React.Children.toArray(children);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slides, setSlides] = useState(4);
-  const {children} = props;
+  const handlePrevious = () => {
+    setCurrentSlide(currentSlide - 1);
+  };
 
-  const prev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  }
-
-  const next = () => {
-    if (currentIndex < children.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  }
+  const handleNext = () => {
+    setCurrentSlide(currentSlide + 1);
+  };
 
   return (
     <div className='carousel-container'>
-      { currentIndex > 0 &&
-        <button className='nav prev' onClick={prev}>
-          &lt;
-        </button>
-      }
+      <button className={`nav prev ${currentSlide <= 0 ? 'hidden' : ''}`}  onClick={handlePrevious}> &lt; </button>
       <div className='carousel-slides'>
-        {children.map((child, index) => {
-          if (index >= currentIndex && index < currentIndex + slides) {
-            return child;
-          }
-        })}
+        {items.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              display: index >= currentSlide && index < currentSlide + itemsToShow ? "inline-block" : "none",
+              padding: "0 10px"
+            }}
+          >
+            {item}
+          </div>
+        ))}
       </div>
-      { currentIndex < children.length - slides &&
-        <button className='nav next' onClick={next}>
-          &gt;
-        </button>
-      }
+      <button className={`nav next ${(currentSlide + itemsToShow) >= items.length ? 'hidden' : ''}`} onClick={handleNext}> &gt; </button>
     </div>
-
-  )
-}
+  );
+};
 
 export default Carousel;
