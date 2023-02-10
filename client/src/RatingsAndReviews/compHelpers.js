@@ -21,7 +21,6 @@ helpers.setStars = (Rating)=>{
 
   return stars;
 };
-
 helpers.getAverage = (obj)=>{
   var totalStars = 0;
   var totalRatings = 0;
@@ -46,17 +45,31 @@ helpers.getTotalReviews = (obj)=>{
 helpers.getDescriptors = (characteristics)=>{
   switch (characteristics) {
     case 'Size':
-      return ['A size too small', 'A size too wide'];
+      return ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'];
     case 'Fit':
-      return ['Runs tight', 'Runs long'];
+      return ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long'];
     case 'Length':
-      return ['Runs short', 'Runs long'];
+      return ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'];
     case 'Quality':
-      return ['Poor', 'Perfect'];
+      return ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'];
     case 'Comfort':
-      return ['Poor', 'Perfect'];
+      return ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'];
     case 'Width':
-      return ['Too narrow', 'Too wide'];
+      return ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'];
+  }
+};
+
+helpers.starText = (Rating)=>{
+  if (Rating === 1) {
+    return "Poor"
+  } else if (Rating === 2) {
+    return "Fair"
+  } else if (Rating === 3) {
+    return "Average"
+  } else if (Rating === 4) {
+    return "Good"
+  } else if (Rating === 5) {
+    return "Great"
   }
 };
 

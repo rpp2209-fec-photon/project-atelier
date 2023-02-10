@@ -3,19 +3,11 @@ import {useState, useEffect} from 'react';
 
 import CharacterBreakdown from './miniComponents/CharacterBreakdown.jsx';
 
-import {getMetaReviews} from '../../../helpers/helpers.js';
 
-export default function ProductBreakdown ({productID}){
-
-  var [characteristics, setCharacteristics] = useState({});
+export default function ProductBreakdown ({productID, characteristics}){
 
 
-  useEffect(()=>{
-    getMetaReviews(productID)
-    .then((data)=>{
-      setCharacteristics(data.data.characteristics);
-    });
-  }, [productID]);
+
 
   return (
     <div className="CharacterBreakdown">

@@ -9,7 +9,6 @@ export default function PercBar ({ratingCount, numOfRatings}){
     <div className="PercBar">
       <div className="Green Bar" style={{width: `${ratingCount}%`}}></div>
       <div className="Gray Bar" style={{width: `${ numOfRatings - ratingCount}%`}}></div>
-      <p>{ratingCount}</p>
     </div>
   );
 };
