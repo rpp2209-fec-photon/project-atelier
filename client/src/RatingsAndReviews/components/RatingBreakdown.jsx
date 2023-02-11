@@ -29,7 +29,27 @@ export default function RatingBreakdown ({productID, ratingFilter, setRatingFilt
     <div className="RatingBreakdown">
       <h3>Product Breakdown</h3>
       <AveRating averageRating={averageRating} numOfRatings={numOfRatings}/>
+      <FilterMenu ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
       <Breakdown ratings={ratings} numOfRatings={numOfRatings} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
     </div>
   );
+};
+
+var FilterMenu = ({ratingFilter, setRatingFilter})=>{
+
+  if (ratingFilter.length > 0) {
+
+    return (
+      <div>
+        <p>Current filters:</p>
+        {ratingFilter.map((rating)=>{
+          return (
+            <p key={rating}>{rating}</p>
+          )
+        })}
+        <button onClick={()=>{setRatingFilter([])}}>Remove all filters</button>
+      </div>
+
+    );
+  }
 };
