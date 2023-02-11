@@ -178,17 +178,17 @@ Helpers.addReview = (review)=>{
 
 }
 
-Helpers.markAsHelpful = (product_id)=>{
+Helpers.markAsHelpful = (review_id)=>{
 
   return new Promise ((fulfill, reject)=>{
-    if (product_id === undefined) {
+    if (review_id === undefined) {
       reject('no product_id provided');
     } else {
       //make the url
-      var requestUrl = url + `reviews/:review_id/helpful`;
+      var requestUrl = url + `reviews/${review_id}/helpful`;
 
       //generate the get request to the URL
-      axios.put(requestUrl, product_id)
+      axios.put(requestUrl)
       .then(fulfill)
       .catch(reject);
     }
@@ -203,7 +203,7 @@ Helpers.reportReview = (review_id)=>{
       reject('no review_id provided');
     } else {
       //make the url
-      var requestUrl = url + `reviews/:review_id/report`;
+      var requestUrl = url + `reviews/${review_id}/report`;
 
       //generate the get request to the URL
       axios.put(requestUrl, review_id)

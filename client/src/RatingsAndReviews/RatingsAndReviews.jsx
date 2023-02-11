@@ -50,7 +50,7 @@ export default function RatingsAndReviews ({productID, productName}) {
           if (index < reviewsShown) {
             return (
               <div className="ReviewTile" key={index}>
-              <ReviewTile Review={review} key={index}/>
+                <ReviewTile Review={review} key={index} productID={productID}/>
               </div>
               );
           }
