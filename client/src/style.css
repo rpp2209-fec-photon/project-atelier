@@ -438,6 +438,10 @@ li {
 
 /*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
+p.inputTitle{
+  display: inline-block;
+}
+
 #RatingsAndReviews {
   display: flex;
   flex-direction: row;
@@ -464,7 +468,7 @@ li {
 
 .NewReviewWindow {
   position: fixed;
-  text-align: center;
+
   left: 0;
   right: 0;
   top: 25%;
@@ -476,17 +480,46 @@ li {
   max-width: 50%;
   border: 3px solid black;
   background-color: whitesmoke;
+
+  overflow: auto;
 }
 
-.ReviewInput {
-  width: 90%;
-  max-width: 90%;
-  height: 70%;
+#ReviewHeading {
+  display: flex;
+  flex-direction: row;
+  position:relative;
+  text-align: center;
+}
+#NickNameAndEmail {
+  display:flex;
+  flex-direction: column;
 
-  margin: auto
+  position: absolute;
+  right:0;
 }
 
-.RatingBreakdown {
+#InputContainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.InputArray {
+  display:flex;
+  flex-direction: row;
+}
+.Input {
+  display: flex;
+  flex-direction: column;
+  margin:5px;
+
+  background-color: lightgray;
+}
+
+.TextInput {
+  resize:none;
+}
+
+.RatingBreakdown{
   border: 3px solid black;
   width: 100%;
 }

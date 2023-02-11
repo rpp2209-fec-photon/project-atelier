@@ -8,7 +8,7 @@ export default function CharacterBreakdown ({character, id, value}){
   return (
     <div>
       <h3>{character}</h3>
-       <CharacterBar value={value} low={getDescriptors(character)[0]} high={getDescriptors(character)[1]}/>
+       <CharacterBar value={value} low={getDescriptors(character)[0]} high={getDescriptors(character)[4]}/>
 
     </div>
   );

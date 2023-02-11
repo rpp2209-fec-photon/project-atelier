@@ -16,6 +16,7 @@ export default function ({ratings, numOfRatings}){
           <div key={num} className="StarBreakdown">
             <h3>{num}</h3>
             <PercBar ratingCount={ratings[num]} numOfRatings={numOfRatings}/>
+            <p>{ratings[num]}</p>
           </div>
         );
       })}
