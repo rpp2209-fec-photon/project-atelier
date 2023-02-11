@@ -12,19 +12,21 @@ import helpers from '../../helpers/helpers.js';
 export default function RatingsAndReviews ({productID, productName}) {
 
   var [sort, setSort] = useState('newest');
+  var [ratingFilter, setRatingFilter] = useState([]);
 
   var [productReviews, setProductReviews] = useState({results:[]});
-  var [reviewsShown, setReviewsShown] = useState(2);
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   var [characteristics, setCharacteristics] = useState({});
-
   var page = useRef(1);
+  var [reviewsShown, setReviewsShown] = useState(2);
 
   useEffect(()=>{
     console.log(productID);
-    helpers.getReviews(page.current, 6, sort, productID)
+    helpers.getReviews(1, 6, sort, productID)
     .then((reviews)=>{
+      console.log(reviews.data);
       setProductReviews({...reviews.data});
+      setReviewsShown(2);
     }).then(()=>{
       helpers.getMetaReviews(productID)
       .then((data)=>{
@@ -33,15 +35,15 @@ export default function RatingsAndReviews ({productID, productName}) {
     });
   }, [productID, sort]);
 
-  var showMoreReviews = ()=>{
-    if (reviewsShown % 6 !== 0) {
-      setReviewsShown(reviewsShown + 2);
-    } else if (reviewsShown % 6 === 0) {
-      page.current ++;
-      helpers.getReviews(page.current, 6, sort, productID)
+  var showMoreReviews = (increment)=>{
+
+    setReviewsShown(reviewsShown+increment);
+
+    if (reviewsShown % 6 === 0 ) {
+      console.log('running');
+      helpers.getReviews(1, productReviews.results.length + increment, sort, productID)
       .then((reviews)=>{
-        setProductReviews({...productReviews, results: productReviews.results.concat(reviews.data.results)});
-        setReviewsShown(reviewsShown + 2);
+        setProductReviews({...reviews.data});
       });
     }
   };
@@ -51,7 +53,7 @@ export default function RatingsAndReviews ({productID, productName}) {
 
     <div id="RatingsAndReviews">
       <div>
-        <RatingBreakdown productID={productID}/>
+        <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
         <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>
       <SortReviews setSort={setSort}/>
@@ -61,16 +63,38 @@ export default function RatingsAndReviews ({productID, productName}) {
         productReviews.results.map((review, index)=>{
 
           if (index < reviewsShown) {
-            console.log(review);
-            return (
-              <div className="ReviewTile" key={index}>
-                <ReviewTile Review={review} key={index} productID={productID}/>
-              </div>
-              );
+            //if we have filters
+            if (ratingFilter.length > 0) {
+              var show = false;
+              for (var x = 0; x < ratingFilter.length; x++) {
+                if (review.rating === ratingFilter[x]) {
+                  show = true;
+                }
+              }
+
+              if (show) {
+                return (
+                  <div className="ReviewTile" key={index}>
+                    <ReviewTile Review={review} key={index} productID={productID}/>
+                  </div>
+                  );
+              } else {
+                //showMoreReviews(1);
+              }
+            }
+            //when we don't have filters
+            else {
+              return (
+                <div className="ReviewTile" key={index}>
+                  <ReviewTile Review={review} key={index} productID={productID}/>
+                </div>
+                );
+            }
           }
+
         })
       }
-      <button onClick={showMoreReviews}>More Reviews</button>
+      <button onClick={()=>{showMoreReviews(2)}}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
     </div>
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics} productName={productName}/>

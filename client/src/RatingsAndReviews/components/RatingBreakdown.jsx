@@ -11,7 +11,7 @@ show the average rating as number and with stars
 
 
 */
-export default function RatingBreakdown ({productID}){
+export default function RatingBreakdown ({productID, ratingFilter, setRatingFilter}){
 
   var [ratings, setRatings] = useState({});
   var [averageRating, setAverageRating] = useState(0);
@@ -29,7 +29,7 @@ export default function RatingBreakdown ({productID}){
     <div className="RatingBreakdown">
       <h3>Product Breakdown</h3>
       <AveRating averageRating={averageRating} numOfRatings={numOfRatings}/>
-      <Breakdown ratings={ratings} numOfRatings={numOfRatings}/>
+      <Breakdown ratings={ratings} numOfRatings={numOfRatings} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
     </div>
   );
 };
