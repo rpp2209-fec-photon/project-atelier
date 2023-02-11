@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import Card from "./Card.jsx";
 import Helpers from '../../../helpers/helpers.js';
 import Carousel from './Carousel.jsx';
+import {getProductData} from './controllers/index.js';
 
 const RelatedProducts = (props) => {
 
@@ -22,20 +23,6 @@ const RelatedProducts = (props) => {
     })
   };
 
-  const getCurrentProductData = (id) => {
-    Helpers.getProductInfo(id)
-    .then((res) => {
-      setCurrentProductInfo(res.data);
-      return Helpers.getMetaReviews(id);
-    })
-    .then((res) => {
-      setCurrentProductMetadata(res.data);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  };
-
   const distributeCards = (productId, index) => (
     <Card
       key={index}
@@ -44,12 +31,17 @@ const RelatedProducts = (props) => {
       setCurrentProductId={setCurrentProductId}
       currentProductInfo={currentProductInfo}
       currentProductMetadata={currentProductMetadata}
+      getProductData={getProductData}
     />
   );
 
   useEffect(() => {
     getRelatedProductIds(currentProductId);
-    getCurrentProductData(currentProductId);
+    getProductData(currentProductId)
+    .then((res) => {
+      setCurrentProductInfo(res[1].data);
+      setCurrentProductMetadata(res[2].data);
+    });
   }, [currentProductId]);
 
   return (

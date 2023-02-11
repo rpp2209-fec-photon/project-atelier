@@ -2,70 +2,17 @@
 * @jest-environment jsdom
 */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {rest} from 'msw';
 import {setupServer} from 'msw/node';
+import {handlers} from './handlers.js';
 
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Card from '../Card.jsx';
 
-const server = setupServer(
-  rest.get('http://localhost:3000/products/12345/styles/', (req, res, ctx) => {
-    let styles = {
-      product_id: 12345,
-      results: [
-        {
-          'default?': true,
-          photos: [
-            {url: 'img-url'}
-          ],
-          name: 'style name',
-          original_price: '69.00',
-          sale_price: '45:00'
-        }
-      ]
-    }
-    return res(ctx.json(styles))
-  }),
-  rest.get('http://localhost:3000/products/54321/styles/', (req, res, ctx) => {
-    let styles = {
-      product_id: 54321,
-      results: [
-        {
-          'default?': true,
-          photos: [
-            {url: 'img-url'}
-          ],
-          name: 'style name',
-          original_price: '100.00',
-          sale_price: null
-        }
-      ]
-    }
-    return res(ctx.json(styles))
-  }),
-  rest.get('http://localhost:3000/reviews/meta/?product_id=12345', (req, res, ctx) => {
-    return res(ctx.json({
-      ratings: {1: 22, 2: 1, 3: 8, 4: 17, 5: 0},
-    }));
-  }),
-  rest.get('http://localhost:3000/products/12345/', (req, res, ctx) => {
-    let info = {
-      "name":"Bright Future Sunglasses",
-      "category":"Accessories",
-    }
-    return res(ctx.json(info));
-  }),
-  rest.get('http://localhost:3000/products/54321/', (req, res, ctx) => {
-    let info = {
-      "name":"Power Stone",
-      "category":"Cosmic",
-    }
-    return res(ctx.json(info));
-  }),
-);
+const server = setupServer(...handlers);
 
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
@@ -100,7 +47,7 @@ test('Card component category and name', async () => {
   const {container} = render(<Card productId={12345} />);
   await waitFor(() => {
     expect(screen.getByText(/accessories/i)).toBeInTheDocument();
-    expect(screen.getByText(/Bright Future Sunglasses/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Bright Future Sunglasses/i)[0]).toBeInTheDocument();
   });
 });
 
@@ -130,4 +77,35 @@ test('Card component Rating', async () => {
     expect(stars[5]).toHaveAttribute('src', '../../../resources/emptyStar.png');
   });
 });
+
+test('When card is clicked, currentProductId should be updated', async () => {
+  const App = () => {
+    const [currentProductId, setCurrentProductId] = useState(54321);
+    return (
+      <>
+        <div>{currentProductId}</div>
+        <Card productId={12345} setCurrentProductId={setCurrentProductId} />
+      </>
+    )
+  }
+  const {container} = render(<App/>);
+  await waitFor(() => {
+    const card = container.querySelector("[class='card']");
+    fireEvent.click(card);
+    expect(screen.getByText(/12345/i)).toBeInTheDocument();
+  })
+});
+
+test('Open and close comparison modal', async () => {
+  const {container} = render(<Card productId={12345} parent={'related'} />);
+  await waitFor(() => {
+    const actionBtn = container.querySelector("[class='card-btn']");
+    fireEvent.click(actionBtn);
+    const modalShow = container.querySelector("[class='modal show'");
+    expect(modalShow).toBeInTheDocument();
+    fireEvent.click(modalShow)
+    expect(container.querySelector("[class='modal hide'")).toBeInTheDocument();
+  });
+});
+
 
