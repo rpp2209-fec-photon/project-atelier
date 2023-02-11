@@ -10,7 +10,7 @@ import {handlers} from './handlers.js';
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import RelatedProducts from '../RelatedProducts.jsx';
+import Carousel from '../Carousel.jsx';
 
 const server = setupServer(...handlers);
 
@@ -18,9 +18,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('RelatedProducts component', async () => {
-  const {constainer} = render(<RelatedProducts currentProductId={54321} />);
-  await waitFor(() => {
-    expect(screen.getByText(/accessories/i)).toBeInTheDocument();
-  })
-});
+test('should render Carousel correctly', async () => {
+  const dummyEl = <></>
+  const {container} = render(<Carousel/>);
+  expect(container.querySelector("[class='carousel-container']")).toBeInTheDocument();
+  expect(screen.getAllByRole('button').length).toBe(2);
+  expect(container.querySelector("[class='carousel-slides']"));
+})
