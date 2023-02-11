@@ -6,7 +6,6 @@ import StarRating from './miniComponents/StarRating.jsx';
 
 export default function ReviewTile ({ Review , productID}) {
 
-  console.log(Review);
 
   var [voted, setVoted] = useState(false);
   var [helpfulness, setHelpfulness] = useState(Review.helpfulness);

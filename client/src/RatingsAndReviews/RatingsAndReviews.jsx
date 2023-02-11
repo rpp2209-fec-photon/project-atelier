@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import ReviewTile from './components/ReviewTile.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import NewReviewWindow from './components/NewReviewWindow.jsx';
@@ -16,10 +16,11 @@ export default function RatingsAndReviews ({productID, productName}) {
   var [reviewsShown, setReviewsShown] = useState(2);
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   var [characteristics, setCharacteristics] = useState({});
+  var page = useRef(1);
 
   useEffect(()=>{
     console.log(productID);
-    helpers.getReviews(1, 6, 'newest', productID)
+    helpers.getReviews(page.current, 6, 'newest', productID)
     .then((reviews)=>{
       setProductReviews({...reviews.data});
     }).then(()=>{
@@ -31,7 +32,16 @@ export default function RatingsAndReviews ({productID, productName}) {
   }, [productID]);
 
   var showMoreReviews = ()=>{
-    setReviewsShown(reviewsShown + 2);
+    if (reviewsShown % 6 !== 0) {
+      setReviewsShown(reviewsShown + 2);
+    } else if (reviewsShown % 6 === 0) {
+      page.current ++;
+      helpers.getReviews(page.current, 6, 'newest', productID)
+      .then((reviews)=>{
+        setProductReviews({...productReviews, results: productReviews.results.concat(reviews.data.results)});
+        setReviewsShown(reviewsShown + 2);
+      });
+    }
   };
 
 
@@ -48,6 +58,7 @@ export default function RatingsAndReviews ({productID, productName}) {
         productReviews.results.map((review, index)=>{
 
           if (index < reviewsShown) {
+
             return (
               <div className="ReviewTile" key={index}>
                 <ReviewTile Review={review} key={index} productID={productID}/>
