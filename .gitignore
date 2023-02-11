@@ -3,3 +3,4 @@ dist
 config.js
 coverage
 .DS_Store
+.env
