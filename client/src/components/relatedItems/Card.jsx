@@ -43,7 +43,7 @@ const Card = (props) => {
       setProductInfo(res[1].data);
       setProductMetadata(res[2].data);
     })
-    .catch((err) => {
+    .catch((error) => {
       console.error(error);
     })
   }, [productId]);
