@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ReviewDate from './miniComponents/ReviewDate.jsx';
 import ReviewImages from './miniComponents/ReviewImages.jsx';
 import StarRating from './miniComponents/StarRating.jsx';
 
@@ -20,5 +19,18 @@ export default function ReviewTile ({ Review }) {
     <p className="Review Helpfulness">Helpfulness: {Review.helpfulness}</p>
     <ReviewImages Images={Review.photos}/>
     </>
+  );
+};
+
+
+
+var ReviewDate = ({Date}) => {
+
+  var monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var year = Date.substring(0, 4);
+  var month = Date.substring(5, 7);
+  var day = Date.substring(8, 10);
+  return (
+    <p className="Review Date">{monthsList[parseInt(month)-1] + ' ' + day + ', ' + year}</p>
   );
 };
