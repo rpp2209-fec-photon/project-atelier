@@ -370,5 +370,19 @@ Helpers.reportAnswer = (answer_id)=>{
   });
 }
 
+Helpers.postInteraction = (click) => {
+  return new Promise ((res, rej) => {
+    if (click === undefined) {
+      rej('no interaction provided');
+    } else {
+      let requestUrl = url + 'interactions';
+      console.log(click);
+      axios.post(requestUrl, click)
+      .then(res)
+      .catch(rej);
+    }
+  });
+}
+
 
 module.exports = Helpers;

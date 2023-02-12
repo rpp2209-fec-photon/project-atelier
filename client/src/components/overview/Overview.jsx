@@ -82,7 +82,7 @@ class Overview extends Component {
         }
     }
     render() {
-        return (<div style={{position:'relative',height:'600px',width:'1000px'}}>
+        return (<div id='overview' style={{position:'relative',height:'600px',width:'1000px'}}>
             <ProductInfo productname={this.state.productname}
                 original_price={this.state.original_price}
                 reviewsum={this.state.reviewsum}

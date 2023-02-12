@@ -5,8 +5,11 @@ import Overview from "./overview/Overview.jsx";
 import RatingsAndReviews from '../RatingsAndReviews/RatingsAndReviews.jsx';
 import Helpers from '../../helpers/helpers.js';
 import MyOutfits from './relatedItems/localStorage/index.js';
+import useClickTracker from './useClickTracker.jsx';
 
 const App = (props) => {
+
+  useClickTracker();
 
   const [currentProductId, setCurrentProductId] = useState(0);
   const [outFitList, settOutFitList] = useState([71698, 71699])
@@ -54,18 +57,20 @@ const App = (props) => {
         handleAddOutfit={handleAddOutfit}
       />
 
-      <RelatedProducts
-        currentProductId={currentProductId}
-        setCurrentProductId={setCurrentProductId}
-      />
+      <div id='related-products'>
+        <RelatedProducts
+          currentProductId={currentProductId}
+          setCurrentProductId={setCurrentProductId}
+        />
 
-      <YourOutfit
-        currentProductId={currentProductId}
-        setCurrentProductId={setCurrentProductId}
-        outfitIds={outfitIds}
-        setOutfitIds={setOutfitIds}
-        handleAddOutfit={handleAddOutfit}
-      />
+        <YourOutfit
+          currentProductId={currentProductId}
+          setCurrentProductId={setCurrentProductId}
+          outfitIds={outfitIds}
+          setOutfitIds={setOutfitIds}
+          handleAddOutfit={handleAddOutfit}
+        />
+      </div>
 
       <div>QUESTIONS & ANSWERS</div>
 
