@@ -19,8 +19,10 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test('RelatedProducts component', async () => {
-  const {constainer} = render(<RelatedProducts currentProductId={54321} />);
+  const {container} = render(<RelatedProducts currentProductId={54321} />);
   await waitFor(() => {
+    expect(screen.getByText(/related products/i)).toBeInTheDocument();
+    expect(container.querySelector)
     expect(screen.getByText(/accessories/i)).toBeInTheDocument();
   })
 });

@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 var Helpers = {};
-var url = `http://localhost:3000/`;
+var url = `/`;
 
 /*
 

@@ -1,12 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const logger = require('./middlewares/logger.js');
-const AUTH_TOKEN = require('../server/env/config.js');
 
 const app = express();
-const port = 3000;
-const API = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
+const port = process.env.PORT;
+const API = process.env.API;
+const AUTH_TOKEN = process.env.AUTH_TOKEN;
 
 // Set default url and header with api key for axios requests
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;

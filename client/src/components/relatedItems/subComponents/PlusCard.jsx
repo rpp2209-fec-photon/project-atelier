@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 const img = './resources/plus.png';
 
 const PlusCard = (props) => {
