@@ -28,9 +28,11 @@ app.get('/favicon.ico', (req, res) => {
 app.all('/*', (req, res) => {
   let endpoint = req.url;
   let method = req.method;
+  let body = req.body;
   axios({
     method: method,
     url: `${API}${endpoint}`,
+    data: body ? body : undefined
   })
   .then((response) => {
     res.json(response.data);
