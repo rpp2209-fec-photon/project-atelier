@@ -445,10 +445,11 @@ p.inputTitle{
 #RatingsAndReviews {
   display: flex;
   flex-direction: row;
+  padding: 5%;
 }
 
 .ReviewList {
-  max-width: 50%;
+  width: 50%;
   height: 500px;
   margin-left: 25%;
 

@@ -52,13 +52,13 @@ export default function RatingsAndReviews ({productID, productName}) {
   return (
 
     <div id="RatingsAndReviews">
-      <div>
+      <div id="LeftMenu">
         <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
         <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>
-      <SortReviews setSort={setSort}/>
-    <div className="ReviewList">
 
+    <div className="ReviewList">
+      <SortReviews setSort={setSort}/>
       {
         productReviews.results.map((review, index)=>{
 
