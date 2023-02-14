@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ReviewImages ({Images}){
+export default function ReviewImages ({Images, setImageURL, setImageZoomVisibility}){
   if (Images.length > 0) {
     return (
       <div className="Review ImagesList">
@@ -8,7 +8,7 @@ export default function ReviewImages ({Images}){
         {
           Images.map((photoInfo, index)=>{
             return (
-              <img className="Review Image" src={`${photoInfo.url}`} key={index}></img>
+              <img className="Review Image" src={`${photoInfo.url}`} key={index} onClick={()=>{ setImageURL(photoInfo.url); setImageZoomVisibility('show')}}></img>
             );
           })
         }

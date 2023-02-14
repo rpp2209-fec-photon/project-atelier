@@ -4,7 +4,7 @@ import ReviewImages from './miniComponents/ReviewImages.jsx';
 import StarRating from './miniComponents/StarRating.jsx';
 
 
-export default function ReviewTile ({ Review , productID}) {
+export default function ReviewTile ({ Review , productID, setImageURL, setImageZoomVisibility }) {
 
 
   var [voted, setVoted] = useState(false);
@@ -12,16 +12,19 @@ export default function ReviewTile ({ Review , productID}) {
 
   return (
     <>
-    <div className="Review Corner">
-      <ReviewDate Date={Review.date}/>
-      <StarRating Rating={Review.rating}/>
+    <div className="TileHeader">
+      <div className="Review Corner">
+        <ReviewDate Date={Review.date}/>
+        <StarRating Rating={Review.rating}/>
+        <Recommend recommended={Review.recommend}/>
+      </div>
+
+      <p className="Review Summary">{Review.summary}</p>
+      <p className="Review Name">{Review.reviewer_name}</p>
     </div>
 
-    <p className="Review Summary">{Review.summary}</p>
-    <p className="Review Name">{Review.reviewer_name}</p>
-    <Recommend recommended={Review.recommend}/>
     <p className="Review Body"> {Review.body}</p>
-    <ReviewImages Images={Review.photos}/>
+    <ReviewImages Images={Review.photos} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
     <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
 
     </>

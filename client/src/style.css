@@ -464,12 +464,33 @@ p.inputTitle{
   border: 3px solid black;
   border-radius: 5px;
   aspect-ratio: 1.61803398875;
-  padding: 10px;
 
   margin-bottom: 5px;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
+.TileHeader {
+  background-color: lightgray;
+  border: 10px solid lightgray;
+}
+
+#ZoomedImageWindow{
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  top:15%;
+  margin:auto;
+  height: 70%;
+  width: 70%;
+}
+.ZoomedImage {
+  height:100%;
+  width:100%;
+}
 .NewReviewWindow {
   position: fixed;
 

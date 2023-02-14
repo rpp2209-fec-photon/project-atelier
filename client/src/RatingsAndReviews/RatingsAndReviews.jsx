@@ -1,21 +1,24 @@
 import React from 'react';
 import {useState, useEffect, useRef} from 'react';
+
 import ReviewTile from './components/ReviewTile.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import NewReviewWindow from './components/NewReviewWindow.jsx';
 import RatingBreakdown from './components/RatingBreakdown.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
-
+import ImageZoom from './components/miniComponents/ImageZoom.jsx';
 import helpers from '../../helpers/helpers.js';
 
 
 export default function RatingsAndReviews ({productID, productName}) {
 
-  var [sort, setSort] = useState('newest');
+  var [sort, setSort] = useState('relevant');
   var [ratingFilter, setRatingFilter] = useState([]);
 
   var [productReviews, setProductReviews] = useState({results:[]});
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
+  var [ImageZoomVisibility, setImageZoomVisibility] = useState('hidden');
+  var [imageURL, setImageURL] = useState('');
   var [characteristics, setCharacteristics] = useState({});
   var page = useRef(1);
   var [reviewsShown, setReviewsShown] = useState(2);
@@ -75,7 +78,7 @@ export default function RatingsAndReviews ({productID, productName}) {
               if (show) {
                 return (
                   <div className="ReviewTile" key={index}>
-                    <ReviewTile Review={review} key={index} productID={productID}/>
+                    <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
                   </div>
                   );
               } else {
@@ -86,7 +89,7 @@ export default function RatingsAndReviews ({productID, productName}) {
             else {
               return (
                 <div className="ReviewTile" key={index}>
-                  <ReviewTile Review={review} key={index} productID={productID}/>
+                  <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
                 </div>
                 );
             }
@@ -98,7 +101,7 @@ export default function RatingsAndReviews ({productID, productName}) {
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
     </div>
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics} productName={productName}/>
-
+    <ImageZoom Visibility={ImageZoomVisibility} setVisibility={setImageZoomVisibility} imageURL={imageURL}/>
     </div>
   );
 };
