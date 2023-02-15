@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const logger = require('./middlewares/logger.js');
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT;
@@ -14,6 +15,10 @@ axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// add compression middleware
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // log incoming request type and url
@@ -42,7 +47,6 @@ app.all('/*', (req, res) => {
     res.sendStatus(501);
   })
 });
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

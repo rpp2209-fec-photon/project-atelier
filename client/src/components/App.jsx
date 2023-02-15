@@ -72,8 +72,6 @@ const App = (props) => {
         />
       </div>
 
-      <div>QUESTIONS & ANSWERS</div>
-
       <RatingsAndReviews productID={currentProductId} productName={productname} />
     </div>
   );
