@@ -32,7 +32,8 @@ class Overview extends Component {
         })
     }
     checkoutfitList = () => {
-        return this.props.checkoutfitList(this.state.currentProductId)
+        console.log(this.state.currentProductId)
+        return this.props.handleAddOutfit(this.state.currentProductId)
     }
     componentDidMount() {
         this.setState({
@@ -61,9 +62,9 @@ class Overview extends Component {
                         ave = -1
                     }
                     //handle outfitlist
-                    if (this.props.outFitList.indexOf(this.props.currentProductId) !== -1) {
-                        a = true
-                    }
+                    // if (this.props.outFitList.indexOf(this.props.currentProductId) !== -1) {
+                    //     a = true
+                    // }
                     //handle style
                     const results = res[1].results[0]
                     this.setState({
@@ -76,13 +77,13 @@ class Overview extends Component {
                         productname: res[0].name,
                         ratings: ave,
                         reviewsum: reviewsum,
-                        inoutfit: a
+                        inoutfit: false
                     })
                 })
         }
     }
     render() {
-        return (<div id='overview' style={{position:'relative',height:'600px',width:'1000px'}}>
+        return (<div id='overview' style={{ position: 'relative', height: '600px', width: '1000px' }}>
             <ProductInfo productname={this.state.productname}
                 original_price={this.state.original_price}
                 reviewsum={this.state.reviewsum}
@@ -91,7 +92,7 @@ class Overview extends Component {
             />
             <Styleselector currentstyle={this.state.currentstyle}
                 styles={this.state.styles} changestyle={this.changestyle} />
-            <AddtoCart skus={this.state.skus} inoutfit={this.state.inoutfit} checkoutfitList={this.checkoutfitList}/>
+            <AddtoCart skus={this.state.skus} inoutfit={this.state.inoutfit} checkoutfitList={this.checkoutfitList} />
             <Imagegallery photolist={this.state.photolist} />
         </div>)
     }

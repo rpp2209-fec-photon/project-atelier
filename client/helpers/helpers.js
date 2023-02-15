@@ -20,9 +20,9 @@ http://example.com/page?parameter=value&also=another
 //count: how many results per page to return (Default 5)
 
 
-Helpers.getProducts = (page, count)=>{
+Helpers.getProducts = (page, count) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //set the defaults
     if (page === undefined) {
       page = 1;
@@ -36,16 +36,16 @@ Helpers.getProducts = (page, count)=>{
 
     //generate the get request to the URL
     axios.get(requestUrl)
-    .then(fulfill)
-    .catch(reject);
+      .then(fulfill)
+      .catch(reject);
   })
 }
 
 
 //product_id: the id of the product you want information on
-Helpers.getProductInfo = (product_id)=>{
+Helpers.getProductInfo = (product_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //if there is no product_id send an error
     if (product_id === undefined) {
       reject('no product id entered');
@@ -57,16 +57,16 @@ Helpers.getProductInfo = (product_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
-      }
+        .then(fulfill)
+        .catch(reject);
+    }
   })
 }
 
 //returns all the styles for the product_id
-Helpers.getProductStyles = (product_id)=>{
+Helpers.getProductStyles = (product_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //if there is no product_id send an error
     if (product_id === undefined) {
       reject('no product id entered');
@@ -78,16 +78,16 @@ Helpers.getProductStyles = (product_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
-      }
+        .then(fulfill)
+        .catch(reject);
+    }
   })
 }
 
 //returns the id's of products that relate to the product_id
-Helpers.getRelatedProducts = (product_id)=>{
+Helpers.getRelatedProducts = (product_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //if there is no product_id send an error
     if (product_id === undefined) {
       reject('no product id entered');
@@ -99,9 +99,9 @@ Helpers.getRelatedProducts = (product_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
-      }
+        .then(fulfill)
+        .catch(reject);
+    }
   })
 }
 
@@ -110,9 +110,9 @@ Helpers.getRelatedProducts = (product_id)=>{
 //==================================================================================
 
 //get the reviews of a product
-Helpers.getReviews = (page, count, sort, product_id)=>{
+Helpers.getReviews = (page, count, sort, product_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //if there is no product_id send an error
     if (product_id === undefined) {
       reject('no product id entered');
@@ -124,15 +124,15 @@ Helpers.getReviews = (page, count, sort, product_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
-      }
+        .then(fulfill)
+        .catch(reject);
+    }
   })
 }
 
-Helpers.getMetaReviews = (product_id)=>{
+Helpers.getMetaReviews = (product_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //if there is no product_id send an error
     if (product_id === undefined) {
       reject('no product id entered');
@@ -144,9 +144,9 @@ Helpers.getMetaReviews = (product_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
-      }
+        .then(fulfill)
+        .catch(reject);
+    }
   })
 }
 
@@ -164,23 +164,23 @@ Helpers.getMetaReviews = (product_id)=>{
   characteristics obj
 }
 */
-Helpers.addReview = (review)=>{
+Helpers.addReview = (review) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     //make the url
-  var requestUrl = url + `reviews`;
+    var requestUrl = url + `reviews`;
 
-  //generate the get request to the URL
-  axios.post(requestUrl, review)
-  .then(fulfill)
-  .catch(reject);
+    //generate the get request to the URL
+    axios.post(requestUrl, review)
+      .then(fulfill)
+      .catch(reject);
   });
 
 }
 
-Helpers.markAsHelpful = (review_id)=>{
+Helpers.markAsHelpful = (review_id) => {
 
-  return new Promise ((fulfill, reject)=>{
+  return new Promise((fulfill, reject) => {
     if (review_id === undefined) {
       reject('no product_id provided');
     } else {
@@ -189,16 +189,16 @@ Helpers.markAsHelpful = (review_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 
 }
 
-Helpers.reportReview = (review_id)=>{
+Helpers.reportReview = (review_id) => {
 
-  return new Promise ((fulfill, reject) =>{
+  return new Promise((fulfill, reject) => {
     if (review_id === undefined) {
       reject('no review_id provided');
     } else {
@@ -207,8 +207,8 @@ Helpers.reportReview = (review_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl, review_id)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
@@ -217,9 +217,9 @@ Helpers.reportReview = (review_id)=>{
 //Q&A
 //==================================================================================
 
-Helpers.getQuestions = (product_id, page = 1, count = 5)=>{
+Helpers.getQuestions = (product_id, page = 1, count = 5) => {
 
-  return new Promise ((fulfill, reject) =>{
+  return new Promise((fulfill, reject) => {
     if (product_id === undefined) {
       reject('no product_id provided');
     } else {
@@ -228,15 +228,15 @@ Helpers.getQuestions = (product_id, page = 1, count = 5)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
-Helpers.getAnswers = (question_id)=>{
+Helpers.getAnswers = (question_id) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
@@ -245,8 +245,8 @@ Helpers.getAnswers = (question_id)=>{
 
       //generate the get request to the URL
       axios.get(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
@@ -259,9 +259,9 @@ email: text,
 product_id: int
 }
 */
-Helpers.addQuestion = (question)=>{
+Helpers.addQuestion = (question) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (question === undefined) {
       reject('no question provided');
     } else {
@@ -270,8 +270,8 @@ Helpers.addQuestion = (question)=>{
 
       //generate the get request to the URL
       axios.post(requestUrl, question)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
@@ -285,9 +285,9 @@ photos: [text]
 }
 */
 
-Helpers.addAnswer = (question_id, answer)=>{
+Helpers.addAnswer = (question_id, answer) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (answer === undefined) {
       reject('no answer provided');
     } else {
@@ -296,15 +296,15 @@ Helpers.addAnswer = (question_id, answer)=>{
 
       //generate the get request to the URL
       axios.post(requestUrl, answer)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
-Helpers.markQuestionHelpful = (question_id)=>{
+Helpers.markQuestionHelpful = (question_id) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
@@ -313,15 +313,15 @@ Helpers.markQuestionHelpful = (question_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
-Helpers.reportQuestion = (question_id)=>{
+Helpers.reportQuestion = (question_id) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (question_id === undefined) {
       reject('no question_id provided');
     } else {
@@ -330,15 +330,15 @@ Helpers.reportQuestion = (question_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
-Helpers.markQuestionHelpful = (answer_id)=>{
+Helpers.markQuestionHelpful = (answer_id) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (answer_id === undefined) {
       reject('no answer_id provided');
     } else {
@@ -347,15 +347,15 @@ Helpers.markQuestionHelpful = (answer_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
-Helpers.reportAnswer = (answer_id)=>{
+Helpers.reportAnswer = (answer_id) => {
 
-  return new Promise ((fulfill, reject) => {
+  return new Promise((fulfill, reject) => {
     if (answer_id === undefined) {
       reject('no answer_id provided');
     } else {
@@ -364,25 +364,30 @@ Helpers.reportAnswer = (answer_id)=>{
 
       //generate the get request to the URL
       axios.put(requestUrl)
-      .then(fulfill)
-      .catch(reject);
+        .then(fulfill)
+        .catch(reject);
     }
   });
 }
 
 Helpers.postInteraction = (click) => {
-  return new Promise ((res, rej) => {
+  return new Promise((res, rej) => {
     if (click === undefined) {
       rej('no interaction provided');
     } else {
       let requestUrl = url + 'interactions';
       console.log(click);
       axios.post(requestUrl, click)
-      .then(res)
-      .catch(rej);
+        .then(res)
+        .catch(rej);
     }
   });
 }
-
+Helpers.addtocart = (sku_id) => {
+  const requestUrl = url + 'cart'
+  return axios.post(requestUrl, {
+    sku_id: sku_id
+  })
+}
 
 module.exports = Helpers;
