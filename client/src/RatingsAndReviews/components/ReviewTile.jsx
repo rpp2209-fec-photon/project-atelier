@@ -1,10 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
-import ReviewImages from './miniComponents/ReviewImages.jsx';
+//import ReviewImages from './miniComponents/ReviewImages.jsx';
 import StarRating from './miniComponents/StarRating.jsx';
 
 
-export default function ReviewTile ({ Review , productID}) {
+export default function ReviewTile ({ Review , productID, setImageURL, setImageZoomVisibility }) {
 
 
   var [voted, setVoted] = useState(false);
@@ -12,16 +12,19 @@ export default function ReviewTile ({ Review , productID}) {
 
   return (
     <>
-    <div className="Review Corner">
-      <ReviewDate Date={Review.date}/>
-      <StarRating Rating={Review.rating}/>
+    <div className="TileHeader">
+      <div className="Review Corner">
+        <ReviewDate Date={Review.date}/>
+        <StarRating Rating={Review.rating}/>
+        <Recommend recommended={Review.recommend}/>
+      </div>
+
+      <p className="Review Summary">{Review.summary}</p>
+      <p className="Review Name">{Review.reviewer_name}</p>
     </div>
 
-    <p className="Review Summary">{Review.summary}</p>
-    <p className="Review Name">{Review.reviewer_name}</p>
-    <Recommend recommended={Review.recommend}/>
-    <p className="Review Body"> {Review.body}</p>
-    <ReviewImages Images={Review.photos}/>
+    <ReviewBody body={Review.body}/>
+    <ReviewImages Images={Review.photos} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
     <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
 
     </>
@@ -49,6 +52,25 @@ var Recommend = ({recommended}) => {
   }
 };
 
+var ReviewBody = ({body})=>{
+
+  var [showMore, setShowMore] = useState(false);
+
+  if (!showMore && body.length > 250) {
+    return (
+      <>
+      <p className="Review Body">{body.slice(0, 251)}</p>
+      <button onClick={()=>{setShowMore(true)}}>Show more</button>
+      </>
+
+    );
+  } else {
+    return (
+      <p className="Review Body">{body}</p>
+    )
+  }
+};
+
 import {markAsHelpful} from '../../../helpers/helpers.js';
 
 var Helpful = ({helpfulness, setHelpfulness, reviewID, voted, setVoted})=>{
@@ -58,4 +80,21 @@ var Helpful = ({helpfulness, setHelpfulness, reviewID, voted, setVoted})=>{
     <p onClick={()=>{if (!voted) {markAsHelpful(reviewID); setVoted(true); setHelpfulness(helpfulness + 1)}}}>Yes {`(${helpfulness})`}</p>
     </>
   );
+};
+
+var ReviewImages = ({Images, setImageURL, setImageZoomVisibility}) => {
+  if (Images.length > 0) {
+    return (
+      <div className="Review ImagesList">
+        <h3>Images: </h3>
+        {
+          Images.map((photoInfo, index)=>{
+            return (
+              <img className="Review Image" src={`${photoInfo.url}`} key={index} onClick={()=>{ setImageURL(photoInfo.url); setImageZoomVisibility('show')}}></img>
+            );
+          })
+        }
+      </div>
+    );
+  }
 };
