@@ -23,7 +23,7 @@ export default function ReviewTile ({ Review , productID, setImageURL, setImageZ
       <p className="Review Name">{Review.reviewer_name}</p>
     </div>
 
-    <p className="Review Body"> {Review.body}</p>
+    <ReviewBody body={Review.body}/>
     <ReviewImages Images={Review.photos} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
     <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
 
@@ -49,6 +49,25 @@ var Recommend = ({recommended}) => {
     return (
       <p>I recommend this product</p>
     );
+  }
+};
+
+var ReviewBody = ({body})=>{
+
+  var [showMore, setShowMore] = useState(false);
+
+  if (!showMore && body.length > 250) {
+    return (
+      <>
+      <p className="Review Body">{body.slice(0, 251)}</p>
+      <button onClick={()=>{setShowMore(true)}}>Show more</button>
+      </>
+
+    );
+  } else {
+    return (
+      <p className="Review Body">{body}</p>
+    )
   }
 };
 
