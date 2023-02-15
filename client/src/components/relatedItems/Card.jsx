@@ -9,7 +9,7 @@ import {getProductData} from './controllers/index.js';
 
 const Card = (props) => {
 
-  const {parent, productId, setCurrentProductId, currentProductInfo, currentProductMetadata, setOutfitIds} = props;
+  const {parent, productId, setCurrentProductId, currentProductName, currentProductCharacteristics, setOutfitIds} = props;
 
   const [productInfo, setProductInfo] = useState({});
   const [productMetadata, setProductMetadata] = useState({});
@@ -70,8 +70,8 @@ const Card = (props) => {
         closeModal={closeModal}
         cardMetadata={productMetadata}
         cardName={productInfo.name}
-        currentProductInfo={currentProductInfo}
-        currentProductMetadata={currentProductMetadata}
+        currentProductName={currentProductName}
+        currentProductCharacteristics={currentProductCharacteristics}
       />
     </>
   );

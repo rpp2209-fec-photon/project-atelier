@@ -61,6 +61,8 @@ const App = (props) => {
         <RelatedProducts
           currentProductId={currentProductId}
           setCurrentProductId={setCurrentProductId}
+          productName={productname}
+          productCharacteristics={characteristic}
         />
 
         <YourOutfit
