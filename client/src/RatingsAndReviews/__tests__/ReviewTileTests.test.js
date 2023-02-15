@@ -39,6 +39,14 @@ test('Has the review summary in the review tile', async ()=>{
   });
 });
 
+test('Has the review body in the review tile', async ()=>{
+  render(<ReviewTile Review={dummyData.results[0]} productID={71697} setImageURL={()=>{}} setImageZoomVisibility={()=>{}}/>);
+  await waitFor(()=>{
+    var sortElement = screen.getByText('besstetetegweagwegaewgewgewgwe', {exact: false});
+    expect(sortElement).toBeInTheDocument;
+  });
+});
+
 test('Has the reviewer name in the tile', async ()=>{
   render(<ReviewTile Review={dummyData.results[0]} productID={71697} setImageURL={()=>{}} setImageZoomVisibility={()=>{}}/>);
   await waitFor(()=>{
@@ -47,11 +55,23 @@ test('Has the reviewer name in the tile', async ()=>{
   });
 });
 
-test('Has the reviewer name in the tile', async ()=>{
+test('Should show all the images', async ()=>{
   render(<ReviewTile Review={dummyData.results[0]} productID={71697} setImageURL={()=>{}} setImageZoomVisibility={()=>{}}/>);
   await waitFor(()=>{
-    var container = document.getElementsByClassName('Review ImagesList');
-    var sortElement = container.getAllByRole('img', {exact: false});
-    expect(sortElement.length).toBe(2);
+    var images = document.getElementsByClassName('Review Image');
+
+    expect(images.length).toBe(dummyData.results[0].photos.length);
+  });
+});
+
+
+test('Should show the correct amount of stars', async ()=>{
+
+  render(<ReviewTile Review={{...dummyData.results[0], rating: 3.5}} productID={71697} setImageURL={()=>{}} setImageZoomVisibility={()=>{}}/>);
+  await waitFor(()=>{
+    var stars = document.getElementsByName('fullStar');
+    expect(stars.length).toBe(3);
+    stars = document.getElementsByName('halfStar');
+    expect(stars.length).toBe(1);
   });
 });

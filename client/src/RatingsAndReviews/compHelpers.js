@@ -8,11 +8,11 @@ helpers.setStars = (Rating)=>{
   }
 
   if (Rating % 1 !== 0) {
-    if (Rating % 1 < .25) {
+    if (Rating % 1 <= .25) {
       stars[stars.indexOf(0)] = 0.25;
-    } else if (Rating % 1 < .50) {
+    } else if (Rating % 1 <= .50) {
       stars[stars.indexOf(0)] = 0.50;
-    } else if (Rating % 1 < .75) {
+    } else if (Rating % 1 <= .75) {
       stars[stars.indexOf(0)] = 0.75;
     } else {
       stars[stars.indexOf(0)] = 1;
