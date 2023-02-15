@@ -66,46 +66,49 @@ export default function RatingsAndReviews ({productID, productName}) {
         <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>
 
-    <div className="ReviewList">
-      <SortReviews setSort={setSort}/>
-      {
-        productReviews.results.map((review, index)=>{
+      <div id='RightSection'>
+        <SortReviews setSort={setSort}/>
+        <div className="ReviewList">
+        {
+          productReviews.results.map((review, index)=>{
 
-          if (index < reviewsShown) {
-            //if we have filters
-            if (ratingFilter.length > 0) {
-              var show = false;
-              for (var x = 0; x < ratingFilter.length; x++) {
-                if (review.rating === ratingFilter[x]) {
-                  show = true;
+            if (index < reviewsShown) {
+              //if we have filters
+              if (ratingFilter.length > 0) {
+                var show = false;
+                for (var x = 0; x < ratingFilter.length; x++) {
+                  if (review.rating === ratingFilter[x]) {
+                    show = true;
+                  }
+                }
+
+                if (show) {
+                  return (
+                    <div className="ReviewTile" key={index}>
+                      <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
+                    </div>
+                    );
+                } else {
+                  //showMoreReviews(1);
                 }
               }
-
-              if (show) {
+              //when we don't have filters
+              else {
                 return (
                   <div className="ReviewTile" key={index}>
                     <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
                   </div>
                   );
-              } else {
-                //showMoreReviews(1);
               }
             }
-            //when we don't have filters
-            else {
-              return (
-                <div className="ReviewTile" key={index}>
-                  <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
-                </div>
-                );
-            }
-          }
 
-        })
-      }
+          })
+        }
+    </div>
       <button onClick={()=>{showMoreReviews(2)}}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
-    </div>
+      </div>
+
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics} productName={productName}/>
     <ImageZoom Visibility={ImageZoomVisibility} setVisibility={setImageZoomVisibility} imageURL={imageURL}/>
     </div>
