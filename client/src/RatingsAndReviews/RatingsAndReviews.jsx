@@ -52,6 +52,12 @@ export default function RatingsAndReviews ({productID, productName}) {
   };
 
 
+
+
+
+
+
+
   return (
 
     <div id="RatingsAndReviews">
