@@ -1,7 +1,5 @@
 import React from 'react';
-
-
-import PercBar from './PercBar.jsx';
+import {useState} from 'react';
 
 
 export default function ({ratings, numOfRatings, ratingFilter, setRatingFilter}){
@@ -33,6 +31,17 @@ export default function ({ratings, numOfRatings, ratingFilter, setRatingFilter})
           </div>
         );
       })}
+    </div>
+  );
+};
+
+var PercBar = ({ratingCount, numOfRatings}) => {
+
+
+  return (
+    <div className="PercBar">
+      <div className="Green Bar" style={{width: `${ratingCount}%`}}></div>
+      <div className="Gray Bar" style={{width: `${ numOfRatings - ratingCount}%`}}></div>
     </div>
   );
 };
