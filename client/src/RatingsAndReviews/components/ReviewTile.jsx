@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import ReviewImages from './miniComponents/ReviewImages.jsx';
+//import ReviewImages from './miniComponents/ReviewImages.jsx';
 import StarRating from './miniComponents/StarRating.jsx';
 
 
@@ -61,4 +61,21 @@ var Helpful = ({helpfulness, setHelpfulness, reviewID, voted, setVoted})=>{
     <p onClick={()=>{if (!voted) {markAsHelpful(reviewID); setVoted(true); setHelpfulness(helpfulness + 1)}}}>Yes {`(${helpfulness})`}</p>
     </>
   );
+};
+
+var ReviewImages = ({Images, setImageURL, setImageZoomVisibility}) => {
+  if (Images.length > 0) {
+    return (
+      <div className="Review ImagesList">
+        <h3>Images: </h3>
+        {
+          Images.map((photoInfo, index)=>{
+            return (
+              <img className="Review Image" src={`${photoInfo.url}`} key={index} onClick={()=>{ setImageURL(photoInfo.url); setImageZoomVisibility('show')}}></img>
+            );
+          })
+        }
+      </div>
+    );
+  }
 };
