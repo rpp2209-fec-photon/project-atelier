@@ -26,13 +26,22 @@ test('This is an example test', ()=>{
   expect(1+1).toBe(2);
 });
 
-// test('Has the review summary in the review tile', async ()=>{
+test('Has rating breakdown section', async ()=>{
 
 
-//   render(<RatingsAndReviews productID={71697}/>);
-//   await waitFor( ()=>{
-//     var sortElement = screen.getByText('this item is the bestest', {exact: false});
-//     expect(sortElement).toBeInTheDocument;
-//   });
-// });
+  render(<RatingsAndReviews productID={71697}/>);
+  await waitFor( ()=>{
+    var sortElement = document.getElementsByClassName('RatingBreakdown');
+    expect(sortElement).toBeInTheDocument;
+  });
+});
 
+test('Has character breakdown section', async ()=>{
+
+
+  render(<RatingsAndReviews productID={71697}/>);
+  await waitFor( ()=>{
+    var sortElement = document.getElementsByClassName('CharacterBreakdown');
+    expect(sortElement).toBeInTheDocument;
+  });
+});

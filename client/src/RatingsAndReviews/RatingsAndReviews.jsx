@@ -1,12 +1,14 @@
 import React from 'react';
 import {useState, useEffect, useRef} from 'react';
 
-import ReviewTile from './components/ReviewTile.jsx';
+import ReviewList from './components/ReviewList.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import NewReviewWindow from './components/NewReviewWindow.jsx';
 import RatingBreakdown from './components/RatingBreakdown.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
 import ImageZoom from './components/miniComponents/ImageZoom.jsx';
+
+
 import helpers from '../../helpers/helpers.js';
 
 
@@ -24,13 +26,13 @@ export default function RatingsAndReviews ({productID, productName}) {
   var [reviewsShown, setReviewsShown] = useState(2);
 
   useEffect(()=>{
-    console.log(productID);
+    //get the first 6 reviews
     helpers.getReviews(1, 6, sort, productID)
     .then((reviews)=>{
-      console.log(reviews.data);
       setProductReviews({...reviews.data});
       setReviewsShown(2);
     }).then(()=>{
+      //get meta data of reviews
       helpers.getMetaReviews(productID)
       .then((data)=>{
         setCharacteristics(data.data.characteristics);
@@ -62,49 +64,13 @@ export default function RatingsAndReviews ({productID, productName}) {
 
     <div id="RatingsAndReviews">
       <div id="LeftMenu">
-        <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
+        <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter} ratingFilter={ratingFilter}/>
         <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>
 
       <div id='RightSection'>
         <SortReviews setSort={setSort}/>
-        <div className="ReviewList">
-        {
-          productReviews.results.map((review, index)=>{
-
-            if (index < reviewsShown) {
-              //if we have filters
-              if (ratingFilter.length > 0) {
-                var show = false;
-                for (var x = 0; x < ratingFilter.length; x++) {
-                  if (review.rating === ratingFilter[x]) {
-                    show = true;
-                  }
-                }
-
-                if (show) {
-                  return (
-                    <div className="ReviewTile" key={index}>
-                      <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
-                    </div>
-                    );
-                } else {
-                  //showMoreReviews(1);
-                }
-              }
-              //when we don't have filters
-              else {
-                return (
-                  <div className="ReviewTile" key={index}>
-                    <ReviewTile Review={review} key={index} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
-                  </div>
-                  );
-              }
-            }
-
-          })
-        }
-    </div>
+        <ReviewList productReviews={productReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
       <button onClick={()=>{showMoreReviews(2)}}>More Reviews</button>
       <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
       </div>
