@@ -7,11 +7,11 @@ import {getProductData} from './controllers/index.js';
 
 const RelatedProducts = (props) => {
 
-  const {currentProductId, setCurrentProductId} = props;
+  const {currentProductId, setCurrentProductId, productName, productCharacteristics} = props;
 
   const [relatedProductIds, setRelatedProductIds] = useState([]);
-  const [currentProductInfo, setCurrentProductInfo] = useState({});
-  const [currentProductMetadata, setCurrentProductMetadata] = useState({});
+  // const [currentProductInfo, setCurrentProductInfo] = useState({});
+  // const [currentProductMetadata, setCurrentProductMetadata] = useState({});
 
   const getRelatedProductIds = (id) => {
     Helpers.getRelatedProducts(id)
@@ -29,19 +29,19 @@ const RelatedProducts = (props) => {
       productId={productId}
       parent={'related'}
       setCurrentProductId={setCurrentProductId}
-      currentProductInfo={currentProductInfo}
-      currentProductMetadata={currentProductMetadata}
+      currentProductName={productName}
+      currentProductCharacteristics={productCharacteristics}
       getProductData={getProductData}
     />
   );
 
   useEffect(() => {
     getRelatedProductIds(currentProductId);
-    getProductData(currentProductId)
-    .then((res) => {
-      setCurrentProductInfo(res[1].data);
-      setCurrentProductMetadata(res[2].data);
-    });
+    // getProductData(currentProductId)
+    // .then((res) => {
+    //   setCurrentProductInfo(res[1].data);
+    //   setCurrentProductMetadata(res[2].data);
+    // });
   }, [currentProductId]);
 
   return (
