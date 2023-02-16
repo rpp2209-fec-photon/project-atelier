@@ -97,7 +97,7 @@ export default function RatingsAndReviews ({productID, productName}) {
       <div id='RightSection'>
         <SortReviews setSort={setSort}/>
         <ReviewList productReviews={productReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
-        <div id='ReviewFooter'>
+        <div className='ReviewFooter'>
           <div className="ReviewButton" onClick={()=>{showMoreReviews(2)}}><span>MORE REVIEWS</span></div>
           <div className="ReviewButton" onClick={()=>{setNewReviewVisibility('show')}}><span>CREATE REVIEW</span></div>
         </div>

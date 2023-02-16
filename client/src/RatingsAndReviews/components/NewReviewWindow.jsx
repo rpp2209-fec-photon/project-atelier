@@ -49,20 +49,21 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
     return (
       <div className="NewReviewWindow" >
 
-        <div id='ReviewHeading'>
+        <div id='NewReviewHeading'>
           <h1>Write Your Review</h1>
           <h3>About the {productName}. </h3>
+
+        </div>
+
+        <p>{errorMessage}</p>
+
+        <div id="InputContainer">
           <div id="NickNameAndEmail">
             <label htmlFor="NicknameInput">Nickname: </label>
             <input id="NicknameInput" onChange={(e)=>{setNickname(e.target.value)}}></input>
             <label htmlFor="EmailInput" >Email: </label>
             <input type="email" id="EmailInput" onChange={(e)=>{setEmail(e.target.value)}}></input>
           </div>
-        </div>
-
-        <p>{errorMessage}</p>
-
-        <div id="InputContainer">
           <div>
             <OverallRating Rating={Rating} setRating={setRating}/>
             <Recommend recommend={recommend} setRecommend={setRecommend}/>
@@ -70,13 +71,16 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
             <ReviewTextInputs reviewSummary={reviewSummary} setReviewSummary={setReviewSummary} reviewBody={setReviewBody} setReviewBody={setReviewBody}/>
             <input type="file" onChange={(e)=>{console.log(e.target.value)}}></input>
           </div>
+          <div className="ReviewFooter">
+            <div className="ReviewButton" onClick={()=>{showInputs(); handleSubmit();}}> Submit</div>
+            <div className="ReviewButton" onClick={()=>{setVisibility('hidden')}}>Close</div>
+          </div>
 
-          <button onClick={()=>{showInputs(); handleSubmit();}}> Submit</button>
         </div>
 
 
 
-        <button onClick={()=>{setVisibility('hidden')}}>Close</button>
+
       </div>
     );
   }

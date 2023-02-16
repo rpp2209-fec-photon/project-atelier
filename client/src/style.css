@@ -567,8 +567,8 @@ p.inputTitle {
 }
 
 .TileHeader {
-  background-color: lightgray;
-  border: 10px solid lightgray;
+  background-color: whitesmoke;
+  border: 10px solid whitesmoke;
 }
 
 #ZoomedImageWindow{
@@ -585,43 +585,11 @@ p.inputTitle {
   height:100%;
   width:100%;
 }
-.NewReviewWindow {
-  position: fixed;
 
-  left: 0;
-  right: 0;
-  top: 25%;
-  margin: auto;
 
-  height: 50%;
-  width: 50%;
 
-  max-width: 50%;
-  border: 3px solid black;
-  background-color: whitesmoke;
 
-  overflow: auto;
-}
 
-#ReviewHeading {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  text-align: center;
-}
-
-#NickNameAndEmail {
-  display: flex;
-  flex-direction: column;
-
-  position: absolute;
-  right: 0;
-}
-
-#InputContainer {
-  display: flex;
-  flex-direction: row;
-}
 
 .InputArray {
   display: flex;
@@ -658,6 +626,7 @@ p.inputTitle {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin:5px;
 }
 
 .Green {
@@ -690,7 +659,7 @@ p.inputTitle {
 
 .Character.Bar {
   width: 100%;
-  background-color: lightslategray;
+  background-color: darkgray;
 
   height: 10px;
 }
@@ -742,16 +711,18 @@ p.inputTitle {
   margin: 5px;
 }
 
-.Review.Image {
-  max-width: 30%;
-}
 
 .Review.ImagesList {
   border: 1px solid black;
   margin: 5px;
+  padding: 5px;
 }
 
-#ReviewFooter {
+.Review.Image {
+  max-width: 30%;
+}
+
+.ReviewFooter {
   display:flex;
   flex-direction: row;
 }
@@ -768,4 +739,48 @@ p.inputTitle {
 .ShowMore{
   width:25%;
   height:20px;
+}
+
+.NewReviewWindow {
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  top: 7.5%;
+  margin: auto;
+
+
+  height: 75%;
+  width: 75%;
+
+  max-width: 75%;
+  border: 1px solid black;
+  background-color: whitesmoke;
+
+  overflow: auto;
+}
+
+#NewReviewHeading {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+#NickNameAndEmail {
+  display: flex;
+  flex-direction: row;
+  width:50%;
+}
+
+#InputContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin:5%;
 }
