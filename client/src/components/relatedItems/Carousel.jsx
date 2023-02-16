@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Carousel = ({ children, itemsToShow = 4 }) => {
+const Carousel = ({ children, itemsToShow = 4, currentProductId }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const items = React.Children.toArray(children);
 
@@ -11,6 +11,10 @@ const Carousel = ({ children, itemsToShow = 4 }) => {
   const handleNext = () => {
     setCurrentSlide(currentSlide + 1);
   };
+
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, [currentProductId]);
 
   return (
     <div className='carousel-container'>

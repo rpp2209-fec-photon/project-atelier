@@ -49,7 +49,7 @@ const App = (props) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Overview currentProductId={currentProductId}
         // outFitList={outFitList}
         setname={setname}
@@ -75,7 +75,7 @@ const App = (props) => {
       <div>QUESTIONS & ANSWERS</div>
 
       <RatingsAndReviews productID={currentProductId} productName={productname} />
-    </div>
+    </>
   );
 };
 
