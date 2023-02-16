@@ -59,10 +59,12 @@ const Card = (props) => {
           />
         </>
         <Preview style={productStyle} />
-        <p> {productInfo.category} </p>
-        <h4> {productInfo.name} </h4>
-        <Price productStyle={productStyle} />
-        { productMetadata.ratings ? <Rating ratings={productMetadata.ratings} /> : null }
+        <div className='card-info'>
+          <p> {productInfo.category} </p>
+          <h4> {productInfo.name} </h4>
+          <Price productStyle={productStyle} />
+          { productMetadata.ratings ? <Rating ratings={productMetadata.ratings} /> : null }
+        </div>
       </div>
 
       <ComparisonModal
