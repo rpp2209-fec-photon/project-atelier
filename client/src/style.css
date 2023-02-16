@@ -525,10 +525,15 @@ p.inputTitle {
   display: inline-block;
 }
 
-#RatingsAndReviews {
+#RatingsAndReviews{
+
+  padding: 10%;
+}
+
+#RatingsAndReviewsContent {
   display: flex;
   flex-direction: row;
-  padding: 5%;
+  padding-top: 2%;
 }
 
 #RightSection{
@@ -551,7 +556,7 @@ p.inputTitle {
 }
 
 .ReviewTile {
-  border: 3px solid black;
+  border: 1px solid black;
   border-radius: 5px;
 
   margin-bottom: 5px;
@@ -636,7 +641,7 @@ p.inputTitle {
 }
 
 #LeftMenu{
-  border: 3px solid black;
+  border: 1px solid black;
   height: 100%;
   padding: 10px;
 }
@@ -742,5 +747,25 @@ p.inputTitle {
 }
 
 .Review.ImagesList {
-  border: 3px solid black
+  border: 1px solid black;
+  margin: 5px;
+}
+
+#ReviewFooter {
+  display:flex;
+  flex-direction: row;
+}
+.ReviewButton {
+  border: 1px solid rgb(202, 188, 188);
+  width: 50%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:2px;
+}
+
+.ShowMore{
+  width:25%;
+  height:20px;
 }

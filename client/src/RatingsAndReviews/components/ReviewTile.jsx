@@ -60,7 +60,7 @@ var ReviewBody = ({body})=>{
     return (
       <>
       <p className="Review Body">{body.slice(0, 251)}</p>
-      <button onClick={()=>{setShowMore(true)}}>Show more</button>
+      <div className="ReviewButton ShowMore" onClick={()=>{setShowMore(true)}}><span>SHOW MORE</span></div>
       </>
 
     );

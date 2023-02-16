@@ -86,6 +86,8 @@ export default function RatingsAndReviews ({productID, productName}) {
   return (
 
     <div id="RatingsAndReviews">
+      <h1>Ratings and Reviews</h1>
+      <div id="RatingsAndReviewsContent">
       <div id="LeftMenu">
         <h3>Product Breakdown</h3>
         <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter} ratingFilter={ratingFilter}/>
@@ -95,12 +97,16 @@ export default function RatingsAndReviews ({productID, productName}) {
       <div id='RightSection'>
         <SortReviews setSort={setSort}/>
         <ReviewList productReviews={productReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
-      <button onClick={()=>{showMoreReviews(2)}}>More Reviews</button>
-      <button onClick={()=>{setNewReviewVisibility('show')}}>Create Review</button>
+        <div id='ReviewFooter'>
+          <div className="ReviewButton" onClick={()=>{showMoreReviews(2)}}><span>MORE REVIEWS</span></div>
+          <div className="ReviewButton" onClick={()=>{setNewReviewVisibility('show')}}><span>CREATE REVIEW</span></div>
+        </div>
+
       </div>
 
     <NewReviewWindow Visibility={newReviewVisibility} setVisibility={setNewReviewVisibility} characteristics={characteristics} productName={productName}/>
     <ImageZoom Visibility={ImageZoomVisibility} setVisibility={setImageZoomVisibility} imageURL={imageURL}/>
+    </div>
     </div>
   );
 };
