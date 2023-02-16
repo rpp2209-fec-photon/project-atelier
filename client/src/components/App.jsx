@@ -12,7 +12,7 @@ const App = (props) => {
   useClickTracker();
 
   const [currentProductId, setCurrentProductId] = useState(0);
-  const [outFitList, settOutFitList] = useState([71698, 71699])
+  // const [outFitList, settOutFitList] = useState([])
   const [productname, setproductname] = useState('')
   const [characteristic, setcharacteristic] = useState({})
   const [outfitIds, setOutfitIds] = useState([]);
@@ -49,9 +49,9 @@ const App = (props) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Overview currentProductId={currentProductId}
-        outFitList={outFitList}
+        // outFitList={outFitList}
         setname={setname}
         setchar={setchar}
         handleAddOutfit={handleAddOutfit}
@@ -61,6 +61,8 @@ const App = (props) => {
         <RelatedProducts
           currentProductId={currentProductId}
           setCurrentProductId={setCurrentProductId}
+          productName={productname}
+          productCharacteristics={characteristic}
         />
 
         <YourOutfit
@@ -72,10 +74,8 @@ const App = (props) => {
         />
       </div>
 
-      <div>QUESTIONS & ANSWERS</div>
-
       <RatingsAndReviews productID={currentProductId} productName={productname} />
-    </div>
+    </>
   );
 };
 

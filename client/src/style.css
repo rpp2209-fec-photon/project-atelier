@@ -15,8 +15,9 @@
 .plus {
   width: 250px;
   height: 360px;
-  padding: 0 10px;
   margin-left: 10px;
+  border: 1px solid;
+  overflow: hidden;
 }
 
 .plus h3 {
@@ -24,22 +25,44 @@
   justify-content: center;
 }
 
-.card img,
+.preview,
 .plus img {
+  position: relative;
+  border-bottom: solid 1px;
+  bottom: 7%;
   width: 250px;
   height: 250px;
 }
 
+.card-info {
+  position: relative;
+  bottom: 8%;
+}
+
 .plus img {
-  margin-top: 15%;
+  margin-top: 10%;
+  opacity: 50%;
+}
+
+.plus img:hover {
+  opacity: 100%;
 }
 
 .card-btn {
   position: relative;
-  left: 223px;
-  top: 30px;
+  left: 222px;
+  top: 4px;
   font-size: 25px;
-  color: #fdf6c5
+  color: #fdf6c5;
+  width: 25px;
+  height: 25px;
+  z-index: 1;
+}
+
+.card-btn:hover {
+  background-color: black;
+  box-shadow: 0px 0px 10px lightgray;
+  border-radius: 50%;
 }
 
 .related-heading,
@@ -69,7 +92,7 @@ h4,
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
+  z-index: 100;
 }
 
 .modal-main {
@@ -163,6 +186,7 @@ td {
   background: fixed;
   background-color: lightslategray;
   font-weight: bolder;
+  box-shadow: 0px 0px 10px #ccc;
 }
 
 .next {
@@ -205,6 +229,8 @@ li {
 }
 
 #styleselector {
+  height: 122px;
+  overflow: auto;
   position: absolute;
   width: 290px;
   display: flex;
@@ -216,18 +242,45 @@ li {
   position: absolute;
   top: 0px;
   left: 575px;
+  cursor: default;
 }
 
+
+
 .prostar {
-  font-size: 10px;
-  text-decoration: underline;
+  position: absolute;
+  top: 10px;
+  font-size: 15px;
   height: 20px;
   line-height: 20px;
 }
 
+.prostar div {
+  top: 4px;
+  left: 130px;
+  width: 150px;
+  position: absolute;
+  text-decoration: underline;
+
+
+}
+
+#productname {
+  width: 300px;
+  position: absolute;
+  top: 60px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+
 .prostar .Rating {
+  top: 0px;
+  left: 0px;
+  width: 150px;
   display: inline-block;
 }
+
 
 #styles {
   position: absolute;
@@ -385,6 +438,7 @@ li {
 #galley {
   position: absolute;
   top: 0;
+  background-color: #333;
 }
 
 .bs {
@@ -393,12 +447,37 @@ li {
   margin-right: 20px;
 }
 
-#imagegallery {
+.imagegallery {
+  cursor: zoom-in;
   position: absolute;
   left: 0px;
   width: 550px;
   height: 430px;
   top: 0px;
+  z-index: 60;
+  overflow: hidden;
+}
+
+.expand {
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  width: 878px;
+  height: 430px;
+  top: 0px;
+  z-index: 60;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.updown {
+  position: absolute;
+  font-size: 20px;
+  color: grey;
+  display: 'inline-block';
+  left: 31px;
+  top: 13px;
+  cursor: default;
 }
 
 
@@ -407,13 +486,7 @@ li {
   height: 100%;
 }
 
-.thumbnail_urlli {
-  height: 40px;
-  width: 40px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
+
 
 .thumbnail_urlul {
   top: 30px;
@@ -421,8 +494,18 @@ li {
   position: absolute;
   flex-flow: column;
   width: 51px;
-  height: 260px;
-  overflow: scroll;
+  height: 240px;
+  overflow: hidden;
+}
+
+.thumbnail_urlli {
+  position: relative;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .selected_image {
@@ -438,7 +521,7 @@ li {
 
 /*review>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
-p.inputTitle{
+p.inputTitle {
   display: inline-block;
 }
 
@@ -518,36 +601,38 @@ p.inputTitle{
 #ReviewHeading {
   display: flex;
   flex-direction: row;
-  position:relative;
+  position: relative;
   text-align: center;
 }
+
 #NickNameAndEmail {
-  display:flex;
+  display: flex;
   flex-direction: column;
 
   position: absolute;
-  right:0;
+  right: 0;
 }
 
-#InputContainer{
-  display:flex;
+#InputContainer {
+  display: flex;
   flex-direction: row;
 }
 
 .InputArray {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
+
 .Input {
   display: flex;
   flex-direction: column;
-  margin:5px;
+  margin: 5px;
 
   background-color: lightgray;
 }
 
 .TextInput {
-  resize:none;
+  resize: none;
 }
 
 #LeftMenu{

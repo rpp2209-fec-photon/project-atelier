@@ -3,10 +3,10 @@ import { TiTick } from 'react-icons/ti';
 
 const TableBody = (props) => {
 
-  const {cardMetadata, productMetadata} = props;
+  const {cardMetadata, productCharacteristics} = props;
 
   const cardChars = cardMetadata ? cardMetadata.characteristics ? cardMetadata.characteristics : {} : {};
-  const productChars = productMetadata ? productMetadata.characteristics ? productMetadata.characteristics : {} : {};
+  const productChars = productCharacteristics || {};
 
   const characteristics = new Set([...Object.keys(cardChars), ...Object.keys(productChars)]);
 

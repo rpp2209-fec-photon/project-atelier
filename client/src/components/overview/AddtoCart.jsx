@@ -1,5 +1,6 @@
 import React from "react";
 import { BsChevronDown, BsChevronUp, BsPlusLg, BsStar, BsHeart } from "react-icons/bs"
+import { addtocart } from "../../../helpers/helpers";
 
 class AddtoCart extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class AddtoCart extends React.Component {
             number: '-',
             size: 'SELECT SIZE',
             sizedisplay: 'none',
-            inoutfit: this.props.inoutfit
+            inoutfit: false
         }
     }
     componentDidUpdate(prevProps) {
@@ -25,7 +26,7 @@ class AddtoCart extends React.Component {
         }
         if (prevProps.inoutfit !== this.props.inoutfit) {
             this.setState({
-                inoutfit: this.props.inoutfit
+                inoutfit: false
             })
         }
     }
@@ -57,8 +58,10 @@ class AddtoCart extends React.Component {
         })
     }
     Outfit = () => {
+        this.props.checkoutfitList()
+        let a = this.state.inoutfit
         this.setState({
-            inoutfit: this.props.checkoutfitList()
+            inoutfit: !a
         })
     }
     selectQuantity = (e) => {
@@ -68,7 +71,12 @@ class AddtoCart extends React.Component {
         })
     }
     AddtoCart = () => {
-        console.log('>>>', this.state.skuid, this.state.number)
+        if (this.state.skuid !== '') {
+            addtocart(this.state.skuid).then((data) => {
+                console.log(data)
+            })
+        }
+
     }
     render() {
         return (<div id="addtocart">
@@ -88,13 +96,15 @@ class AddtoCart extends React.Component {
 
             </div>
             <div className="addtobag" onClick={this.AddtoCart}><span>ADD TO BAG</span><BsPlusLg style={{ float: 'right', 'marginTop': '15px', 'marginRight': '20px' }} /></div>
-            <div style={{ width: '44px', 
-            height: '44px',
-            border: '1px solid rgb(202, 188, 188)',
-            position:'absolute',
-            bottom:'10px',
-            right:'0',
-            display:'inline-block'}} onClick={this.Outfit}>{this.state.inoutfit ? <BsStar style={{float:'left',marginLeft:'13px',marginTop:'15px'}}/> : <BsHeart style={{float:'left',marginLeft:'13px',marginTop:'15px'}}/>}</div>
+            <div style={{
+                width: '44px',
+                height: '44px',
+                border: '1px solid rgb(202, 188, 188)',
+                position: 'absolute',
+                bottom: '10px',
+                right: '0',
+                display: 'inline-block'
+            }} onClick={this.Outfit}>{!this.state.inoutfit ? <BsStar style={{ float: 'left', marginLeft: '13px', marginTop: '15px' }} /> : <BsHeart style={{ float: 'left', marginLeft: '13px', marginTop: '15px' }} />}</div>
         </div>)
     }
 }

@@ -27,7 +27,7 @@ const YourOutfit = (props) => {
     <>
       <h3 className='outfit-heading'>Your Outfit</h3 >
       <div className='outfit-list'>
-        <Carousel >
+        <Carousel currentProductId={currentProductId}>
           <PlusCard onClick={handleAddOutfit}/>
           { outfitIds.map(distributeCards).reverse() }
         </Carousel>
