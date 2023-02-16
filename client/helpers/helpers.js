@@ -376,7 +376,6 @@ Helpers.postInteraction = (click) => {
       rej('no interaction provided');
     } else {
       let requestUrl = url + 'interactions';
-      console.log(click);
       axios.post(requestUrl, click)
         .then(res)
         .catch(rej);

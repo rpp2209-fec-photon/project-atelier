@@ -46,7 +46,7 @@ const RelatedProducts = (props) => {
 
   return (
     <>
-      <h3 className='related-heading'>Related Products</h3>
+      <h2 className='related-heading'>Related Products</h2>
       <div className='related-list'>
         <Carousel currentProductId={currentProductId}>
           {relatedProductIds.map(distributeCards)}
