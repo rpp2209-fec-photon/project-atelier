@@ -87,6 +87,7 @@ export default function RatingsAndReviews ({productID, productName}) {
 
     <div id="RatingsAndReviews">
       <div id="LeftMenu">
+        <h3>Product Breakdown</h3>
         <RatingBreakdown productID={productID} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter} ratingFilter={ratingFilter}/>
         <ProductBreakdown productID={productID} characteristics={characteristics}/>
       </div>

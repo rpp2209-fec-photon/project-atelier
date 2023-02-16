@@ -550,8 +550,12 @@ p.inputTitle{
   resize:none;
 }
 
-.RatingBreakdown{
+#LeftMenu{
   border: 3px solid black;
+  height: 100%;
+  padding: 10px;
+}
+.RatingBreakdown{
   width: 100%;
 }
 
