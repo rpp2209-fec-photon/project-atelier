@@ -208,7 +208,10 @@ td {
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial;
+  /* font-size: 12px; */
 }
+
 
 li {
   list-style: none;
@@ -219,6 +222,10 @@ img {
   border: none;
 }
 
+#overview {
+  position: relative;
+  left: 177px;
+}
 
 
 ul,
@@ -531,7 +538,7 @@ p.inputTitle {
   padding: 5%;
 }
 
-#RightSection{
+#RightSection {
   width: 50%;
   height: 90vh;
   margin-left: 25%;
@@ -566,20 +573,22 @@ p.inputTitle {
   border: 10px solid lightgray;
 }
 
-#ZoomedImageWindow{
+#ZoomedImageWindow {
   position: fixed;
 
   left: 0;
   right: 0;
-  top:15%;
-  margin:auto;
+  top: 15%;
+  margin: auto;
   height: 70%;
   width: 70%;
 }
+
 .ZoomedImage {
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
+
 .NewReviewWindow {
   position: fixed;
 
