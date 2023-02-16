@@ -7,18 +7,20 @@ export default function ReviewTextInputs ({reviewSummary, setReviewSummary, revi
 
   return (
     <>
-      <TextInput maxChar={60} placeHolder={'Example: Best purchase ever!'}  handleChange={(e)=>{setReviewSummary(e.target.value)}}/>
-      <TextInput maxChar={1000} placeHolder={'Why did you like the product or not?'} handleChange={(e)=>{setUsedChars(e.target.value.length);setReviewBody(e.target.value)}}/>
+      <h3>Review Summary: </h3>
+      <TextInput maxChar={60} rows={'1'} placeHolder={'Example: Best purchase ever!'}  handleChange={(e)=>{setReviewSummary(e.target.value)}}/>
+      <h3>Review Body: </h3>
+      <TextInput maxChar={1000} rows={'15'}placeHolder={'Why did you like the product or not?'} handleChange={(e)=>{setUsedChars(e.target.value.length);setReviewBody(e.target.value)}}/>
       <ShowUsedChars usedChars={usedChars}/>
     </>
   );
 };
 
 
-var TextInput = ({maxChar, placeHolder, handleChange})=>{
+var TextInput = ({maxChar, placeHolder, handleChange, rows})=>{
 
   return (
-    <textarea onChange={handleChange}className='TextInput' rows="10" cols="30" maxLength={maxChar} defaultValue={placeHolder}></textarea>
+    <textarea onChange={handleChange}className='TextInput' rows={rows} cols='60' maxLength={maxChar} defaultValue={placeHolder}></textarea>
   );
 };
 

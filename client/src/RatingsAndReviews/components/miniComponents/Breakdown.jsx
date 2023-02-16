@@ -40,8 +40,8 @@ var PercBar = ({ratingCount, numOfRatings}) => {
 
   return (
     <div className="PercBar">
-      <div className="Green Bar" style={{width: `${ratingCount}%`}}></div>
-      <div className="Gray Bar" style={{width: `${ numOfRatings - ratingCount}%`}}></div>
+      <div className="Green Bar" style={{width: `${(ratingCount/numOfRatings)*100}%`}}></div>
+      <div className="Gray Bar" style={{width: `${ ((numOfRatings - ratingCount)/numOfRatings)*100}%`}}></div>
     </div>
   );
 };

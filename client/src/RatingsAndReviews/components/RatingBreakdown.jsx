@@ -27,7 +27,7 @@ export default function RatingBreakdown ({productID, ratingFilter, setRatingFilt
 
   return (
     <div className="RatingBreakdown">
-      <h3>Product Breakdown</h3>
+
       <AveRating averageRating={averageRating} numOfRatings={numOfRatings}/>
       <FilterMenu ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
       <Breakdown ratings={ratings} numOfRatings={numOfRatings} ratingFilter={ratingFilter} setRatingFilter={setRatingFilter}/>
