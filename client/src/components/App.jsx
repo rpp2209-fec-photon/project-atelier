@@ -50,8 +50,14 @@ const App = (props) => {
 
   return (
     <>
+      <div style={{
+        marginLeft: '177px',
+        fontWeight: 'bolder',
+        lineHeight: '20px',
+        height: '20px'
+      }}>Overview</div>
       <Overview currentProductId={currentProductId}
-        // outFitList={outFitList}
+
         setname={setname}
         setchar={setchar}
         handleAddOutfit={handleAddOutfit}
