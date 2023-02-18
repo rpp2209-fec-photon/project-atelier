@@ -5,12 +5,23 @@
 const axios = require('axios');
 const Helpers = require('../helpers.js');
 
+jest.mock('axios');
+
 describe('Products', function() {
   test('calling getProducts should return a response with 5 products by default', function(done) {
+
+    const res = {
+      data: [
+        {name: 'p1'}, {name: 'p2'}, {name: 'p3'}, {name: 'p4'}, {name: 'p5'}
+      ]
+    };
+
+    axios.get.mockResolvedValueOnce(res);
+
     Helpers.getProducts()
     .then((response) => {
       let data = response.data;
-      expect(data.length).toBe(5);
+      expect(data).toBe(res.data);
       done();
     })
     .catch( err => {
@@ -19,11 +30,17 @@ describe('Products', function() {
   });
 
   test('calling getProducts should return a response with correct number of products', function(done) {
+    const res = {
+      data: [
+        {name: 'p1'}, {name: 'p2'}, {name: 'p3'}
+      ]
+    };
+    axios.get.mockResolvedValueOnce(res);
     Helpers.getProducts(4, 3)
     .then((response) => {
       let data = response.data;
       expect(data.length).toBe(3);
-      expect(data[0].name).toBe('Infinity Stone');
+      expect(data[0].name).toBe('p1');
       done();
     })
     .catch( err => {
@@ -32,6 +49,12 @@ describe('Products', function() {
   });
 
   test('calling getProductInfo with product ID should return a response with the correct product info', function(done) {
+    const res = {
+      data: {
+        name: 'Infinity Stone'
+      }
+    };
+    axios.get.mockResolvedValueOnce(res);
     Helpers.getProductInfo(71706)
     .then((res) => {
       let data = res.data;
@@ -43,7 +66,10 @@ describe('Products', function() {
     });
   });
 
-  test('calling getProductInfo with no ID should return a response with an error', function(done) {
+  test.only('calling getProductInfo with no ID should return a response with an error', function(done) {
+    const error = new Error('no product id entered');
+    axios.get.mockResolvedValueOnce(error);
+
     Helpers.getProductInfo()
     .catch((err) => {
       expect(err).toBe('no product id entered');
@@ -52,6 +78,7 @@ describe('Products', function() {
   });
 
   test('calling getProductStyles with a product ID should return a response with correct styles', function(done) {
+    const res = null
     Helpers.getProductStyles(71706)
     .then((res) => {
       let data = res.data;

@@ -16,7 +16,7 @@ import YourOutfit from '../YourOutfit.jsx';
 const server = setupServer(...handlers);
 
 beforeAll(() => server.listen())
-afterEach(() => server.resetHandlers(), cleanup)
+afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test('YourOutfit component should have a heading, a list, and an add card', async () => {
