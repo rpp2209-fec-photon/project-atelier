@@ -90,6 +90,9 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
 
       addReview(completeReview).then(()=>{
         console.log('New review submitted');
+      })
+      .catch(()=>{
+        setErrorMessage('invalid Email');
       });
     }
 

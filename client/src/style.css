@@ -768,6 +768,9 @@ p.inputTitle {
   background-color: whitesmoke;
 
   overflow: auto;
+
+  z-index: 100;
+
 }
 
 #NewReviewHeading {
