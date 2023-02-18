@@ -1,3 +1,4 @@
+
 const axios = require('axios');
 
 var Helpers = {};
@@ -177,6 +178,31 @@ Helpers.addReview = (review) => {
   });
 
 }
+
+Helpers.uploadPictures = (pictures)=>{
+
+  return new Promise((fulfill, reject) => {
+
+    var file = pictures[0];
+
+    console.log('file', file);
+
+    var formdata = new FormData();
+
+    formdata.append('image', file);
+    formdata.append('name', 'testingimage');
+
+    axios({
+      url:'/image',
+      method: 'POST',
+      data: formdata,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(fulfill)
+      .catch(reject);
+  });
+
+};
 
 Helpers.markAsHelpful = (review_id) => {
 

@@ -7,7 +7,7 @@ import CharactersInput from './miniComponents/CharactersInput.jsx'
 import ReviewTextInputs from './miniComponents/ReviewTextInputs.jsx'
 import ImageInput from './miniComponents/ImageInput.jsx';
 
-import {addReview} from '../../../helpers/helpers.js';
+import {addReview, uploadPictures} from '../../../helpers/helpers.js';
 
 export default function NewReviewWindow({Visibility, setVisibility, characteristics, productName, productID}){
 
@@ -45,8 +45,7 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
     } else if (reviewBody.length < 50) {
       setErrorMessage('please elaborate on your review body');
     } else {
-      console.log(characterInputs);
-      console.log(characteristics);
+      sumbitReview();
     }
   };
 
@@ -59,9 +58,14 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
       recommended: recommend,
       name: nickname,
       email: email,
-
       characteristics: characterInputs
     };
+
+    uploadPictures(photoURLs)
+    .then((res)=>{
+      console.log(res);
+    });
+
 
   };
 

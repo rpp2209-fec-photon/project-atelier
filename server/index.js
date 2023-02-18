@@ -4,6 +4,9 @@ const axios = require('axios');
 const path = require('path');
 const logger = require('./middlewares/logger.js');
 const compression = require('compression');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer();
 
 const app = express();
 const port = process.env.PORT;
@@ -14,7 +17,10 @@ const AUTH_TOKEN = process.env.AUTH_TOKEN;
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 // add compression middleware
 app.use(compression());
@@ -27,6 +33,11 @@ app.use(logger);
 // handle favicon request from browser
 app.get('/favicon.ico', (req, res) => {
   res.end();
+});
+
+app.post('/image', upload.array('image', 1), (req, res)=>{
+  console.log(req.files);
+  res.send('hello');
 });
 
 // handle all request coming from client then make the same request to api
