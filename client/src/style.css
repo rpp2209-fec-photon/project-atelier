@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: left;
   margin: 0 117px;
-  margin-bottom: 5%;
+  margin-bottom: 30px;
 }
 
 .card,
@@ -29,14 +29,14 @@
 .plus img {
   position: relative;
   border-bottom: solid 1px;
-  bottom: 7%;
+  bottom: 25px;
   width: 250px;
   height: 250px;
 }
 
 .card-info {
   position: relative;
-  bottom: 8%;
+  bottom: 22px;
 }
 
 .plus img {
