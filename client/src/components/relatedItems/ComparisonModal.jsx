@@ -4,7 +4,7 @@ import TableBody from './subComponents/TableBody.jsx';
 
 const ComparisonModal = (props) => {
 
-  const {isOpen, closeModal, currentProductCharacteristics, currentProductName, cardMetadata, cardName} = props;
+  const {isOpen, closeModal, currentProductCharacteristics, currentProductName, cardInfo, cardName} = props;
 
   const className = isOpen ? 'modal show' : 'modal hide';
 
@@ -25,7 +25,7 @@ const ComparisonModal = (props) => {
             </thead>
             <TableBody
               productCharacteristics={currentProductCharacteristics}
-              cardMetadata={cardMetadata}
+              cardInfo={cardInfo}
             />
           </table>
         </div>

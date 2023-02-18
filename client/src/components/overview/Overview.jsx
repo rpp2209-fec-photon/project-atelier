@@ -50,7 +50,7 @@ class Overview extends Component {
                     let reviewsum = 0, total = 0, ave = 0, a = false
                     res = res.map(item => item.data)
                     this.props.setname(res[0].name)
-                    this.props.setchar(res[2].characteristics)
+                    this.props.setchar(res[0].features)
                     const ratings = res[2].ratings
                     if (Object.keys({ ratings }).length) {
                         for (let item in ratings) {
