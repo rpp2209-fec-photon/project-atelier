@@ -54,9 +54,9 @@ npm install
 The page will be available at [http://localhost:PORT]()
 
 ## Team
-[Thanh Ly](https://github.com/thanhgly)\
-[Oscar Sandoval](https://github.com/Pawpee0)\
-[Shu Wu](https://github.com/swu1747)
+[Shu Wu](https://github.com/swu1747) - Overview
+[Thanh Ly](https://github.com/thanhgly) - Related Items and Comparison\
+[Oscar Sandoval](https://github.com/Pawpee0) - Reviews and Ratings\
 ## License
 ---
 This project is licensed under the [MIT License](https://opensource.org/license/mit/)
