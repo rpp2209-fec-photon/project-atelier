@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: left;
   margin: 0 117px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .card,
@@ -36,7 +36,7 @@
 
 .card-info {
   position: relative;
-  bottom: 8%;
+  bottom: 22px;
 }
 
 .plus img {
