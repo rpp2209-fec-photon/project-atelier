@@ -534,7 +534,8 @@ p.inputTitle {
 
 #RatingsAndReviews{
 
-  padding: 10%;
+  padding: 177px;
+  padding-top: 0;
 }
 
 #RatingsAndReviewsContent {

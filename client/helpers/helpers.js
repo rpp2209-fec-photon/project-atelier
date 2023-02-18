@@ -1,3 +1,4 @@
+
 const axios = require('axios');
 
 var Helpers = {};
@@ -177,6 +178,29 @@ Helpers.addReview = (review) => {
   });
 
 }
+
+Helpers.uploadPictures = (picture)=>{
+
+  return new Promise((fulfill, reject) => {
+
+    var file = picture;
+
+    var formdata = new FormData();
+
+    formdata.append('file', file);
+    formdata.append('upload_preset', 'a2avabgs');
+
+    axios({
+      url:'https://api.cloudinary.com/v1_1/dwjyrb5hz/image/upload',
+      method: 'POST',
+      data: formdata,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(fulfill)
+      .catch(reject);
+  });
+
+};
 
 Helpers.markAsHelpful = (review_id) => {
 

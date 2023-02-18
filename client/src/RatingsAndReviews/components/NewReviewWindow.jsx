@@ -5,8 +5,11 @@ import OverallRating from './miniComponents/OverallRating.jsx';
 import Recommend from './miniComponents/Recommend.jsx';
 import CharactersInput from './miniComponents/CharactersInput.jsx'
 import ReviewTextInputs from './miniComponents/ReviewTextInputs.jsx'
+import ImageInput from './miniComponents/ImageInput.jsx';
 
-export default function NewReviewWindow({Visibility, setVisibility, characteristics, productName}){
+import {addReview, uploadPictures} from '../../../helpers/helpers.js';
+
+export default function NewReviewWindow({Visibility, setVisibility, characteristics, productName, productID}){
 
   var [Rating, setRating] = useState(0);
   var [recommend, setRecommend] = useState(null);
@@ -15,7 +18,7 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
   var [reviewBody, setReviewBody] = useState('');
   var [nickname, setNickname] = useState('');
   var [email, setEmail] = useState('');
-  var [photoURL, setPhotoURL] = useState([]);
+  var [photoURLs, setPhotoURLs] = useState([]);
 
   var [errorMessage, setErrorMessage] = useState('');
 
@@ -41,7 +44,58 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
       setErrorMessage('please enter your email');
     } else if (reviewBody.length < 50) {
       setErrorMessage('please elaborate on your review body');
+    } else {
+      sumbitReview();
     }
+  };
+
+  var sumbitReview = ()=>{
+
+    var completeReview = {
+      product_id: productID,
+      rating: Rating,
+      summary: reviewSummary,
+      body: reviewBody,
+      recommend: recommend,
+      name: nickname,
+      email: email,
+      photos: [],
+      characteristics: characterInputs
+    };
+
+    var uploadAllPictures = (x, callback)=>{
+      console.log(photoURLs[x]);
+      uploadPictures(photoURLs[x])
+        .then((res)=>{
+          completeReview.photos.push(res.data.url);
+          if (photoURLs[x + 1] !== undefined) {
+            console.log('running again');
+            uploadAllPictures(x + 1, callback);
+          } else {
+            callback();
+          }
+        });
+    };
+
+
+
+    if (photoURLs.length > 0) {
+      uploadAllPictures(0, ()=>{
+        console.log(completeReview);
+        addReview(completeReview).then(()=>{
+        console.log('New review submitted');
+      });});
+    } else {
+      console.log(completeReview);
+
+      addReview(completeReview).then(()=>{
+        console.log('New review submitted');
+      });
+    }
+
+
+
+
   };
 
   if (Visibility === 'show') {
@@ -69,7 +123,8 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
             <Recommend recommend={recommend} setRecommend={setRecommend}/>
             <CharactersInput characteristics={characteristics} characterInputs={characterInputs} setCharacterInputs={setCharacterInputs}/>
             <ReviewTextInputs reviewSummary={reviewSummary} setReviewSummary={setReviewSummary} reviewBody={setReviewBody} setReviewBody={setReviewBody}/>
-            <input type="file" onChange={(e)=>{console.log(e.target.value)}}></input>
+            <ImageInput photoURLs={photoURLs} setPhotoURLs={setPhotoURLs}/>
+
           </div>
           <div className="ReviewFooter">
             <div className="ReviewButton" onClick={()=>{showInputs(); handleSubmit();}}> Submit</div>

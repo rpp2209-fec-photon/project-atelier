@@ -5,6 +5,7 @@ const path = require('path');
 const logger = require('./middlewares/logger.js');
 const compression = require('compression');
 
+
 const app = express();
 const port = process.env.PORT;
 const API = process.env.API;
@@ -15,6 +16,7 @@ axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 
 // add compression middleware
 app.use(compression());
@@ -28,6 +30,7 @@ app.use(logger);
 app.get('/favicon.ico', (req, res) => {
   res.end();
 });
+
 
 // handle all request coming from client then make the same request to api
 app.all('/*', (req, res) => {

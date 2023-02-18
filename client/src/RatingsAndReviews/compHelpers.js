@@ -1,3 +1,4 @@
+
 var helpers = {};
 
 helpers.setStars = (Rating)=>{
@@ -21,6 +22,7 @@ helpers.setStars = (Rating)=>{
 
   return stars;
 };
+
 helpers.getAverage = (obj)=>{
   var totalStars = 0;
   var totalRatings = 0;
@@ -72,6 +74,8 @@ helpers.starText = (Rating)=>{
     return "Great"
   }
 };
+
+
 
 
 module.exports = helpers;
