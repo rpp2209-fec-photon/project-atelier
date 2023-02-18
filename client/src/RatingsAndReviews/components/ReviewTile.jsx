@@ -15,7 +15,6 @@ export default function ReviewTile ({ Review , productID, setImageURL, setImageZ
       <div className="Review Corner">
         <ReviewDate Date={Review.date}/>
         <StarRating Rating={Review.rating}/>
-        <Recommend recommended={Review.recommend}/>
       </div>
 
       <p className="Review Summary">{Review.summary}</p>
@@ -25,7 +24,12 @@ export default function ReviewTile ({ Review , productID, setImageURL, setImageZ
     <ReviewBody body={Review.body}/>
     <ReviewImages Images={Review.photos} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
     <SellerResponse response={Review.response}/>
-    <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
+
+    <div className="ReviewFooter">
+      <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
+      <Recommend recommended={Review.recommend}/>
+    </div>
+
 
     </>
   );
@@ -47,7 +51,7 @@ var ReviewDate = ({Date}) => {
 var Recommend = ({recommended}) => {
   if (recommended) {
     return (
-      <p>I recommend this product</p>
+      <p style={{position: 'absolute', right:'5px'}}>I recommend this product &#x2713; </p>
     );
   }
 };
