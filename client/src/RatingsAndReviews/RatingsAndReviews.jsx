@@ -17,6 +17,7 @@ export default function RatingsAndReviews ({productID, productName}) {
 
   var [sort, setSort] = useState('relevant');
   var [ratingFilter, setRatingFilter] = useState([]);
+  var [bodyFilter, setBodyFilter] = useState('');
 
   var [productReviews, setProductReviews] = useState({results:[]});
   var [filteredReviews, setFilteredReviews] = useState({results: []});
@@ -50,19 +51,19 @@ export default function RatingsAndReviews ({productID, productName}) {
   }, [productID, sort]);
 
   useEffect(()=>{
-    if (ratingFilter.length > 0){
+    if (ratingFilter.length > 0 || bodyFilter.length > 0){
       setFilteredReviews({...filteredReviews, results: filterReviews(productReviews)});
     } else {
       setFilteredReviews({...productReviews});
 
     }
-  }, [ratingFilter]);
+  }, [ratingFilter, bodyFilter]);
 
   var filterReviews = (reviews)=>{
-
     var filteredReviews = [];
 
     console.log(ratingFilter);
+    console.log(bodyFilter);
 
     //loop through the reviews
     for (var x = 0; x < reviews.results.length; x++) {
@@ -74,6 +75,25 @@ export default function RatingsAndReviews ({productID, productName}) {
         }
       }
     }
+
+    if (filteredReviews.length > 0) {
+      var bodyFilteredReviews = [];
+
+      for (var x = 0; x < filteredReviews.length; x++) {
+        if (filteredReviews[x].body.includes(bodyFilter)) {
+          bodyFilteredReviews.push(filteredReviews[x]);
+        }
+      }
+
+      filteredReviews = bodyFilteredReviews;
+    } else {
+      for (var x = 0; x < reviews.results.length; x++) {
+        if (reviews.results[x].body.includes(bodyFilter)) {
+          filteredReviews.push(reviews.results[x]);
+        }
+      }
+    }
+
     return filteredReviews;
   };
 
@@ -103,7 +123,7 @@ export default function RatingsAndReviews ({productID, productName}) {
       </div>
 
       <div id='RightSection'>
-        <SortReviews setSort={setSort}/>
+        <SortReviews setSort={setSort} setBodyFilter={setBodyFilter}/>
         <ReviewList productReviews={filteredReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
         <div className='ReviewFooter'>
           <div className="ReviewButton" onClick={()=>{showMoreReviews(2)}}><span>MORE REVIEWS</span></div>
