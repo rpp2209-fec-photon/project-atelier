@@ -1,6 +1,6 @@
 # Project Atelier
 ---
-    A prototype E-commerce that demonstrates a product detail page that shows relevant information for a single product in the catalog.
+  A prototype E-commerce that demonstrates a product detail page that shows relevant information for a single product in the catalog.
 
 ## Features
 ___
@@ -54,9 +54,9 @@ npm install
 The page will be available at [http://localhost:PORT]()
 
 ## Team
-[Shu Wu](https://github.com/swu1747) - Overview
+[Shu Wu](https://github.com/swu1747) - Overview \
 [Thanh Ly](https://github.com/thanhgly) - Related Items and Comparison\
-[Oscar Sandoval](https://github.com/Pawpee0) - Reviews and Ratings\
+[Oscar Sandoval](https://github.com/Pawpee0) - Reviews and Ratings
 ## License
 ---
 This project is licensed under the [MIT License](https://opensource.org/license/mit/)
