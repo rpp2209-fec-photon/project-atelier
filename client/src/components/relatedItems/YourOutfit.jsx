@@ -25,7 +25,7 @@ const YourOutfit = (props) => {
 
   return (
     <>
-      <h3 className='outfit-heading'>Your Outfit</h3 >
+      <h2 className='outfit-heading'>Your Outfit</h2>
       <div className='outfit-list'>
         <Carousel currentProductId={currentProductId}>
           <PlusCard onClick={handleAddOutfit}/>
