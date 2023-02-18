@@ -9,11 +9,11 @@ ___
 ![](http://g.recordit.co/Ep1iiA2CYk.gif)
 
   ### Related Items and Comparison:
-  * **Related Products:** Displays related items to the product being viewed and allows users to compare their features and prices.
+  * **Related Products:** Displays related items to the product being viewed and allows users to compare their features.
 
   * **Your Outfits:** Allows users to save the current product being viewed and view it later along with other saved outfits.
 
-![](http://g.recordit.co/TfhO86giLL.gif)
+![](http://g.recordit.co/nf3fBEvfM0.gif)
 
   ### Reviews and Ratings:
   * Displays reviews and ratings for the product being viewed, and lets users submit their own review.
