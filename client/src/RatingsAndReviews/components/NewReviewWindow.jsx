@@ -50,21 +50,50 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
   };
 
   var sumbitReview = ()=>{
+
     var completeReview = {
       product_id: productID,
       rating: Rating,
       summary: reviewSummary,
       body: reviewBody,
-      recommended: recommend,
+      recommend: recommend,
       name: nickname,
       email: email,
+      photos: [],
       characteristics: characterInputs
     };
 
-    uploadPictures(photoURLs)
-    .then((res)=>{
-      console.log(res);
-    });
+    var uploadAllPictures = (x, callback)=>{
+      console.log(photoURLs[x]);
+      uploadPictures(photoURLs[x])
+        .then((res)=>{
+          completeReview.photos.push(res.data.url);
+          if (photoURLs[x + 1] !== undefined) {
+            console.log('running again');
+            uploadAllPictures(x + 1, callback);
+          } else {
+            callback();
+          }
+        });
+    };
+
+
+
+    if (photoURLs.length > 0) {
+      uploadAllPictures(0, ()=>{
+        console.log(completeReview);
+        addReview(completeReview).then(()=>{
+        console.log('New review submitted');
+      });});
+    } else {
+      console.log(completeReview);
+
+      addReview(completeReview).then(()=>{
+        console.log('New review submitted');
+      });
+    }
+
+
 
 
   };

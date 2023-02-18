@@ -179,21 +179,19 @@ Helpers.addReview = (review) => {
 
 }
 
-Helpers.uploadPictures = (pictures)=>{
+Helpers.uploadPictures = (picture)=>{
 
   return new Promise((fulfill, reject) => {
 
-    var file = pictures[0];
-
-    console.log('file', file);
+    var file = picture;
 
     var formdata = new FormData();
 
-    formdata.append('image', file);
-    formdata.append('name', 'testingimage');
+    formdata.append('file', file);
+    formdata.append('upload_preset', 'a2avabgs');
 
     axios({
-      url:'/image',
+      url:'https://api.cloudinary.com/v1_1/dwjyrb5hz/image/upload',
       method: 'POST',
       data: formdata,
       headers: { "Content-Type": "multipart/form-data" },
