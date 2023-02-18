@@ -3,22 +3,29 @@ import { TiTick } from 'react-icons/ti';
 
 const TableBody = (props) => {
 
-  const {cardMetadata, productCharacteristics} = props;
+  const {cardInfo, productCharacteristics} = props;
 
-  const cardChars = cardMetadata ? cardMetadata.characteristics ? cardMetadata.characteristics : {} : {};
-  const productChars = productCharacteristics || {};
+  const cardFeatures = cardInfo ? cardInfo.features ? cardInfo.features : [] : [];
+  const productChars = productCharacteristics || [];
 
-  const characteristics = new Set([...Object.keys(cardChars), ...Object.keys(productChars)]);
+  const makeFeatures = (cards, card) => {
+    cards[card.feature] = card.value;
+    return cards;
+  };
+
+  let cards = cardFeatures.reduce(makeFeatures, {});
+  let products = productChars.reduce(makeFeatures, {});
+
+  const features = new Set(Object.keys(products).concat(Object.keys(cards)));
 
   return (
   <tbody>
-
     {
-      Array.from(characteristics).map((char, index) => {
+      Array.from(features).map((feat, index) => {
         return <tr key={index}>
-          <td className='left'> {cardChars[char] ? <TiTick/> : null} </td>
-          <td className='middle'> {char} </td>
-          <td className='right'> {productChars[char] ? <TiTick/> : null} </td>
+          <td className='left'> {cards[feat] ? cards[feat] === true ? <TiTick/> : cards[feat] : null} </td>
+          <td className='middle'> {feat} </td>
+          <td className='right'> {products[feat] ? products[feat] === true ? <TiTick/> : products[feat] : null} </td>
         </tr>
       })
     }

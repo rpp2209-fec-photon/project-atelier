@@ -14,7 +14,7 @@ const App = (props) => {
   const [currentProductId, setCurrentProductId] = useState(0);
   // const [outFitList, settOutFitList] = useState([])
   const [productname, setproductname] = useState('')
-  const [characteristic, setcharacteristic] = useState({})
+  const [characteristic, setcharacteristic] = useState([])
   const [outfitIds, setOutfitIds] = useState([]);
 
   const setname = (name) => {

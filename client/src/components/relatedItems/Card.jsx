@@ -70,7 +70,7 @@ const Card = (props) => {
       <ComparisonModal
         isOpen={modalIsOpen}
         closeModal={closeModal}
-        cardMetadata={productMetadata}
+        cardInfo={productInfo}
         cardName={productInfo.name}
         currentProductName={currentProductName}
         currentProductCharacteristics={currentProductCharacteristics}
