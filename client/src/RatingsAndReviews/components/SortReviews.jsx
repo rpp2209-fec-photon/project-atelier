@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SortReviews ({setSort}){
+export default function SortReviews ({setSort, setBodyFilter}){
   return (
     <>
     <label htmlFor='Sort'>Sort by: </label>
@@ -9,6 +9,10 @@ export default function SortReviews ({setSort}){
         <option value="newest">Newest</option>
         <option value="helpful">Helpful</option>
       </select>
+
+
+    <label htmlFor='bodyFilter'>Search for review: </label>
+    <input type="text" name='bodyFilter' id='bodyFilter' onChange={(e)=>{setBodyFilter(e.target.value)}}></input>
     </>
 
 
