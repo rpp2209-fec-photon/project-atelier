@@ -20,13 +20,19 @@ test('Style', async () => {
   
   })
   test('Styleselector', async () => {
-    render(<Styleselector currentstyle={''}  styles={[{photos:
+    const {container} = render(<Styleselector currentstyle={''}  styles={[{photos:
     [{ thumbnail_url: 'efef', url: 'sdfee' ,style_id:'sfddsf'},
      { thumbnail_url: 'efef', url: 'sdfee',style_id:'ololo' }]}]}
+     changestyle={()=>{}}
 />);
     await waitFor(() => {
         const Style = screen.getByRole('img');
+        const styleselector=container.querySelector("[id='styleselector']")
+        const li =styleselector.querySelector("#styleselector>li")
         expect(Style).toHaveAttribute('src', 'efef');
+        expect(styleselector).toBeDefined()
+        fireEvent.click(li)
+        
     });
   
   })

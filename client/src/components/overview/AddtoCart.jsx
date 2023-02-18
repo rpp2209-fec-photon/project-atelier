@@ -31,7 +31,6 @@ class AddtoCart extends React.Component {
         }
     }
     selectSize = (e) => {
-        console.log(this.state.sizedisplay)
         let a = [], b = this.props.skus[e.target.value].quantity > 15 ? 15 : this.props.skus[e.target.value].quantity
         for (let i = 0; i < b; i++) {
             a.push(i + 1)
@@ -87,16 +86,16 @@ class AddtoCart extends React.Component {
                 })}</ul>
             </div>
             <div className="quantity">
-                <div onClick={this.handlenumberdisplay}><span>{this.state.number}</span><BsChevronDown className="ss" /></div>
-                <ul style={{ display: this.state.numberdisplacy }}>
+                <div className='handlenumberdisplay' onClick={this.handlenumberdisplay}><span>{this.state.number}</span><BsChevronDown className="ss" /></div>
+                <ul className = 'numbers' style={{ display: this.state.numberdisplacy }}>
                     {this.state.quantity.map((item) => {
-                        return <li key={this.state.skuid + item} value={item} onClick={this.selectQuantity}><span>{item}</span></li>
+                        return <li className='numberlist' key={this.state.skuid + item} value={item} onClick={this.selectQuantity}><span>{item}</span></li>
                     })}
                 </ul>
 
             </div>
             <div className="addtobag" onClick={this.AddtoCart}><span>ADD TO BAG</span><BsPlusLg style={{ float: 'right', 'marginTop': '15px', 'marginRight': '20px' }} /></div>
-            <div style={{
+            <div className="outfit" style={{
                 width: '44px',
                 height: '44px',
                 border: '1px solid rgb(202, 188, 188)',

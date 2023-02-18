@@ -15,7 +15,7 @@ class ProductInfo extends Component {
         return (<div id="productinfo">
             {this.props.ratings > -1 ? <div className='prostar'>
                 <StarRating Rating={this.props.ratings} />
-                <div onClick={this.jumpto}>{this.props.reviewsum} <span>read all reviews</span></div>
+                <div className = "jumpto"onClick={this.jumpto}>{this.props.reviewsum} <span>read all reviews</span></div>
             </div> : null}
             <div style={{
                 position: 'absolute',
