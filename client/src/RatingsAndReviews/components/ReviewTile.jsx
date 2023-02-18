@@ -6,7 +6,6 @@ import StarRating from './miniComponents/StarRating.jsx';
 
 export default function ReviewTile ({ Review , productID, setImageURL, setImageZoomVisibility }) {
 
-
   var [voted, setVoted] = useState(false);
   var [helpfulness, setHelpfulness] = useState(Review.helpfulness);
 
@@ -25,6 +24,7 @@ export default function ReviewTile ({ Review , productID, setImageURL, setImageZ
 
     <ReviewBody body={Review.body}/>
     <ReviewImages Images={Review.photos} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility}/>
+    <SellerResponse response={Review.response}/>
     <Helpful helpfulness={helpfulness} setHelpfulness={setHelpfulness} reviewID={Review.review_id} voted={voted} setVoted={setVoted}/>
 
     </>
@@ -94,6 +94,17 @@ var ReviewImages = ({Images, setImageURL, setImageZoomVisibility}) => {
             );
           })
         }
+      </div>
+    );
+  }
+};
+
+var SellerResponse = ({response})=>{
+  if (response) {
+    return (
+      <div>
+        <h4>Response from seller:</h4>
+        <p>{response}</p>
       </div>
     );
   }

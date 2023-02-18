@@ -62,8 +62,7 @@ export default function RatingsAndReviews ({productID, productName}) {
   var filterReviews = (reviews)=>{
     var filteredReviews = [];
 
-    console.log(ratingFilter);
-    console.log(bodyFilter);
+
 
     //loop through the reviews
     for (var x = 0; x < reviews.results.length; x++) {

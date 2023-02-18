@@ -16,7 +16,7 @@ ___
 ![](http://g.recordit.co/TfhO86giLL.gif)
 
   ### Reviews and Ratings:
-  * Displays reviews and ratings for the product being viewed.
+  * Displays reviews and ratings for the product being viewed, and lets users submit their own review.
 ![](http://g.recordit.co/PgjbyxRNRc.gif)
 
 ## Technologies
