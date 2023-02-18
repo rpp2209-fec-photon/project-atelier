@@ -45,14 +45,24 @@ export default function NewReviewWindow({Visibility, setVisibility, characterist
     } else if (reviewBody.length < 50) {
       setErrorMessage('please elaborate on your review body');
     } else {
-
+      console.log(characterInputs);
+      console.log(characteristics);
     }
   };
 
   var sumbitReview = ()=>{
-    var completeReview = {};
+    var completeReview = {
+      product_id: productID,
+      rating: Rating,
+      summary: reviewSummary,
+      body: reviewBody,
+      recommended: recommend,
+      name: nickname,
+      email: email,
 
-    completeReview.product_id =
+      characteristics: characterInputs
+    };
+
   };
 
   if (Visibility === 'show') {

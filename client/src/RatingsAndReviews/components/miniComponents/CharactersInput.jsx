@@ -8,7 +8,7 @@ export default function CharactersInput ({characteristics, characterInputs, setC
       {Object.keys(characteristics).map((key)=>{
         return (
           <div key={key} className="InputArray">
-            <h3 style={{margin: '0px', 'marginRight': '5px'}}>{key}</h3> <Input character={key} characterInputs={characterInputs} setCharacterInputs={setCharacterInputs}/>
+            <h3 style={{margin: '0px', 'marginRight': '5px'}}>{key}</h3> <Input character={key} characterInputs={characterInputs} setCharacterInputs={setCharacterInputs} id={characteristics[key].id}/>
           </div>
         )
       })}
@@ -17,14 +17,14 @@ export default function CharactersInput ({characteristics, characterInputs, setC
 };
 
 
-var Input = ({character, characterInputs, setCharacterInputs})=>{
+var Input = ({character, characterInputs, setCharacterInputs, id })=>{
 
   var descriptors = getDescriptors(character);
 
   var setInput = (value, character)=>{
     setCharacterInputs({
       ...characterInputs,
-      [character]: value
+      [id]: value
     })
   };
 
