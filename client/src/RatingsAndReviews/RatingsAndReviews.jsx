@@ -19,6 +19,7 @@ export default function RatingsAndReviews ({productID, productName}) {
   var [ratingFilter, setRatingFilter] = useState([]);
 
   var [productReviews, setProductReviews] = useState({results:[]});
+  var [filteredReviews, setFilteredReviews] = useState({results: []});
   var totalReviews = useRef(0);
   var [newReviewVisibility, setNewReviewVisibility] = useState('hidden');
   var [ImageZoomVisibility, setImageZoomVisibility] = useState('hidden');
@@ -37,18 +38,25 @@ export default function RatingsAndReviews ({productID, productName}) {
       //get all the reviews
       helpers.getReviews(1, totalReviews.current, sort, productID)
       .then((reviews)=>{
-        if (ratingFilter.length > 0) {
-          setProductReviews({...reviews.data, results: filterReviews(reviews.data)});
-        } else {
-          setProductReviews({...reviews.data});
 
-        }
+        setProductReviews({...reviews.data});
+        setFilteredReviews({...reviews.data});
+
 
         setReviewsShown(2);
       });
     })
 
-  }, [productID, sort, ratingFilter]);
+  }, [productID, sort]);
+
+  useEffect(()=>{
+    if (ratingFilter.length > 0){
+      setFilteredReviews({...filteredReviews, results: filterReviews(productReviews)});
+    } else {
+      setFilteredReviews({...productReviews});
+
+    }
+  }, [ratingFilter]);
 
   var filterReviews = (reviews)=>{
 
@@ -96,7 +104,7 @@ export default function RatingsAndReviews ({productID, productName}) {
 
       <div id='RightSection'>
         <SortReviews setSort={setSort}/>
-        <ReviewList productReviews={productReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
+        <ReviewList productReviews={filteredReviews} productID={productID} setImageURL={setImageURL} setImageZoomVisibility={setImageZoomVisibility} reviewsShown={reviewsShown} ratingFilter={ratingFilter}/>
         <div className='ReviewFooter'>
           <div className="ReviewButton" onClick={()=>{showMoreReviews(2)}}><span>MORE REVIEWS</span></div>
           <div className="ReviewButton" onClick={()=>{setNewReviewVisibility('show')}}><span>CREATE REVIEW</span></div>
